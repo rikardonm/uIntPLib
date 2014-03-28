@@ -1,5 +1,4 @@
 
-
 #include "lcd.h"
 
 
@@ -50,11 +49,20 @@ void LCDInit(void)
 		LCDDelay(LCD_InitDelay_Vector[Vector_Scan]);
 	}
 	//splash screen
+#if LCD_SPLASHSCREEN1 == 1
 	LCDPosition(1,1);
 	LCDSendString(LCD_splashscreen_row1, false);
 	LCDPosition(2,1);
 	LCDSendString(LCD_splashscreen_row2, false);
-	LCDDelay(200000);
+	LCDDelay(2*1000*1000);
+#endif
+#if LCD_SPLASHSCREEN2 == 1
+	LCDPosition(1,1);
+	LCDSendString(LCD_splashscreen2_row1, false);
+	LCDPosition(2,1);
+	LCDSendString(LCD_splashscreen2_row2, false);
+	LCDDelay(2*1000*1000);
+#endif
 	LCDClear();
 }
 
