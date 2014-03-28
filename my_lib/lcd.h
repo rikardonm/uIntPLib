@@ -11,7 +11,8 @@
 #define LCD_splashscreen_row1	PROJECT_NAME
 #define LCD_splashscreen_row2	("rnm sys undvpd")
 
-
+#define LCD_splashscreen2_row1	__DATE__
+#define LCD_splashscreen2_row2	__TIME__
 
 
 
