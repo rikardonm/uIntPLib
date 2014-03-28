@@ -1,0 +1,84 @@
+/*
+
+Universal Library Structure
+
+-> Include All Files - Hardware Functions and Mappings
+	includeAll_hw.h
+	
+	file that has all include headers, such as memory maps, pin mappings, etc.
+	it is hardware specific, therefore it is project specific as well.
+	as it maps hardware contents, it must be called from libraryCompatible.h.
+	higher level functions should not call this file.	
+	
+-> Target Specific Library Compatibility Translation
+	libraryCompatible.h
+	
+	fully masked file, points to specific target library functions
+	as it makes a bridge between higher level functions and target specific functions, it has to include the includeAll_hw.h file.
+	higher level function files should include this file as main reference (included in includeAll_sw.h file.
+	
+-> Include All Files - Software Masked Functions
+	includeAll_sw.h
+	
+	file responsible for grouping all include files for higher level functions.
+	
+-> Hardware Initialization
+	hardwareInit.h
+	hardwareInit.c
+	
+	taylored for each target/hardware configuration
+	responsible for hardware specific initialization, such as GPIO and other peripheral functions.
+	needs to include includeAll_hw.h file for mappings and functions.
+	must have single function named HardwareInit,
+	prototype:
+	void HardwareInit(void);
+	
+-> Software Initialization
+	softwareInit.h
+	softwareInit.c
+	
+	taylored for each program/application
+	responsible for software structures initialization, such as variables and structs.
+	needs to include the includeAll_sw.h file for software functions mappings.
+	must have single function named SoftwareInit;
+	prototype:
+	void SoftwareInit(void);
+	
+-> 
+
+
+-> File Template
+	FileNameDescription.h
+	FileNameDescription.c
+	
+	each file must include its class dependencies, such as gpio, delays, etc.
+	
+	
+	
+	
+	
+	
+	
+	
+-> standard masks
+	*GPIO -> Single or grouped digital io
+	PinSet(x, y)
+	PinClear(x, y)
+	
+	PinToogle(x, y)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+*/
