@@ -1,0 +1,123 @@
+\hypertarget{ir_8h}{\section{ir.\-h}
+\label{ir_8h}\index{my\-\_\-lib/ir.\-h@{my\-\_\-lib/ir.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef ir\_h}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ir\_h}
+00003 \textcolor{preprocessor}{}
+00004 
+00005 
+00006 \textcolor{comment}{//main file header}
+00007 \textcolor{preprocessor}{#include "\hyperlink{include_all__sw_8h}{depl\_spc/includeAll\_sw.h}"}
+00008 \textcolor{preprocessor}{#include "\hyperlink{include_all__hw_8h}{depl\_spc/includeAll\_hw.h}"}
+00009 
+00010 \textcolor{preprocessor}{#include "stdint.h"}
+00011 \textcolor{preprocessor}{#include "stdbool.h"}
+00012 
+00013 
+00014 \textcolor{comment}{/*}
+00015 \textcolor{comment}{ * need to declare:}
+00016 \textcolor{comment}{ *}
+00017 \textcolor{comment}{}
+00018 \textcolor{comment}{#define IRTX\_FREQ           38000}
+00019 \textcolor{comment}{#define IRTX\_PORT           GPIO\_PORTB\_BASE}
+00020 \textcolor{comment}{#define IRTX\_PIN            GPIO\_PIN\_1}
+00021 \textcolor{comment}{#define IRRX\_PORT           GPIO\_PORTB\_BASE}
+00022 \textcolor{comment}{#define IRRX\_PIN            GPIO\_PIN\_0}
+00023 \textcolor{comment}{//larger compiled file}
+00024 \textcolor{comment}{#define IR\_BY\_SOFTWARE\_EN}
+00025 \textcolor{comment}{#define IR\_BY\_UART\_EN}
+00026 \textcolor{comment}{#define IR\_UART\_BASE        UART1\_BASE}
+00027 \textcolor{comment}{#define IR\_BY\_TIMER\_EN}
+00028 \textcolor{comment}{#define IR\_TIMER\_BASE       TIMER3\_BASE}
+00029 \textcolor{comment}{}
+00030 \textcolor{comment}{}
+00031 \textcolor{comment}{}
+00032 \textcolor{comment}{ */}
+00033 
+00034 
+00035 
+00036 \textcolor{comment}{/*}
+00037 \textcolor{comment}{ * InfraRed transceiver library}
+00038 \textcolor{comment}{ * todo:    uart}
+00039 \textcolor{comment}{ *          timer}
+00040 \textcolor{comment}{ *          software}
+00041 \textcolor{comment}{ *}
+00042 \textcolor{comment}{ * -> uart peripheral support}
+00043 \textcolor{comment}{ *      initiated for stellaris/tivaC uCs, uart IR coding support}
+00044 \textcolor{comment}{ *  -> timer peripheral support}
+00045 \textcolor{comment}{ *      common to all uCs}
+00046 \textcolor{comment}{ *      carrier frequency generation}
+00047 \textcolor{comment}{ *  -> software support}
+00048 \textcolor{comment}{ *      support for full software control and emulation}
+00049 \textcolor{comment}{ *      delay by cpu time use}
+00050 \textcolor{comment}{ *}
+00051 \textcolor{comment}{ *}
+00052 \textcolor{comment}{ *  devBy: rnm (17/11/13)}
+00053 \textcolor{comment}{ */}
+00054 
+00055 
+00056 \textcolor{comment}{/*}
+00057 \textcolor{comment}{ * Op. Param.}
+00058 \textcolor{comment}{ */}
+\hypertarget{ir_8h_source_l00059}{}\hyperlink{ir_8h_ab63d39a4fe75667f7b34d9f7bb8d2740}{00059} \textcolor{preprocessor}{#define IR\_MAX\_INSTANCES            4}
+00060 \textcolor{preprocessor}{}
+00061 \textcolor{comment}{/*}
+00062 \textcolor{comment}{ * Op. Masks}
+00063 \textcolor{comment}{ */}
+\hypertarget{ir_8h_source_l00064}{}\hyperlink{ir_8h_ab7c2f18ff8edff55aa09cbc3df83b1de}{00064} \textcolor{preprocessor}{#define IR\_BY\_SOFTWARE              0x0001}
+\hypertarget{ir_8h_source_l00065}{}\hyperlink{ir_8h_a9febfead3b70401029080dca004be4dd}{00065} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_BY\_UART                  0x0002}
+\hypertarget{ir_8h_source_l00066}{}\hyperlink{ir_8h_a2dd6ffa07e8e181d16d7a323dbc2b40f}{00066} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_BY\_TIMER                 0x0004}
+\hypertarget{ir_8h_source_l00067}{}\hyperlink{ir_8h_a08c6372c976ef046aa5ec6a8d2897942}{00067} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_BY\_EXTERNAL\_TIEMR        0x0008}
+00068 \textcolor{preprocessor}{}
+\hypertarget{ir_8h_source_l00069}{}\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{00069} \textcolor{preprocessor}{#define IR\_NEC\_PROTOCOL             0x0010}
+\hypertarget{ir_8h_source_l00070}{}\hyperlink{ir_8h_a739f38a915d01783beb2a25839871b76}{00070} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_NEC\_EXTENDED             0x0020}
+\hypertarget{ir_8h_source_l00071}{}\hyperlink{ir_8h_a78547cf18e26e3ac0c112a49dd1abda4}{00071} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_MY\_PROTOCOL              0x0040}
+\hypertarget{ir_8h_source_l00072}{}\hyperlink{ir_8h_a2feaa4d91d352df08dfd5e8f24443648}{00072} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_RC5\_PROTOCOL             0x0080}
+00073 \textcolor{preprocessor}{}
+\hypertarget{ir_8h_source_l00074}{}\hyperlink{ir_8h_af116ddd139942ff76eeeaa07c77398da}{00074} \textcolor{preprocessor}{#define IR\_REPEAT\_COMMAND\_ENABLE    0x0100}
+\hypertarget{ir_8h_source_l00075}{}\hyperlink{ir_8h_a27b455cd8244dd9fe182e91432ee9803}{00075} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IR\_REPEAT\_COMMAND\_DISABLE   0x0000}
+00076 \textcolor{preprocessor}{}
+00077 \textcolor{comment}{/*}
+00078 \textcolor{comment}{ * Protocol Definitions}
+00079 \textcolor{comment}{ */}
+00080 
+\hypertarget{ir_8h_source_l00081}{}\hyperlink{ir_8h_ac38de5ad882e68c85cf9fcdd1590ee73}{00081} \textcolor{preprocessor}{#define NEC\_PULSE\_TIME              562}
+00082 \textcolor{preprocessor}{}
+\hypertarget{ir_8h_source_l00083}{}\hyperlink{ir_8h_a433afdffebe7a9dc59651a3c102b9f3c}{00083} \textcolor{preprocessor}{#define RC5\_PULSE\_TIME              889}
+00084 \textcolor{preprocessor}{}
+00085 
+00086 
+\hypertarget{ir_8h_source_l00087}{}\hyperlink{struct_i_r_instance}{00087} \textcolor{keyword}{typedef} \textcolor{keyword}{struct}\{
+\hypertarget{ir_8h_source_l00088}{}\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{00088}     uint16\_t \hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode};              \textcolor{comment}{//IR\_BY\_XX | IR\_XX\_PROTOCOL}
+\hypertarget{ir_8h_source_l00089}{}\hyperlink{struct_i_r_instance_a23a3063e6f24eaca78f9e0db2f3bd07f}{00089}     uint8\_t \hyperlink{struct_i_r_instance_a23a3063e6f24eaca78f9e0db2f3bd07f}{CarrierFrequency};   \textcolor{comment}{//in kHZ}
+\hypertarget{ir_8h_source_l00090}{}\hyperlink{struct_i_r_instance_a7ce4e156e8b335f4ab8da1ab95e8bb78}{00090}     uint16\_t \hyperlink{struct_i_r_instance_a7ce4e156e8b335f4ab8da1ab95e8bb78}{CarrierPeriod};        \textcolor{comment}{// in uS}
+\hypertarget{ir_8h_source_l00091}{}\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{00091}     uint32\_t \hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin};
+\hypertarget{ir_8h_source_l00092}{}\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{00092}     uint32\_t \hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort};
+\hypertarget{ir_8h_source_l00093}{}\hyperlink{struct_i_r_instance_ab9fd2a831b0252be9553645df9250c54}{00093}     uint32\_t \hyperlink{struct_i_r_instance_ab9fd2a831b0252be9553645df9250c54}{RxPin};
+\hypertarget{ir_8h_source_l00094}{}\hyperlink{struct_i_r_instance_a5202eb791e1291a983144f72a457d38d}{00094}     uint32\_t \hyperlink{struct_i_r_instance_a5202eb791e1291a983144f72a457d38d}{RxPort};
+\hypertarget{ir_8h_source_l00095}{}\hyperlink{struct_i_r_instance_a76f9d50da2a9a8c4e4ee3f61e2296514}{00095}     uint16\_t \hyperlink{struct_i_r_instance_a76f9d50da2a9a8c4e4ee3f61e2296514}{ReceiveAddress};
+\hypertarget{ir_8h_source_l00096}{}\hyperlink{struct_i_r_instance_aba9722c0b3b4643583f06d05d23bc54d}{00096}     uint16\_t \hyperlink{struct_i_r_instance_aba9722c0b3b4643583f06d05d23bc54d}{ReceiveBuffer};
+\hypertarget{ir_8h_source_l00097}{}\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{00097}     uint16\_t \hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses};
+\hypertarget{ir_8h_source_l00098}{}\hyperlink{struct_i_r_instance_a5d62b35c44888dcb86452195478269fe}{00098}     uint8\_t \hyperlink{struct_i_r_instance_a5d62b35c44888dcb86452195478269fe}{LastData};
+00099 \}\hyperlink{struct_i_r_instance}{IRInstance};
+00100 
+00101 
+\hypertarget{ir_8h_source_l00102}{}\hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{00102} \textcolor{preprocessor}{#define IRPinSet(port, pin)     GPIOPinWrite(port, pin, pin)}
+\hypertarget{ir_8h_source_l00103}{}\hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{00103} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IRPinClear(port, pin)   GPIOPinWrite(port, pin, 0)}
+\hypertarget{ir_8h_source_l00104}{}\hyperlink{ir_8h_af3aa3be46b157816760fb3da2610c151}{00104} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IRDelayMs(delay)        SysDelayMs(delay)}
+\hypertarget{ir_8h_source_l00105}{}\hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{00105} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IRDelayUs(delay)        SysDelayUs(delay)}
+\hypertarget{ir_8h_source_l00106}{}\hyperlink{ir_8h_aed2a709eb66db3cf0034b5e8d390e31e}{00106} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IRDelay(delay)          SysDelay(delay)}
+00107 \textcolor{preprocessor}{}
+00108 
+00109 
+00110 \textcolor{keywordtype}{void} \hyperlink{ir_8h_ad008c21f4fab0798baeb37643856bde2}{IRInit}(\hyperlink{struct_i_r_instance}{IRInstance} *instPtr);
+00111 \textcolor{keywordtype}{void} \hyperlink{ir_8h_aac981e25c96f0d2093549b87a3bebf37}{IRSend}(\hyperlink{struct_i_r_instance}{IRInstance} *instPtr, uint16\_t address, uint16\_t byte);
+00112 \textcolor{keywordtype}{void} \hyperlink{ir_8h_ad13724709400b3f36477890208d45416}{IRByteBySoftware}(\hyperlink{struct_i_r_instance}{IRInstance} *instPtr, uint16\_t address, uint16\_t byte);
+00113 \textcolor{keywordtype}{void} \hyperlink{ir_8h_a79e16edbe33c22cca5ef4f580a6796b9}{IRRepeat}(uint32\_t port, uint32\_t pin, uint8\_t pulses, uint16\_t delay);
+00114 
+00115 
+00116 
+00117 \textcolor{preprocessor}{#endif// if\_h}
+\end{DoxyCode}

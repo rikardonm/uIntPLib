@@ -1,0 +1,40 @@
+\hypertarget{library_compatible_8h}{\section{library\-Compatible.\-h}
+\label{library_compatible_8h}\index{depl\-\_\-spc/lib\-\_\-comp/library\-Compatible.\-h@{depl\-\_\-spc/lib\-\_\-comp/library\-Compatible.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{ * libraryCompatible.h}
+00003 \textcolor{comment}{ *}
+00004 \textcolor{comment}{ *  Created on: Feb 5, 2014}
+00005 \textcolor{comment}{ *      Author: rikardo}
+00006 \textcolor{comment}{ */}
+00007 
+00008 \textcolor{preprocessor}{#ifndef LIBRARYCOMPATIBLE\_H\_}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LIBRARYCOMPATIBLE\_H\_}
+00010 \textcolor{preprocessor}{}
+00011 \textcolor{preprocessor}{#include "\hyperlink{include_all__hw_8h}{depl\_spc/includeAll\_hw.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{gpio_pin__masks_8h}{gpioPin\_masks.h}"}
+00013 
+00014 
+00015 \textcolor{comment}{//direct setting, uses a pre-casted object}
+\hypertarget{library_compatible_8h_source_l00016}{}\hyperlink{library_compatible_8h_aec743550ee248e579e542e541dae496e}{00016} \textcolor{preprocessor}{#define PinSet(port, pin)       (port##\_PSOR = pin)}
+\hypertarget{library_compatible_8h_source_l00017}{}\hyperlink{library_compatible_8h_ae093962b89ef3d098be2496ad2bd6f52}{00017} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PinClear(port, pin)     (port##\_PCOR = pin)}
+\hypertarget{library_compatible_8h_source_l00018}{}\hyperlink{library_compatible_8h_a06da581fe285cc0bfd7f1623d99880f1}{00018} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PinToogle(port, pin)    (port##\_PTOR = pin)}
+00019 \textcolor{preprocessor}{}
+00020 \textcolor{comment}{//casts the address to the structure referenced in the memory mapping file}
+\hypertarget{library_compatible_8h_source_l00021}{}\hyperlink{library_compatible_8h_a12dec74c88c5405409725fff70cb1f79}{00021} \textcolor{preprocessor}{#define PinAddrSet(port, pin)   (GPIO\_PSOR\_REG((GPIO\_MemMapPtr)port) = pin)}
+\hypertarget{library_compatible_8h_source_l00022}{}\hyperlink{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}{00022} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PinAddrClear(port, pin) (GPIO\_PCOR\_REG((GPIO\_MemMapPtr)port) = pin)}
+00023 \textcolor{preprocessor}{}
+00024 
+00025 
+\hypertarget{library_compatible_8h_source_l00026}{}\hyperlink{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}{00026} \textcolor{preprocessor}{#define SysDelay(time)          SysDelayFRDM(time)          //chip specific}
+\hypertarget{library_compatible_8h_source_l00027}{}\hyperlink{library_compatible_8h_a8d50548af4f463022fe0d911e1a152e0}{00027} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SysDelayUs(time)        SysDelay((time*BUS\_CLOCK)/6)}
+\hypertarget{library_compatible_8h_source_l00028}{}\hyperlink{library_compatible_8h_aeabd80ec0d8a0f07687d57b4edb01dad}{00028} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SysDelayMs(time)        SysDelayUs(time*1000)}
+00029 \textcolor{preprocessor}{}
+00030 
+00031 
+00032 
+00033 
+00034 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* LIBRARYCOMPATIBLE\_H\_ */}\textcolor{preprocessor}{}
+\end{DoxyCode}

@@ -1,0 +1,120 @@
+\hypertarget{library_compatible_8h}{\section{depl\-\_\-spc/lib\-\_\-comp/library\-Compatible.h File Reference}
+\label{library_compatible_8h}\index{depl\-\_\-spc/lib\-\_\-comp/library\-Compatible.\-h@{depl\-\_\-spc/lib\-\_\-comp/library\-Compatible.\-h}}
+}
+{\ttfamily \#include \char`\"{}depl\-\_\-spc/include\-All\-\_\-hw.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}gpio\-Pin\-\_\-masks.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{library_compatible_8h_aec743550ee248e579e542e541dae496e}{Pin\-Set}(port, pin)~(port\#\#\-\_\-\-P\-S\-O\-R = pin)
+\item 
+\#define \hyperlink{library_compatible_8h_ae093962b89ef3d098be2496ad2bd6f52}{Pin\-Clear}(port, pin)~(port\#\#\-\_\-\-P\-C\-O\-R = pin)
+\item 
+\#define \hyperlink{library_compatible_8h_a06da581fe285cc0bfd7f1623d99880f1}{Pin\-Toogle}(port, pin)~(port\#\#\-\_\-\-P\-T\-O\-R = pin)
+\item 
+\#define \hyperlink{library_compatible_8h_a12dec74c88c5405409725fff70cb1f79}{Pin\-Addr\-Set}(port, pin)~(G\-P\-I\-O\-\_\-\-P\-S\-O\-R\-\_\-\-R\-E\-G((G\-P\-I\-O\-\_\-\-Mem\-Map\-Ptr)port) = pin)
+\item 
+\#define \hyperlink{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}{Pin\-Addr\-Clear}(port, pin)~(G\-P\-I\-O\-\_\-\-P\-C\-O\-R\-\_\-\-R\-E\-G((G\-P\-I\-O\-\_\-\-Mem\-Map\-Ptr)port) = pin)
+\item 
+\#define \hyperlink{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}{Sys\-Delay}(time)~Sys\-Delay\-F\-R\-D\-M(time)
+\item 
+\#define \hyperlink{library_compatible_8h_a8d50548af4f463022fe0d911e1a152e0}{Sys\-Delay\-Us}(time)~\hyperlink{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}{Sys\-Delay}((time$\ast$\hyperlink{global_param_8h_a1caba0e524eb249e9f6bf160b74aa14e}{B\-U\-S\-\_\-\-C\-L\-O\-C\-K})/6)
+\item 
+\#define \hyperlink{library_compatible_8h_aeabd80ec0d8a0f07687d57b4edb01dad}{Sys\-Delay\-Ms}(time)~\hyperlink{library_compatible_8h_a8d50548af4f463022fe0d911e1a152e0}{Sys\-Delay\-Us}(time$\ast$1000)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Pin\-Addr\-Clear@{Pin\-Addr\-Clear}}
+\index{Pin\-Addr\-Clear@{Pin\-Addr\-Clear}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Pin\-Addr\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pin\-Addr\-Clear(
+\begin{DoxyParamCaption}
+\item[{}]{port, }
+\item[{}]{pin}
+\end{DoxyParamCaption}
+)~(G\-P\-I\-O\-\_\-\-P\-C\-O\-R\-\_\-\-R\-E\-G((G\-P\-I\-O\-\_\-\-Mem\-Map\-Ptr)port) = pin)}}\label{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00022}{22} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_a12dec74c88c5405409725fff70cb1f79}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Pin\-Addr\-Set@{Pin\-Addr\-Set}}
+\index{Pin\-Addr\-Set@{Pin\-Addr\-Set}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Pin\-Addr\-Set}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pin\-Addr\-Set(
+\begin{DoxyParamCaption}
+\item[{}]{port, }
+\item[{}]{pin}
+\end{DoxyParamCaption}
+)~(G\-P\-I\-O\-\_\-\-P\-S\-O\-R\-\_\-\-R\-E\-G((G\-P\-I\-O\-\_\-\-Mem\-Map\-Ptr)port) = pin)}}\label{library_compatible_8h_a12dec74c88c5405409725fff70cb1f79}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00021}{21} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_ae093962b89ef3d098be2496ad2bd6f52}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Pin\-Clear@{Pin\-Clear}}
+\index{Pin\-Clear@{Pin\-Clear}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Pin\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pin\-Clear(
+\begin{DoxyParamCaption}
+\item[{}]{port, }
+\item[{}]{pin}
+\end{DoxyParamCaption}
+)~(port\#\#\-\_\-\-P\-C\-O\-R = pin)}}\label{library_compatible_8h_ae093962b89ef3d098be2496ad2bd6f52}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00017}{17} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_aec743550ee248e579e542e541dae496e}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Pin\-Set@{Pin\-Set}}
+\index{Pin\-Set@{Pin\-Set}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Pin\-Set}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pin\-Set(
+\begin{DoxyParamCaption}
+\item[{}]{port, }
+\item[{}]{pin}
+\end{DoxyParamCaption}
+)~(port\#\#\-\_\-\-P\-S\-O\-R = pin)}}\label{library_compatible_8h_aec743550ee248e579e542e541dae496e}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00016}{16} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_a06da581fe285cc0bfd7f1623d99880f1}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Pin\-Toogle@{Pin\-Toogle}}
+\index{Pin\-Toogle@{Pin\-Toogle}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Pin\-Toogle}]{\setlength{\rightskip}{0pt plus 5cm}\#define Pin\-Toogle(
+\begin{DoxyParamCaption}
+\item[{}]{port, }
+\item[{}]{pin}
+\end{DoxyParamCaption}
+)~(port\#\#\-\_\-\-P\-T\-O\-R = pin)}}\label{library_compatible_8h_a06da581fe285cc0bfd7f1623d99880f1}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00018}{18} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Sys\-Delay@{Sys\-Delay}}
+\index{Sys\-Delay@{Sys\-Delay}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Sys\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sys\-Delay(
+\begin{DoxyParamCaption}
+\item[{}]{time}
+\end{DoxyParamCaption}
+)~Sys\-Delay\-F\-R\-D\-M(time)}}\label{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00026}{26} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_aeabd80ec0d8a0f07687d57b4edb01dad}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Sys\-Delay\-Ms@{Sys\-Delay\-Ms}}
+\index{Sys\-Delay\-Ms@{Sys\-Delay\-Ms}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Sys\-Delay\-Ms}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sys\-Delay\-Ms(
+\begin{DoxyParamCaption}
+\item[{}]{time}
+\end{DoxyParamCaption}
+)~{\bf Sys\-Delay\-Us}(time$\ast$1000)}}\label{library_compatible_8h_aeabd80ec0d8a0f07687d57b4edb01dad}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00028}{28} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+
+\hypertarget{library_compatible_8h_a8d50548af4f463022fe0d911e1a152e0}{\index{library\-Compatible.\-h@{library\-Compatible.\-h}!Sys\-Delay\-Us@{Sys\-Delay\-Us}}
+\index{Sys\-Delay\-Us@{Sys\-Delay\-Us}!libraryCompatible.h@{library\-Compatible.\-h}}
+\subsubsection[{Sys\-Delay\-Us}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sys\-Delay\-Us(
+\begin{DoxyParamCaption}
+\item[{}]{time}
+\end{DoxyParamCaption}
+)~{\bf Sys\-Delay}((time$\ast${\bf B\-U\-S\-\_\-\-C\-L\-O\-C\-K})/6)}}\label{library_compatible_8h_a8d50548af4f463022fe0d911e1a152e0}
+
+
+Definition at line \hyperlink{library_compatible_8h_source_l00027}{27} of file \hyperlink{library_compatible_8h_source}{library\-Compatible.\-h}.
+

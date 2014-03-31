@@ -1,0 +1,32 @@
+\hypertarget{include_all__sw_8h}{\section{include\-All\-\_\-sw.\-h}
+\label{include_all__sw_8h}\index{depl\-\_\-spc/include\-All\-\_\-sw.\-h@{depl\-\_\-spc/include\-All\-\_\-sw.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{ * includeAll\_sw.h}
+00003 \textcolor{comment}{ *}
+00004 \textcolor{comment}{ *  Created on: Mar 25, 2014}
+00005 \textcolor{comment}{ *      Author: rikardo}
+00006 \textcolor{comment}{ */}
+00007 
+00008 \textcolor{preprocessor}{#ifndef INCLUDEALL\_SW\_H\_}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define INCLUDEALL\_SW\_H\_}
+00010 \textcolor{preprocessor}{}
+00011 \textcolor{preprocessor}{#include "stdint.h"}
+00012 \textcolor{preprocessor}{#include "stdbool.h"}
+00013 
+00014 \textcolor{comment}{//basic low level functions}
+00015 \textcolor{preprocessor}{#include "\hyperlink{library_compatible_8h}{depl\_spc/lib\_comp/libraryCompatible.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{my__use_8h}{my\_use.h}"}
+00017 
+00018 \textcolor{comment}{//external peripherals}
+00019 \textcolor{preprocessor}{#include "\hyperlink{lcd_8h}{lcd.h}"}
+00020 
+00021 
+00022 
+00023 \textcolor{preprocessor}{#include "\hyperlink{software_init_8h}{depl\_spc/device\_init/softwareInit.h}"}
+00024 \textcolor{preprocessor}{#include "\hyperlink{hardware_init_8h}{depl\_spc/device\_init/hardwareInit.h}"}
+00025 
+00026 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* INCLUDEALL\_SW\_H\_ */}\textcolor{preprocessor}{}
+\end{DoxyCode}

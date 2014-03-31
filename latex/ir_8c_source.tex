@@ -1,0 +1,269 @@
+\hypertarget{ir_8c}{\section{ir.\-c}
+\label{ir_8c}\index{my\-\_\-lib/ir.\-c@{my\-\_\-lib/ir.\-c}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{ir_8h}{ir.h}"}
+00002 
+00003 \textcolor{preprocessor}{#include "\hyperlink{ir_8h}{ir.h}"}
+00004 
+00005 
+00006 
+00007 
+00008 
+00009 
+00010 \textcolor{comment}{/*}
+00011 \textcolor{comment}{ * Calls IR init}
+00012 \textcolor{comment}{ * Modes: IR\_BY\_SOFTWARE}
+00013 \textcolor{comment}{ *        IR\_BY\_UART}
+00014 \textcolor{comment}{ *        IR\_BY\_TIMER}
+00015 \textcolor{comment}{ */}
+\hypertarget{ir_8c_source_l00016}{}\hyperlink{ir_8h_ad008c21f4fab0798baeb37643856bde2}{00016} \textcolor{keywordtype}{void} \hyperlink{ir_8c_ad008c21f4fab0798baeb37643856bde2}{IRInit}(\hyperlink{struct_i_r_instance}{IRInstance} *instPtr)
+00017 \{
+00018 
+00019     \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_ab7c2f18ff8edff55aa09cbc3df83b1de}{IR\_BY\_SOFTWARE})!=0)
+00020     \{
+00021         instPtr->\hyperlink{struct_i_r_instance_a7ce4e156e8b335f4ab8da1ab95e8bb78}{CarrierPeriod} = (uint16\_t) 1000/instPtr->
+      \hyperlink{struct_i_r_instance_a23a3063e6f24eaca78f9e0db2f3bd07f}{CarrierFrequency};
+00022         #ifdef IR\_BY\_SOFTWARE\_EN
+00023         \textcolor{comment}{/*}
+00024 \textcolor{comment}{         * for software modulation, configure delay timing}
+00025 \textcolor{comment}{         */}
+00026         \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode} & (\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{IR\_NEC\_PROTOCOL}|\hyperlink{ir_8h_a739f38a915d01783beb2a25839871b76}{IR\_NEC\_EXTENDED}))!=0)
+00027             instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses} = (uint16\_t) (\hyperlink{ir_8h_ac38de5ad882e68c85cf9fcdd1590ee73}{NEC\_PULSE\_TIME}*((uint16\_t) instPtr->
+      \hyperlink{struct_i_r_instance_a23a3063e6f24eaca78f9e0db2f3bd07f}{CarrierFrequency}))/2000;
+00028         \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_a2feaa4d91d352df08dfd5e8f24443648}{IR\_RC5\_PROTOCOL})!=0)
+00029             instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses} = (uint16\_t) (\hyperlink{ir_8h_a433afdffebe7a9dc59651a3c102b9f3c}{RC5\_PULSE\_TIME}*((uint16\_t) instPtr->
+      \hyperlink{struct_i_r_instance_a23a3063e6f24eaca78f9e0db2f3bd07f}{CarrierFrequency}))/1000;
+00030 \textcolor{preprocessor}{        #endif}
+00031 \textcolor{preprocessor}{}    \}
+00032 
+00033 
+00034     \textcolor{keywordflow}{if}(instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode} == \hyperlink{ir_8h_a9febfead3b70401029080dca004be4dd}{IR\_BY\_UART})
+00035     \{
+00036 \textcolor{preprocessor}{        #ifdef IR\_BY\_UART\_EN}
+00037 \textcolor{preprocessor}{}
+00038 \textcolor{preprocessor}{        #endif}
+00039 \textcolor{preprocessor}{}    \}
+00040 
+00041 
+00042     \textcolor{keywordflow}{if}(instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode} == \hyperlink{ir_8h_a2dd6ffa07e8e181d16d7a323dbc2b40f}{IR\_BY\_TIMER})
+00043     \{
+00044 \textcolor{preprocessor}{        #ifdef IR\_BY\_TIMER\_EN}
+00045 \textcolor{preprocessor}{}
+00046 \textcolor{preprocessor}{        #endif}
+00047 \textcolor{preprocessor}{}    \}
+00048 
+00049 
+00050 \}
+00051 
+00052 
+00053 
+00054 \textcolor{comment}{/*}
+00055 \textcolor{comment}{ * Sends IR data according to instance}
+00056 \textcolor{comment}{ */}
+\hypertarget{ir_8c_source_l00057}{}\hyperlink{ir_8h_aac981e25c96f0d2093549b87a3bebf37}{00057} \textcolor{keywordtype}{void} \hyperlink{ir_8c_aac981e25c96f0d2093549b87a3bebf37}{IRSend}(\hyperlink{struct_i_r_instance}{IRInstance} *instPtr, uint16\_t address, uint16\_t byte)
+00058 \{
+00059     uint32\_t data;
+00060     uint8\_t tempAddress=0;
+00061     uint8\_t tempByte=0;
+00062 
+00063 \textcolor{preprocessor}{#ifdef IR\_BY\_SOFTWARE\_EN}
+00064 \textcolor{preprocessor}{}    uint16\_t pulses;
+00065     uint8\_t roller;
+00066     uint16\_t delay = instPtr->\hyperlink{struct_i_r_instance_a7ce4e156e8b335f4ab8da1ab95e8bb78}{CarrierPeriod}/2;
+00067 \textcolor{preprocessor}{#endif}
+00068 \textcolor{preprocessor}{}
+00069     \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{IR\_NEC\_PROTOCOL})!=0)                       \textcolor{comment}{//inversão do endereço e
+       dados}
+00070     \{
+00071         tempAddress = ~address;
+00072         address = ((address&0xFF))|((tempAddress&0xFF)<<8);
+00073         tempByte = ~byte;
+00074         byte = ((byte&0xFF))|((tempByte&0xFF)<<8);
+00075     \}
+00076     \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&(\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{IR\_NEC\_PROTOCOL}|\hyperlink{ir_8h_a739f38a915d01783beb2a25839871b76}{IR\_NEC\_EXTENDED}))!=0)
+00077             data = address|byte<<16;
+00078 
+00079 \textcolor{preprocessor}{#ifdef IR\_BY\_SOFTWARE\_EN}
+00080 \textcolor{preprocessor}{}    \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_ab7c2f18ff8edff55aa09cbc3df83b1de}{IR\_BY\_SOFTWARE})!=0)
+00081     \{
+00082         \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&(\hyperlink{ir_8h_a739f38a915d01783beb2a25839871b76}{IR\_NEC\_EXTENDED}|\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{IR\_NEC\_PROTOCOL}))!=0)      \textcolor{comment}{//
+      padrão de envio}
+00083         \{
+00084             pulses = instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses}*32;
+00085             roller = 32;
+00086             \textcolor{keywordflow}{while}(pulses>0)                     \textcolor{comment}{//start signal send 9ms}
+00087             \{
+00088                 \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00089                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00090                 \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00091                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00092                 pulses--;
+00093             \}
+00094             \hyperlink{ir_8h_af3aa3be46b157816760fb3da2610c151}{IRDelayMs}(4);                  \textcolor{comment}{//protocol wait time}
+00095             \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(500);
+00096             \textcolor{keywordflow}{while}(roller>0)
+00097             \{
+00098                 pulses = instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses};
+00099                 \textcolor{keywordflow}{while}(pulses>0)                 \textcolor{comment}{//carrier send}
+00100                 \{
+00101                     \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00102                     \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00103                     \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00104                     \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00105                     pulses--;
+00106                 \}
+00107                 \textcolor{keywordflow}{if}((data&0x1)!=0)
+00108                     \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(\hyperlink{ir_8h_ac38de5ad882e68c85cf9fcdd1590ee73}{NEC\_PULSE\_TIME}*2);
+00109                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(\hyperlink{ir_8h_ac38de5ad882e68c85cf9fcdd1590ee73}{NEC\_PULSE\_TIME});
+00110                 data >>= 1;
+00111                 roller --;
+00112             \}
+00113             pulses = instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses};
+00114             \textcolor{keywordflow}{while}(pulses>0)                 \textcolor{comment}{//end signal send 562.5 us}
+00115             \{
+00116                 \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00117                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00118                 \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00119                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00120                 pulses--;
+00121             \}
+00122         \}
+00123         \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_a2feaa4d91d352df08dfd5e8f24443648}{IR\_RC5\_PROTOCOL})!=0)
+00124         \{
+00125             \textcolor{comment}{//todo: to be implemented. sem saco anymore.}
+00126         \}
+00127     \}
+00128 \textcolor{preprocessor}{#endif}
+00129 \textcolor{preprocessor}{}\textcolor{preprocessor}{#ifdef IR\_BY\_UART\_EN}
+00130 \textcolor{preprocessor}{}    \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_a9febfead3b70401029080dca004be4dd}{IR\_BY\_UART})!=0)
+00131     \{
+00132 
+00133         \textcolor{comment}{//todo: make uart send buffer/command}
+00134     \}
+00135 \textcolor{preprocessor}{#endif}
+00136 \textcolor{preprocessor}{}\textcolor{preprocessor}{#ifdef IR\_BY\_TIMER\_EN}
+00137 \textcolor{preprocessor}{}
+00138 \textcolor{preprocessor}{#endif}
+00139 \textcolor{preprocessor}{}\}
+00140 
+00141 
+00142 \textcolor{preprocessor}{#ifdef IR\_BY\_SOFTWARE}
+00143 \textcolor{preprocessor}{}\textcolor{comment}{/*}
+00144 \textcolor{comment}{ * sends a modulated bit}
+00145 \textcolor{comment}{ */}
+\hypertarget{ir_8c_source_l00146}{}\hyperlink{ir_8h_ad13724709400b3f36477890208d45416}{00146} \textcolor{keywordtype}{void} \_\_inline \hyperlink{ir_8c_aae4a16d7361b99fdef962d218db1ac82}{IRByteBySoftware}(\hyperlink{struct_i_r_instance}{IRInstance} *instPtr, uint16\_t address, uint16\_t 
+      byte)
+00147 \{
+00148     uint8\_t tempAddress=0;
+00149     uint8\_t tempByte=0;
+00150     uint16\_t pulses;
+00151     uint32\_t data;
+00152     uint8\_t roller;
+00153     uint16\_t delay = instPtr->\hyperlink{struct_i_r_instance_a7ce4e156e8b335f4ab8da1ab95e8bb78}{CarrierPeriod}/2;
+00154 
+00155     \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{IR\_NEC\_PROTOCOL})!=0)                       \textcolor{comment}{//inversão do endereço e
+       dados}
+00156     \{
+00157         tempAddress = ~address;
+00158         address = ((address&0xFF))|((tempAddress&0xFF)<<8);
+00159         tempByte = ~byte;
+00160         byte = ((byte&0xFF))|((tempByte&0xFF)<<8);
+00161     \}
+00162     \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&(\hyperlink{ir_8h_a739f38a915d01783beb2a25839871b76}{IR\_NEC\_EXTENDED}|\hyperlink{ir_8h_a7a1848ba8fe5d1c5fed582910ec3df01}{IR\_NEC\_PROTOCOL}))!=0)      \textcolor{comment}{//
+      padrão de envio}
+00163     \{
+00164         data = address|byte<<16;
+00165         pulses = instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses}*32;
+00166         roller = 32;
+00167         \textcolor{keywordflow}{while}(pulses>0)                     \textcolor{comment}{//start signal send 9ms}
+00168         \{
+00169             \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00170             \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00171             \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00172             \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00173             pulses--;
+00174         \}
+00175         \hyperlink{ir_8h_af3aa3be46b157816760fb3da2610c151}{IRDelayMs}(4);                  \textcolor{comment}{//protocol wait time}
+00176         \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(500);
+00177         \textcolor{keywordflow}{while}(roller>0)
+00178         \{
+00179             pulses = instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses};
+00180             \textcolor{keywordflow}{while}(pulses>0)                 \textcolor{comment}{//carrier send}
+00181             \{
+00182                 \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00183                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00184                 \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00185                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00186                 pulses--;
+00187             \}
+00188             \textcolor{keywordflow}{if}((data&0x1)!=0)
+00189                 \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(\hyperlink{ir_8h_ac38de5ad882e68c85cf9fcdd1590ee73}{NEC\_PULSE\_TIME}*2);
+00190             \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(\hyperlink{ir_8h_ac38de5ad882e68c85cf9fcdd1590ee73}{NEC\_PULSE\_TIME});
+00191             data >>= 1;
+00192             roller --;
+00193         \}
+00194         pulses = instPtr->\hyperlink{struct_i_r_instance_a374091556baaf95cb29a195e877efc1c}{Pulses};
+00195         \textcolor{keywordflow}{while}(pulses>0)                 \textcolor{comment}{//end signal send 562.5 us}
+00196         \{
+00197             \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00198             \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00199             \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(instPtr->\hyperlink{struct_i_r_instance_a0491d3193cddc5b568be222f147dcfcc}{TxPort}, instPtr->\hyperlink{struct_i_r_instance_ad8db5c2b6d458ef94408fc171aa7fabc}{TxPin});
+00200             \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00201             pulses--;
+00202         \}
+00203     \}
+00204     \textcolor{keywordflow}{if}((instPtr->\hyperlink{struct_i_r_instance_a08ae347b1b1741d54a0e1472bebe0c41}{Mode}&\hyperlink{ir_8h_a2feaa4d91d352df08dfd5e8f24443648}{IR\_RC5\_PROTOCOL})!=0)
+00205     \{
+00206         \textcolor{comment}{//todo: to be implemented. sem saco anymore.}
+00207     \}
+00208 \}
+00209 
+00210 
+00211 
+\hypertarget{ir_8c_source_l00212}{}\hyperlink{ir_8h_a79e16edbe33c22cca5ef4f580a6796b9}{00212} \textcolor{keywordtype}{void} \_\_inline \hyperlink{ir_8c_ae71b0f6acbe56d7b357d7ef156f79011}{IRRepeat}(uint32\_t port, uint32\_t pin, uint8\_t pulses, uint16\_t delay)
+00213 \{
+00214     uint8\_t tempPulses;
+00215     \textcolor{comment}{//fixme: repeat codes should be sent at 108ms intervals}
+00216     tempPulses = pulses;
+00217     pulses *= 16;
+00218     delay /= 2;
+00219     \textcolor{keywordflow}{while}(pulses>0)                 \textcolor{comment}{//start signal send 9ms}
+00220     \{
+00221         \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(port, pin);
+00222         \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00223         \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(port, pin);
+00224         \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00225         pulses--;
+00226     \}
+00227     \hyperlink{ir_8h_af3aa3be46b157816760fb3da2610c151}{IRDelayMs}(2);
+00228     \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(250);
+00229     pulses = tempPulses;
+00230     \textcolor{keywordflow}{while}(pulses>0)                 \textcolor{comment}{//end signal send 562.5 us}
+00231     \{
+00232         \hyperlink{ir_8h_a21bd2ff628104ba57868b1e0e97f8696}{IRPinSet}(port, pin);
+00233         \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00234         \hyperlink{ir_8h_aa437f5416f0d77e239d33ebed758aed2}{IRPinClear}(port, pin);
+00235         \hyperlink{ir_8h_a59ea8e0c552b296850a6b0c5f0626897}{IRDelayUs}(delay);
+00236         pulses--;
+00237     \}
+00238 \}
+00239 
+00240 
+00241 
+00242 
+00243 \textcolor{preprocessor}{#endif //ir\_by\_software}
+00244 \textcolor{preprocessor}{}
+00245 
+00246 
+00247 
+00248 
+00249 
+00250 
+00251 
+00252 
+00253 
+00254 
+00255 
+\end{DoxyCode}

@@ -1,0 +1,55 @@
+\hypertarget{my_uart_8h}{\section{my\-Uart.\-h}
+\label{my_uart_8h}\index{my\-\_\-lib/my\-Uart.\-h@{my\-\_\-lib/my\-Uart.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{ * myUart.h}
+00003 \textcolor{comment}{ *}
+00004 \textcolor{comment}{ *  Created on: Nov 25, 2013}
+00005 \textcolor{comment}{ *      Author: rikardo}
+00006 \textcolor{comment}{ */}
+00007 
+00008 \textcolor{preprocessor}{#ifndef MYUART\_H\_}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define MYUART\_H\_}
+00010 \textcolor{preprocessor}{}
+00011 \textcolor{preprocessor}{#include "\hyperlink{include_all__sw_8h}{depl\_spc/includeAll\_sw.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{include_all__hw_8h}{depl\_spc/includeAll\_hw.h}"}
+00013 
+00014 
+00015 \textcolor{comment}{/*}
+00016 \textcolor{comment}{ * UART operation mode masks}
+00017 \textcolor{comment}{ */}
+\hypertarget{my_uart_8h_source_l00018}{}\hyperlink{my_uart_8h_a4aa56a4a906fe4512fefb7686bc985bb}{00018} \textcolor{preprocessor}{#define UART\_NORMAL\_OP\_MODE                 0x0001}
+\hypertarget{my_uart_8h_source_l00019}{}\hyperlink{my_uart_8h_ad7c431c3d94c8bb399a7bb5f00dbe3e9}{00019} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define UART\_DIRECT\_TRANSFER\_MODE           0x0002}
+00020 \textcolor{preprocessor}{}
+00021 
+00022 
+\hypertarget{my_uart_8h_source_l00023}{}\hyperlink{my_uart_8h_a0d57378e32bf8278011460740bc29f7f}{00023} \textcolor{preprocessor}{#define UART\_BUFFER\_SIZE    30}
+00024 \textcolor{preprocessor}{}
+\hypertarget{my_uart_8h_source_l00025}{}\hyperlink{struct_u_a_r_t_instance}{00025} \textcolor{keyword}{typedef} \textcolor{keyword}{struct}\{
+\hypertarget{my_uart_8h_source_l00026}{}\hyperlink{struct_u_a_r_t_instance_a19e526bc57bbb10939b53ea13eee30fa}{00026}     uint8\_t RxBuffer[\hyperlink{my_uart_8h_a0d57378e32bf8278011460740bc29f7f}{UART\_BUFFER\_SIZE}];
+\hypertarget{my_uart_8h_source_l00027}{}\hyperlink{struct_u_a_r_t_instance_a207dabce7103416b36680d9ecc050684}{00027}     uint8\_t \hyperlink{struct_u_a_r_t_instance_a207dabce7103416b36680d9ecc050684}{RxBufferPtr};
+\hypertarget{my_uart_8h_source_l00028}{}\hyperlink{struct_u_a_r_t_instance_a77d9f6986b01073dd0d2385d2e34f961}{00028}     uint8\_t TxBuffer[\hyperlink{my_uart_8h_a0d57378e32bf8278011460740bc29f7f}{UART\_BUFFER\_SIZE}];
+\hypertarget{my_uart_8h_source_l00029}{}\hyperlink{struct_u_a_r_t_instance_ada90140ddc0177a452e32c0a1268f0fe}{00029}     uint8\_t \hyperlink{struct_u_a_r_t_instance_ada90140ddc0177a452e32c0a1268f0fe}{TxBufferPtr};
+\hypertarget{my_uart_8h_source_l00030}{}\hyperlink{struct_u_a_r_t_instance_a6cdb50e2027bf68b7ad66e2863c1ae29}{00030}     uint16\_t \hyperlink{struct_u_a_r_t_instance_a6cdb50e2027bf68b7ad66e2863c1ae29}{Mode};
+\hypertarget{my_uart_8h_source_l00031}{}\hyperlink{struct_u_a_r_t_instance_ac79c2c5b8bc7ae929e76b44e9b0d71a8}{00031}     uint8\_t TxLastSent[\hyperlink{my_uart_8h_a0d57378e32bf8278011460740bc29f7f}{UART\_BUFFER\_SIZE}];
+\hypertarget{my_uart_8h_source_l00032}{}\hyperlink{struct_u_a_r_t_instance_a61c194974dc7b5951c59543ecbf6c651}{00032}     uint8\_t \hyperlink{struct_u_a_r_t_instance_a61c194974dc7b5951c59543ecbf6c651}{TxLastSentPtr};
+00033 \}\hyperlink{struct_u_a_r_t_instance}{UARTInstance};
+00034 
+00035 
+\hypertarget{my_uart_8h_source_l00036}{}\hyperlink{my_uart_8h_afcf7b79009762820d8802516c0c69057}{00036} \textcolor{preprocessor}{#define myUARTPC                            UART0\_BASE}
+00037 \textcolor{preprocessor}{}
+\hypertarget{my_uart_8h_source_l00038}{}\hyperlink{my_uart_8h_a5104f0390cc22c91cbbc7a6a8ba5aff6}{00038} \textcolor{preprocessor}{#define myUARTSend(instance, charToGo)      MAP\_UARTCharPutNonBlocking(instance, charToGo)}
+\hypertarget{my_uart_8h_source_l00039}{}\hyperlink{my_uart_8h_a6d6103b1f75ca29bed3d331224bf8035}{00039} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define myUARTDelay(delay)                  SysDelay(delay)}
+\hypertarget{my_uart_8h_source_l00040}{}\hyperlink{my_uart_8h_a83acd580d612b705c1761bf8af9cae07}{00040} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define myUARTPCSend(charToGo)              myUARTSend(myUARTPC, charToGo)}
+00041 \textcolor{preprocessor}{}
+00042 
+00043 
+00044 \textcolor{keywordtype}{void} \hyperlink{my_uart_8h_a9b47e5aa4e5050889d191858d9abda06}{myUARTSendString}(uint32\_t instance, uint8\_t *\textcolor{keywordtype}{string});
+00045 
+00046 
+00047 
+00048 
+00049 \textcolor{preprocessor}{#endif }\textcolor{comment}{/* MYUART\_H\_ */}\textcolor{preprocessor}{}
+\end{DoxyCode}

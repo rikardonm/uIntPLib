@@ -1,0 +1,60 @@
+\hypertarget{my__use_8h}{\section{my\-\_\-use.\-h}
+\label{my__use_8h}\index{my\-\_\-lib/my\-\_\-use.\-h@{my\-\_\-lib/my\-\_\-use.\-h}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef my\_use\_h}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define my\_use\_h}
+00003 \textcolor{preprocessor}{}
+00004 \textcolor{preprocessor}{#include "\hyperlink{include_all__sw_8h}{depl\_spc/includeAll\_sw.h}"}
+00005 \textcolor{preprocessor}{#include "\hyperlink{include_all__hw_8h}{depl\_spc/includeAll\_hw.h}"}
+00006 
+\hypertarget{my__use_8h_source_l00007}{}\hyperlink{my__use_8h_a8137844ebeba263d590333ce42efb18b}{00007} \textcolor{preprocessor}{#define bTrue0              0x01}
+\hypertarget{my__use_8h_source_l00008}{}\hyperlink{my__use_8h_a9863b6e7f29c55c5174cb1b6c8231ec7}{00008} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue1              0x02}
+\hypertarget{my__use_8h_source_l00009}{}\hyperlink{my__use_8h_af7cfbb9ae4746c589b748d541325a666}{00009} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue2              0x04}
+\hypertarget{my__use_8h_source_l00010}{}\hyperlink{my__use_8h_a372b6ec8429f1ad1c95cce929d1efe2b}{00010} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue3              0x08}
+\hypertarget{my__use_8h_source_l00011}{}\hyperlink{my__use_8h_a55081778d9ec2cbb78c6e6632431a73e}{00011} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue4              0x10}
+\hypertarget{my__use_8h_source_l00012}{}\hyperlink{my__use_8h_aacdb6baee5bd5aab9296e4dc2a5067ca}{00012} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue5              0x20}
+\hypertarget{my__use_8h_source_l00013}{}\hyperlink{my__use_8h_a3fa617d00719448a7d3d383aee7f5d12}{00013} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue6              0x40}
+\hypertarget{my__use_8h_source_l00014}{}\hyperlink{my__use_8h_adbf503a972fc7d576eefa49a657847eb}{00014} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define bTrue7              0x80}
+00015 \textcolor{preprocessor}{}
+\hypertarget{my__use_8h_source_l00016}{}\hyperlink{my__use_8h_ae97406951a1d436c4729aec355a3a7ee}{00016} \textcolor{preprocessor}{#define charDecadeLength    3}
+\hypertarget{my__use_8h_source_l00017}{}\hyperlink{my__use_8h_ad27f28274720b79cd7e48c76be0d53ea}{00017} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define charBinaryLength    8}
+00018 \textcolor{preprocessor}{}
+\hypertarget{my__use_8h_source_l00019}{}\hyperlink{my__use_8h_a92512011517dc8254d741ed4c4a184cf}{00019} \textcolor{preprocessor}{#define shortDecadeLength   5}
+\hypertarget{my__use_8h_source_l00020}{}\hyperlink{my__use_8h_a919ad9c70715b59e1c3aa29ba945e5c9}{00020} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define shortBinaryLength   16}
+00021 \textcolor{preprocessor}{}
+\hypertarget{my__use_8h_source_l00022}{}\hyperlink{my__use_8h_a5f5a6a07c5f6f55ff0d72da66488358d}{00022} \textcolor{preprocessor}{#define intDecadeLength     10}
+\hypertarget{my__use_8h_source_l00023}{}\hyperlink{my__use_8h_a2b4f8c57da7d5fb1dbf6667e81701122}{00023} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define intBinaryLength     32}
+00024 \textcolor{preprocessor}{}
+00025 
+00026 
+00027 \textcolor{comment}{//function masks}
+\hypertarget{my__use_8h_source_l00028}{}\hyperlink{my__use_8h_a69599b2fb93b9c86832c7de1f86f74e6}{00028} \textcolor{preprocessor}{#define limitCeilValue(value, lim)                  if(value>=lim)\(\backslash\)}
+00029 \textcolor{preprocessor}{                                                    value=lim;}
+\hypertarget{my__use_8h_source_l00030}{}\hyperlink{my__use_8h_a4c18a8c8baf721b07831be360b6bd227}{00030} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define limitCycleValueUpZero(value,lim)            if(value>=lim)\(\backslash\)}
+00031 \textcolor{preprocessor}{                                                    value=0;}
+\hypertarget{my__use_8h_source_l00032}{}\hyperlink{my__use_8h_a765b956fdcd0e8c3146dfa371349def1}{00032} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define limitCycleValueUpOff(value, lim, reset)     if(value>=lim)\(\backslash\)}
+00033 \textcolor{preprocessor}{                                                    value=reset;}
+\hypertarget{my__use_8h_source_l00034}{}\hyperlink{my__use_8h_aff5f417b864c9746762f77ddc628f21a}{00034} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define limitFloorValue(value, lim)                 if(value<=lim)\(\backslash\)}
+00035 \textcolor{preprocessor}{                                                    value=lim;}
+00036 \textcolor{preprocessor}{}
+00037 
+00038 
+00039 
+00040 \textcolor{comment}{/*}
+00041 \textcolor{comment}{ * Function Declarations}
+00042 \textcolor{comment}{ */}
+00043 \textcolor{keywordtype}{void} \hyperlink{my__use_8h_a842bbb7f35cdd316dc8007a6babbf254}{ShiftSerialSend}(uint32\_t data\_port, uint32\_t data\_pin, \(\backslash\)
+00044         uint32\_t clk\_port, uint32\_t clk\_pin, uint8\_t text);
+00045 
+00046 
+00047 
+00048 
+00049 
+00050 
+00051 
+00052 
+00053 
+00054 \textcolor{preprocessor}{#endif// my\_use\_h}
+\end{DoxyCode}

@@ -4,7 +4,9 @@
 
 
 
-
+/**
+ * Checks and defines boolean values.
+ */
 #ifndef true
 #define true 1
 #define false 0
@@ -23,6 +25,9 @@ const char LCD_CmdInit_Vector [lcd_vector_index] = \
 		};
 /*
  * Delay time in uSs
+ */
+/**
+ * LCD Init command delay vector, in uS
  */
 const unsigned int LCD_InitDelay_Vector[lcd_vector_index] = \
 		{
@@ -77,6 +82,11 @@ void LCDSendCmd(uint8_t cmd)
 
 /*
  * Send a Text to the LCD
+ */
+/**
+ * \brief send single character to LCD.
+ * 
+ * \param txt char type data to be sent, 8 bits.
  */
 void LCDSendChar(uint8_t txt)
 {

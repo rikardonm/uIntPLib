@@ -7,16 +7,12 @@
 
 
 
+#define LCD_splashscreen_row1	PROJECT_NAME			//!< geneartion of project name in LCD
+#define LCD_splashscreen_row2	("rnm sys undvpd")		//!< creator's watermark
 
-#define LCD_splashscreen_row1	PROJECT_NAME
-#define LCD_splashscreen_row2	("rnm sys undvpd")
+#define LCD_splashscreen2_row1	__DATE__				//!< compile date, used as program version
+#define LCD_splashscreen2_row2	__TIME__				//!< compile time, used as program version
 
-#define LCD_splashscreen2_row1	__DATE__
-#define LCD_splashscreen2_row2	__TIME__
-
-
-
-//todo: convert functions to deal with structs
 
 
 /*
@@ -131,7 +127,9 @@ typedef struct
 	uint8_t	specialChar[8];		//defined by fonts
 }LCDStatus;
 
-//todo: fix this shit.
+
+
+// \TODO: fix this shit. decide if is to be used with structs or no use at all.
 extern LCDStatus	LCD0Status;
 
 
