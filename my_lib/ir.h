@@ -4,11 +4,7 @@
 
 
 //main file header
-#include "depl_spc/includeAll_sw.h"
-#include "depl_spc/includeAll_hw.h"
-
-#include "stdint.h"
-#include "stdbool.h"
+#include "includeAll.h"
 
 
 /*
@@ -99,8 +95,8 @@ typedef struct{
 }IRInstance;
 
 
-#define IRPinSet(port, pin)		GPIOPinWrite(port, pin, pin)
-#define IRPinClear(port, pin)	GPIOPinWrite(port, pin, 0)
+#define IRPinSet(port, pin)		PinSet(port, pin)
+#define IRPinClear(port, pin)	PinClear(port, pin)
 #define IRDelayMs(delay)		SysDelayMs(delay)
 #define IRDelayUs(delay)		SysDelayUs(delay)
 #define IRDelay(delay)			SysDelay(delay)

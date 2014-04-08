@@ -56,9 +56,9 @@ void LCDInit(void)
 	//splash screen
 #if LCD_SPLASHSCREEN1 == 1
 	LCDPosition(1,1);
-	LCDSendString(LCD_splashscreen_row1, false);
+	LCDSendString(LCD_splashscreen_row1, 0);
 	LCDPosition(2,1);
-	LCDSendString(LCD_splashscreen_row2, false);
+	LCDSendString(LCD_splashscreen_row2, 0);
 	LCDDelay(2*1000*1000);
 #endif
 #if LCD_SPLASHSCREEN2 == 1
@@ -80,13 +80,11 @@ void LCDSendCmd(uint8_t cmd)
 	LCDSend(cmd);
 }
 
-/*
- * Send a Text to the LCD
- */
+
 /**
  * \brief send single character to LCD.
  * 
- * \param txt char type data to be sent, 8 bits.
+ * \param txt uint8_t type data to be sent, 8 bits.
  */
 void LCDSendChar(uint8_t txt)
 {
@@ -96,8 +94,10 @@ void LCDSendChar(uint8_t txt)
 	LCD_RS_Low;
 }
 
-/*
- * Write on serial shifter, pulse LCD EN
+/**
+ * \brief Send data to LCD, no RS control
+ *
+ * \param send uint8_t data to be sent.
  */
 __inline void LCDSend(uint8_t send)
 {
@@ -109,10 +109,11 @@ __inline void LCDSend(uint8_t send)
 	LCD_EN_Low;
 }
 
-/*
- * Changes the LCD Cursor Position
- * Updates LCDStatus
- * PARAM: row, col
+/**
+ * \brief Set LCD write position
+ *
+ * \param row uint8_t row.
+ * \param col uint8_t column.
  */
 void LCDPosition(uint8_t row, uint8_t col)
 {
@@ -127,10 +128,12 @@ void LCDPosition(uint8_t row, uint8_t col)
 	LCDDelay(20);
 }
 
-/*
- * Changes the LCD Cursor Position
- * Updates LCDStatus
- * PARAM: row, col
+
+/**
+ * \brief Set LCD write position, no delay in function
+ *
+ * \param row uint8_t row.
+ * \param col uint8_t column.
  */
 void LCDPositionNoDelay(uint8_t row, uint8_t col)
 {
@@ -145,7 +148,13 @@ void LCDPositionNoDelay(uint8_t row, uint8_t col)
 }
 
 
-/*
+/**
+ * \brief Send string to LCD
+ *
+ * \param *string uint8_t string to be sent.
+ * \param breakLine uint8_t break line at the end of LCD length.
+ *
+ *
  * Writes a string of characteres on display
  * Processes according to the ASCII code
  * 0 - NULL
@@ -157,10 +166,12 @@ void LCDSendString(uint8_t *string, uint8_t breakLine)
 		LCDSendChar(*string);
 		string++;
 		if(LCD0Status.col==LCD_col_num && breakLine==true)
+		{
 			if(LCD0Status.row<=LCD_row_num)
 				LCDPosition(LCD0Status.row+1, 1);
 			else
 				LCDPosition(0, 1);
+		}
 	}
 }
 

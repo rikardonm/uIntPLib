@@ -2,9 +2,7 @@
 #define lcd_h
 
 
-#include "depl_spc/includeAll_hw.h"
-#include "depl_spc/includeAll_sw.h"
-
+#include "includeAll.h"
 
 
 #define LCD_splashscreen_row1	PROJECT_NAME			//!< geneartion of project name in LCD
@@ -16,7 +14,7 @@
 
 
 /*
-NEED TO DECLARE
+NEED TO DECLARE 
 
 //LCD
 #define LCD_RS			J1_05	//E5
@@ -136,35 +134,35 @@ extern LCDStatus	LCD0Status;
 
 
 //functions declarations
-void LCDInit(void);
-void LCDSendCmd(uint8_t cmd);
-void LCDSendChar(uint8_t txt);
-void LCDSend(uint8_t send);
-void LCDPosition(uint8_t row, uint8_t col);
-void LCDPositionNoDelay(uint8_t row, uint8_t col);
-void LCDSendString(uint8_t *string, uint8_t breakLine);
-void LCDSendNumStrict(int64_t num, uint8_t length,\
+extern void LCDInit(void);
+extern void LCDSendCmd(uint8_t cmd);
+extern void LCDSendChar(uint8_t txt);
+extern void LCDSend(uint8_t send);
+extern void LCDPosition(uint8_t row, uint8_t col);
+extern void LCDPositionNoDelay(uint8_t row, uint8_t col);
+extern void LCDSendString(uint8_t *string, uint8_t breakLine);
+extern void LCDSendNumStrict(int64_t num, uint8_t length,\
 		uint8_t isSigned, uint8_t showZeros);
-void LCDSendNum(int64_t num, uint8_t length,\
+extern void LCDSendNum(int64_t num, uint8_t length,\
 		uint8_t isSigned, uint8_t showZeros);
-void LCDSendNumArray(uint8_t *vector);
-void LCDClear(void);
-void LCDSendHex(uint8_t *array);
+extern void LCDSendNumArray(uint8_t *vector);
+extern void LCDClear(void);
+extern void LCDSendHex(uint8_t *array);
 
 //limited by uint64 max counting
 #define maxLengthOut	16
-void numToArray(int32_t num, uint8_t *array,\
+extern void numToArray(int32_t num, uint8_t *array,\
 				uint8_t length, uint16_t base);
 
-void LCDRegisterSpecial(uint8_t number,\
+extern void LCDRegisterSpecial(uint8_t number,\
 						uint8_t *character);
-void LCDShift(uint8_t shift);
-void LCDHome(void);
+extern void LCDShift(uint8_t shift);
+extern void LCDHome(void);
 
 
-void arrayToNum(uint8_t *array, uint32_t *num, uint8_t base);
+extern void arrayToNum(uint8_t *array, uint32_t *num, uint8_t base);
 
 
-void LCDSendVU(uint32_t num, uint32_t base);
+extern void LCDSendVU(uint32_t num, uint32_t base);
 
 #endif

@@ -8,9 +8,7 @@
 #ifndef MYUART_H_
 #define MYUART_H_
 
-#include "depl_spc/includeAll_sw.h"
-#include "depl_spc/includeAll_hw.h"
-
+#include "includeAll.h"
 
 /*
  * UART operation mode masks

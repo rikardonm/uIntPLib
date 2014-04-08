@@ -8,8 +8,7 @@
 #ifndef CMD_SORT_H_
 #define CMD_SORT_H_
 
-#include "depl_spc/includeAll_sw.h"
-#include "depl_spc/cmd_list.h"
+#include "includeAll.h"
 
 #define MAX_BUFFER_SIZE				30
 
