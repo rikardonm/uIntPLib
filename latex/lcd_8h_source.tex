@@ -7,170 +7,168 @@
 00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define lcd\_h}
 00003 \textcolor{preprocessor}{}
 00004 
-00005 \textcolor{preprocessor}{#include "\hyperlink{include_all__hw_8h}{depl\_spc/includeAll\_hw.h}"}
-00006 \textcolor{preprocessor}{#include "\hyperlink{include_all__sw_8h}{depl\_spc/includeAll\_sw.h}"}
+00005 \textcolor{preprocessor}{#include "includeAll.h"}
+00006 
 00007 
-00008 
-00009 
-\hypertarget{lcd_8h_source_l00010}{}\hyperlink{lcd_8h_a251cf3018caf604ae46e1636e2678cda}{00010} \textcolor{preprocessor}{#define LCD\_splashscreen\_row1   PROJECT\_NAME            }\textcolor{comment}{//!< geneartion of project name in LCD}
-\hypertarget{lcd_8h_source_l00011}{}\hyperlink{lcd_8h_a2f0e22d3d76e41b82bc3c55c1564143c}{00011} \textcolor{comment}{}#define LCD\_splashscreen\_row2   ("rnm sys undvpd")      \textcolor{comment}{//!< creator's watermark}
-00012 \textcolor{comment}{}
-\hypertarget{lcd_8h_source_l00013}{}\hyperlink{lcd_8h_ac7bb85d0a6249381b2d7050da3e2e99c}{00013} \textcolor{preprocessor}{#define LCD\_splashscreen2\_row1  \_\_DATE\_\_                }\textcolor{comment}{//!< compile date, used as program version}
-\hypertarget{lcd_8h_source_l00014}{}\hyperlink{lcd_8h_a5c961ed231f58622f0d35f1f29439bbd}{00014} \textcolor{comment}{}#define LCD\_splashscreen2\_row2  \_\_TIME\_\_                \textcolor{comment}{//!< compile time, used as program version}
-00015 \textcolor{comment}{}
-00016 
-00017 
-00018 \textcolor{comment}{/*}
-00019 \textcolor{comment}{NEED TO DECLARE}
-00020 \textcolor{comment}{}
-00021 \textcolor{comment}{//LCD}
-00022 \textcolor{comment}{#define LCD\_RS          J1\_05   //E5}
-00023 \textcolor{comment}{#define LCD\_RS\_Port     GPIO\_PORTE\_BASE}
-00024 \textcolor{comment}{#define LCD\_RS\_Pin      GPIO\_PIN\_5}
-00025 \textcolor{comment}{}
-00026 \textcolor{comment}{#define LCD\_EN          J1\_06   //E4}
-00027 \textcolor{comment}{#define LCD\_EN\_Port     GPIO\_PORTE\_BASE}
-00028 \textcolor{comment}{#define LCD\_EN\_Pin      GPIO\_PIN\_4}
-00029 \textcolor{comment}{}
-00030 \textcolor{comment}{#define LCD\_DTA         J2\_09   //A2}
-00031 \textcolor{comment}{#define LCD\_DTA\_Port    GPIO\_PORTA\_BASE}
-00032 \textcolor{comment}{#define LCD\_DTA\_Pin     GPIO\_PIN\_3}
-00033 \textcolor{comment}{}
-00034 \textcolor{comment}{#define LCD\_CLK         J2\_10   //A3}
-00035 \textcolor{comment}{#define LCD\_CLK\_Port    GPIO\_PORTA\_BASE}
-00036 \textcolor{comment}{#define LCD\_CLK\_Pin     GPIO\_PIN\_2}
-00037 \textcolor{comment}{}
-00038 \textcolor{comment}{#define LCD\_row\_num     2}
-00039 \textcolor{comment}{#define LCD\_col\_num     16}
+\hypertarget{lcd_8h_source_l00008}{}\hyperlink{lcd_8h_a251cf3018caf604ae46e1636e2678cda}{00008} \textcolor{preprocessor}{#define LCD\_splashscreen\_row1   PROJECT\_NAME            }\textcolor{comment}{//!< geneartion of project name in LCD}
+\hypertarget{lcd_8h_source_l00009}{}\hyperlink{lcd_8h_a2f0e22d3d76e41b82bc3c55c1564143c}{00009} \textcolor{comment}{}#define LCD\_splashscreen\_row2   ("rnm sys undvpd")      \textcolor{comment}{//!< creator's watermark}
+00010 \textcolor{comment}{}
+\hypertarget{lcd_8h_source_l00011}{}\hyperlink{lcd_8h_ac7bb85d0a6249381b2d7050da3e2e99c}{00011} \textcolor{preprocessor}{#define LCD\_splashscreen2\_row1  \_\_DATE\_\_                }\textcolor{comment}{//!< compile date, used as program version}
+\hypertarget{lcd_8h_source_l00012}{}\hyperlink{lcd_8h_a5c961ed231f58622f0d35f1f29439bbd}{00012} \textcolor{comment}{}#define LCD\_splashscreen2\_row2  \_\_TIME\_\_                \textcolor{comment}{//!< compile time, used as program version}
+00013 \textcolor{comment}{}
+00014 
+00015 
+00016 \textcolor{comment}{/*}
+00017 \textcolor{comment}{NEED TO DECLARE }
+00018 \textcolor{comment}{}
+00019 \textcolor{comment}{//LCD}
+00020 \textcolor{comment}{#define LCD\_RS          J1\_05   //E5}
+00021 \textcolor{comment}{#define LCD\_RS\_Port     GPIO\_PORTE\_BASE}
+00022 \textcolor{comment}{#define LCD\_RS\_Pin      GPIO\_PIN\_5}
+00023 \textcolor{comment}{}
+00024 \textcolor{comment}{#define LCD\_EN          J1\_06   //E4}
+00025 \textcolor{comment}{#define LCD\_EN\_Port     GPIO\_PORTE\_BASE}
+00026 \textcolor{comment}{#define LCD\_EN\_Pin      GPIO\_PIN\_4}
+00027 \textcolor{comment}{}
+00028 \textcolor{comment}{#define LCD\_DTA         J2\_09   //A2}
+00029 \textcolor{comment}{#define LCD\_DTA\_Port    GPIO\_PORTA\_BASE}
+00030 \textcolor{comment}{#define LCD\_DTA\_Pin     GPIO\_PIN\_3}
+00031 \textcolor{comment}{}
+00032 \textcolor{comment}{#define LCD\_CLK         J2\_10   //A3}
+00033 \textcolor{comment}{#define LCD\_CLK\_Port    GPIO\_PORTA\_BASE}
+00034 \textcolor{comment}{#define LCD\_CLK\_Pin     GPIO\_PIN\_2}
+00035 \textcolor{comment}{}
+00036 \textcolor{comment}{#define LCD\_row\_num     2}
+00037 \textcolor{comment}{#define LCD\_col\_num     16}
+00038 \textcolor{comment}{}
+00039 \textcolor{comment}{LCDStatus LCD0Status;}
 00040 \textcolor{comment}{}
-00041 \textcolor{comment}{LCDStatus LCD0Status;}
-00042 \textcolor{comment}{}
-00043 \textcolor{comment}{}
-00044 \textcolor{comment}{#define LCD\_splashscreen\_row1   ("odqd")}
-00045 \textcolor{comment}{#define LCD\_splashscreen\_row2   ("rnm sys undvpd")}
+00041 \textcolor{comment}{}
+00042 \textcolor{comment}{#define LCD\_splashscreen\_row1   ("odqd")}
+00043 \textcolor{comment}{#define LCD\_splashscreen\_row2   ("rnm sys undvpd")}
+00044 \textcolor{comment}{}
+00045 \textcolor{comment}{}
 00046 \textcolor{comment}{}
-00047 \textcolor{comment}{}
-00048 \textcolor{comment}{}
-00049 \textcolor{comment}{uint8\_t specialChar[8][8] = \{   //ultima coluna, linha de baixo, reservada para cursor}
-00050 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x07, 0x00, 0x00,\(\backslash\)}
-00051 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x06, 0x01, 0x00,\(\backslash\)}
-00052 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x05, 0x02, 0x00,\(\backslash\)}
-00053 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x04, 0x03, 0x00,\(\backslash\)}
-00054 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x00, 0x03, 0x04, 0x00,\(\backslash\)}
-00055 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x02, 0x05, 0x00,\(\backslash\)}
-00056 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x01, 0x06, 0x00,\(\backslash\)}
-00057 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x00, 0x07, 0x00}
-00058 \textcolor{comment}{        \};}
+00047 \textcolor{comment}{uint8\_t specialChar[8][8] = \{   //ultima coluna, linha de baixo, reservada para cursor}
+00048 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x07, 0x00, 0x00,\(\backslash\)}
+00049 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x06, 0x01, 0x00,\(\backslash\)}
+00050 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x05, 0x02, 0x00,\(\backslash\)}
+00051 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x04, 0x03, 0x00,\(\backslash\)}
+00052 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x00, 0x03, 0x04, 0x00,\(\backslash\)}
+00053 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x02, 0x05, 0x00,\(\backslash\)}
+00054 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x01, 0x06, 0x00,\(\backslash\)}
+00055 \textcolor{comment}{        0x1F, 0x0F, 0x07, 0x03, 0x01, 0x00, 0x07, 0x00}
+00056 \textcolor{comment}{        \};}
+00057 \textcolor{comment}{}
+00058 \textcolor{comment}{}
 00059 \textcolor{comment}{}
-00060 \textcolor{comment}{}
-00061 \textcolor{comment}{}
-00062 \textcolor{comment}{*/}
+00060 \textcolor{comment}{*/}
+00061 
+00062 
 00063 
-00064 
-00065 
-00066 \textcolor{comment}{/*}
-00067 \textcolor{comment}{ * LIBRARY FOR LCD USE}
-00068 \textcolor{comment}{ * SERIAL COMM}
-00069 \textcolor{comment}{ * USE OF SHIFT REGISTERS FOR DATA}
-00070 \textcolor{comment}{ */}
+00064 \textcolor{comment}{/*}
+00065 \textcolor{comment}{ * LIBRARY FOR LCD USE}
+00066 \textcolor{comment}{ * SERIAL COMM}
+00067 \textcolor{comment}{ * USE OF SHIFT REGISTERS FOR DATA}
+00068 \textcolor{comment}{ */}
+00069 
+00070 
 00071 
-00072 
-00073 
-00074 \textcolor{comment}{//sub-function masks}
-00075 \textcolor{comment}{//External Function Masks}
-\hypertarget{lcd_8h_source_l00076}{}\hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{00076} \textcolor{preprocessor}{#define LCDDelay(x)             SysDelayUs(x)}
-\hypertarget{lcd_8h_source_l00077}{}\hyperlink{lcd_8h_a3bc70b31cd1ab9a95b44befeca6f4f42}{00077} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCDPinSet(x, y)         PinAddrSet(x, y)}
-\hypertarget{lcd_8h_source_l00078}{}\hyperlink{lcd_8h_a1279c3be6e3b6cefa1b1bee2325c8f93}{00078} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCDPinClear(x, y)       PinAddrClear(x,y)}
-00079 \textcolor{preprocessor}{}
-00080 
-00081 
-00082 \textcolor{comment}{//sub-function masks}
-\hypertarget{lcd_8h_source_l00083}{}\hyperlink{lcd_8h_abba12f2f22df7f046b7d5a4cd2e969b7}{00083} \textcolor{preprocessor}{#define LCD\_RS\_High             LCDPinSet(LCD\_RS\_Port, LCD\_RS\_Pin)}
-\hypertarget{lcd_8h_source_l00084}{}\hyperlink{lcd_8h_a0b24c06c65241a0e59d9c53807e41317}{00084} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_RS\_Low              LCDPinClear(LCD\_RS\_Port, LCD\_RS\_Pin)}
-\hypertarget{lcd_8h_source_l00085}{}\hyperlink{lcd_8h_aa5646c9467f205fa5d9ae2f35037e222}{00085} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_EN\_High             LCDPinSet(LCD\_EN\_Port, LCD\_EN\_Pin)}
-\hypertarget{lcd_8h_source_l00086}{}\hyperlink{lcd_8h_ab54604df26d503464f08a6340307989b}{00086} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_EN\_Low              LCDPinClear(LCD\_EN\_Port, LCD\_EN\_Pin)}
-\hypertarget{lcd_8h_source_l00087}{}\hyperlink{lcd_8h_a3968a5a06507ca285bf6fcc85bf55233}{00087} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CLK\_High            LCDPinSet(LCD\_CLK\_Port, LCD\_CLK\_Pin)}
-\hypertarget{lcd_8h_source_l00088}{}\hyperlink{lcd_8h_a890883a29b53338d9d00a18e3a0fe0ef}{00088} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CLK\_LoW             LCDPinClear(LCD\_CLK\_Port, LCD\_CLK\_Pin)}
-\hypertarget{lcd_8h_source_l00089}{}\hyperlink{lcd_8h_ad70516201ea275cdb7b698f8782bd0b6}{00089} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_DTA\_Send(text)      ShiftSerialSend(LCD\_DTA\_Port,\(\backslash\)}
-00090 \textcolor{preprocessor}{                                LCD\_DTA\_Pin,\(\backslash\)}
-00091 \textcolor{preprocessor}{                                LCD\_CLK\_Port,\(\backslash\)}
-00092 \textcolor{preprocessor}{                                LCD\_CLK\_Pin, text)}
-00093 \textcolor{preprocessor}{}
-00094 
-00095 \textcolor{comment}{//LCD Command Masks}
-\hypertarget{lcd_8h_source_l00096}{}\hyperlink{lcd_8h_a846dac5d1bb72bef7a76ee110c0445b6}{00096} \textcolor{preprocessor}{#define LCD\_DISPLAY\_ON          0x0C}
-\hypertarget{lcd_8h_source_l00097}{}\hyperlink{lcd_8h_ab1b96426e59139b68ae95df45d697087}{00097} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_DISPLAY\_OFF         0x08}
-\hypertarget{lcd_8h_source_l00098}{}\hyperlink{lcd_8h_a8dae7021acb10d4e5f8458a5fba78729}{00098} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CURSOR\_ON           0x0A}
-\hypertarget{lcd_8h_source_l00099}{}\hyperlink{lcd_8h_a7a6a930d205b2819be910af194576dca}{00099} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CURSOR\_OFF          0x08}
-\hypertarget{lcd_8h_source_l00100}{}\hyperlink{lcd_8h_a654ab1d84354662d394a62be3b2230d1}{00100} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_BLINK\_ON            0x09}
-\hypertarget{lcd_8h_source_l00101}{}\hyperlink{lcd_8h_a3480b863e1e145d9a258de170fc44ffa}{00101} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_BLINK\_OFF           0x08}
-\hypertarget{lcd_8h_source_l00102}{}\hyperlink{lcd_8h_a921b50a756949abc5a25094b0c191a10}{00102} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT               0x10}
-\hypertarget{lcd_8h_source_l00103}{}\hyperlink{lcd_8h_ae8ef8c05d43d77d16e131eb718ae4ac7}{00103} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_DISPLAY       0x08}
-\hypertarget{lcd_8h_source_l00104}{}\hyperlink{lcd_8h_a7bd7034ad5f552265a6baefeb79f9c5b}{00104} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_CURSOR        0x02}
-\hypertarget{lcd_8h_source_l00105}{}\hyperlink{lcd_8h_a8ab3108396a0d33dbf7f3ab6477ba01d}{00105} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_RIGHT         0x04}
-\hypertarget{lcd_8h_source_l00106}{}\hyperlink{lcd_8h_a941377571f34b9d898b61ce89f10226d}{00106} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_LEFT          0x00}
-\hypertarget{lcd_8h_source_l00107}{}\hyperlink{lcd_8h_aeb37f5be802499adedd4f9366797bf0a}{00107} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SET\_CGRAM           0x40}
-\hypertarget{lcd_8h_source_l00108}{}\hyperlink{lcd_8h_ab1fb2568cd5b8fb0f9103652a3deb895}{00108} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT           0X04}
-\hypertarget{lcd_8h_source_l00109}{}\hyperlink{lcd_8h_a06315bb86679bb3ef1aff07e62aab6de}{00109} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_NO\_SHIFT  0x00}
-\hypertarget{lcd_8h_source_l00110}{}\hyperlink{lcd_8h_aa861073d2f5122bb8092023f9970d3a0}{00110} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_SHIFT     0x01}
-\hypertarget{lcd_8h_source_l00111}{}\hyperlink{lcd_8h_a0a7949ac27e6fece73d67a48eca643e9}{00111} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_POSITIVE  0x02}
-\hypertarget{lcd_8h_source_l00112}{}\hyperlink{lcd_8h_aecbb4fa221268f1c6ea267379a97055f}{00112} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_NEGATIVE  0x00}
-00113 \textcolor{preprocessor}{}
-00114 
-00115 \textcolor{comment}{//LCD Command Initial State - Config}
-\hypertarget{lcd_8h_source_l00116}{}\hyperlink{lcd_8h_a4f2c8e26ccc5cf79276816b6e3ce072e}{00116} \textcolor{preprocessor}{#define LCD\_DISPLAY\_CONFIG      (LCD\_DISPLAY\_ON|LCD\_CURSOR\_OFF|LCD\_BLINK\_OFF)}
-\hypertarget{lcd_8h_source_l00117}{}\hyperlink{lcd_8h_a3342673e030aa53067050b74629c7f78}{00117} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_DISPLAY\_INCREMENT   (LCD\_INCREMENT|LCD\_INCREMENT\_NO\_SHIFT)}
-00118 \textcolor{preprocessor}{}
-00119 
-\hypertarget{lcd_8h_source_l00120}{}\hyperlink{struct_l_c_d_status}{00120} \textcolor{keyword}{typedef} \textcolor{keyword}{struct}
-00121 \{
-\hypertarget{lcd_8h_source_l00122}{}\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{00122}     uint8\_t \hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row};
-\hypertarget{lcd_8h_source_l00123}{}\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{00123}     uint8\_t \hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col};
-\hypertarget{lcd_8h_source_l00124}{}\hyperlink{struct_l_c_d_status_a844c7ce7851d43e9459d28c2e93d715a}{00124}     uint8\_t \hyperlink{struct_l_c_d_status_a844c7ce7851d43e9459d28c2e93d715a}{display};
-\hypertarget{lcd_8h_source_l00125}{}\hyperlink{struct_l_c_d_status_ad69f767818d8a15e1fd6935e07df3770}{00125}     uint8\_t \hyperlink{struct_l_c_d_status_ad69f767818d8a15e1fd6935e07df3770}{shift};
-\hypertarget{lcd_8h_source_l00126}{}\hyperlink{struct_l_c_d_status_a896d1656ee60acf6ad7bcce2cdf3edae}{00126}     uint8\_t \hyperlink{struct_l_c_d_status_a896d1656ee60acf6ad7bcce2cdf3edae}{cgramAdress};
-\hypertarget{lcd_8h_source_l00127}{}\hyperlink{struct_l_c_d_status_a8a1571d6288e2ec1ed1114fca2f873be}{00127}     uint8\_t specialChar[8];     \textcolor{comment}{//defined by fonts}
-00128 \}\hyperlink{struct_l_c_d_status}{LCDStatus};
+00072 \textcolor{comment}{//sub-function masks}
+00073 \textcolor{comment}{//External Function Masks}
+\hypertarget{lcd_8h_source_l00074}{}\hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{00074} \textcolor{preprocessor}{#define LCDDelay(x)             SysDelayUs(x)}
+\hypertarget{lcd_8h_source_l00075}{}\hyperlink{lcd_8h_a3bc70b31cd1ab9a95b44befeca6f4f42}{00075} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCDPinSet(x, y)         PinAddrSet(x, y)}
+\hypertarget{lcd_8h_source_l00076}{}\hyperlink{lcd_8h_a1279c3be6e3b6cefa1b1bee2325c8f93}{00076} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCDPinClear(x, y)       PinAddrClear(x,y)}
+00077 \textcolor{preprocessor}{}
+00078 
+00079 
+00080 \textcolor{comment}{//sub-function masks}
+\hypertarget{lcd_8h_source_l00081}{}\hyperlink{lcd_8h_abba12f2f22df7f046b7d5a4cd2e969b7}{00081} \textcolor{preprocessor}{#define LCD\_RS\_High             LCDPinSet(LCD\_RS\_Port, LCD\_RS\_Pin)}
+\hypertarget{lcd_8h_source_l00082}{}\hyperlink{lcd_8h_a0b24c06c65241a0e59d9c53807e41317}{00082} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_RS\_Low              LCDPinClear(LCD\_RS\_Port, LCD\_RS\_Pin)}
+\hypertarget{lcd_8h_source_l00083}{}\hyperlink{lcd_8h_aa5646c9467f205fa5d9ae2f35037e222}{00083} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_EN\_High             LCDPinSet(LCD\_EN\_Port, LCD\_EN\_Pin)}
+\hypertarget{lcd_8h_source_l00084}{}\hyperlink{lcd_8h_ab54604df26d503464f08a6340307989b}{00084} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_EN\_Low              LCDPinClear(LCD\_EN\_Port, LCD\_EN\_Pin)}
+\hypertarget{lcd_8h_source_l00085}{}\hyperlink{lcd_8h_a3968a5a06507ca285bf6fcc85bf55233}{00085} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CLK\_High            LCDPinSet(LCD\_CLK\_Port, LCD\_CLK\_Pin)}
+\hypertarget{lcd_8h_source_l00086}{}\hyperlink{lcd_8h_a890883a29b53338d9d00a18e3a0fe0ef}{00086} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CLK\_LoW             LCDPinClear(LCD\_CLK\_Port, LCD\_CLK\_Pin)}
+\hypertarget{lcd_8h_source_l00087}{}\hyperlink{lcd_8h_ad70516201ea275cdb7b698f8782bd0b6}{00087} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_DTA\_Send(text)      ShiftSerialSend(LCD\_DTA\_Port,\(\backslash\)}
+00088 \textcolor{preprocessor}{                                LCD\_DTA\_Pin,\(\backslash\)}
+00089 \textcolor{preprocessor}{                                LCD\_CLK\_Port,\(\backslash\)}
+00090 \textcolor{preprocessor}{                                LCD\_CLK\_Pin, text)}
+00091 \textcolor{preprocessor}{}
+00092 
+00093 \textcolor{comment}{//LCD Command Masks}
+\hypertarget{lcd_8h_source_l00094}{}\hyperlink{lcd_8h_a846dac5d1bb72bef7a76ee110c0445b6}{00094} \textcolor{preprocessor}{#define LCD\_DISPLAY\_ON          0x0C}
+\hypertarget{lcd_8h_source_l00095}{}\hyperlink{lcd_8h_ab1b96426e59139b68ae95df45d697087}{00095} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_DISPLAY\_OFF         0x08}
+\hypertarget{lcd_8h_source_l00096}{}\hyperlink{lcd_8h_a8dae7021acb10d4e5f8458a5fba78729}{00096} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CURSOR\_ON           0x0A}
+\hypertarget{lcd_8h_source_l00097}{}\hyperlink{lcd_8h_a7a6a930d205b2819be910af194576dca}{00097} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_CURSOR\_OFF          0x08}
+\hypertarget{lcd_8h_source_l00098}{}\hyperlink{lcd_8h_a654ab1d84354662d394a62be3b2230d1}{00098} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_BLINK\_ON            0x09}
+\hypertarget{lcd_8h_source_l00099}{}\hyperlink{lcd_8h_a3480b863e1e145d9a258de170fc44ffa}{00099} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_BLINK\_OFF           0x08}
+\hypertarget{lcd_8h_source_l00100}{}\hyperlink{lcd_8h_a921b50a756949abc5a25094b0c191a10}{00100} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT               0x10}
+\hypertarget{lcd_8h_source_l00101}{}\hyperlink{lcd_8h_ae8ef8c05d43d77d16e131eb718ae4ac7}{00101} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_DISPLAY       0x08}
+\hypertarget{lcd_8h_source_l00102}{}\hyperlink{lcd_8h_a7bd7034ad5f552265a6baefeb79f9c5b}{00102} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_CURSOR        0x02}
+\hypertarget{lcd_8h_source_l00103}{}\hyperlink{lcd_8h_a8ab3108396a0d33dbf7f3ab6477ba01d}{00103} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_RIGHT         0x04}
+\hypertarget{lcd_8h_source_l00104}{}\hyperlink{lcd_8h_a941377571f34b9d898b61ce89f10226d}{00104} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SHIFT\_LEFT          0x00}
+\hypertarget{lcd_8h_source_l00105}{}\hyperlink{lcd_8h_aeb37f5be802499adedd4f9366797bf0a}{00105} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_SET\_CGRAM           0x40}
+\hypertarget{lcd_8h_source_l00106}{}\hyperlink{lcd_8h_ab1fb2568cd5b8fb0f9103652a3deb895}{00106} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT           0X04}
+\hypertarget{lcd_8h_source_l00107}{}\hyperlink{lcd_8h_a06315bb86679bb3ef1aff07e62aab6de}{00107} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_NO\_SHIFT  0x00}
+\hypertarget{lcd_8h_source_l00108}{}\hyperlink{lcd_8h_aa861073d2f5122bb8092023f9970d3a0}{00108} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_SHIFT     0x01}
+\hypertarget{lcd_8h_source_l00109}{}\hyperlink{lcd_8h_a0a7949ac27e6fece73d67a48eca643e9}{00109} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_POSITIVE  0x02}
+\hypertarget{lcd_8h_source_l00110}{}\hyperlink{lcd_8h_aecbb4fa221268f1c6ea267379a97055f}{00110} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_INCREMENT\_NEGATIVE  0x00}
+00111 \textcolor{preprocessor}{}
+00112 
+00113 \textcolor{comment}{//LCD Command Initial State - Config}
+\hypertarget{lcd_8h_source_l00114}{}\hyperlink{lcd_8h_a4f2c8e26ccc5cf79276816b6e3ce072e}{00114} \textcolor{preprocessor}{#define LCD\_DISPLAY\_CONFIG      (LCD\_DISPLAY\_ON|LCD\_CURSOR\_OFF|LCD\_BLINK\_OFF)}
+\hypertarget{lcd_8h_source_l00115}{}\hyperlink{lcd_8h_a3342673e030aa53067050b74629c7f78}{00115} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LCD\_DISPLAY\_INCREMENT   (LCD\_INCREMENT|LCD\_INCREMENT\_NO\_SHIFT)}
+00116 \textcolor{preprocessor}{}
+00117 
+\hypertarget{lcd_8h_source_l00118}{}\hyperlink{struct_l_c_d_status}{00118} \textcolor{keyword}{typedef} \textcolor{keyword}{struct}
+00119 \{
+\hypertarget{lcd_8h_source_l00120}{}\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{00120}     uint8\_t \hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row};
+\hypertarget{lcd_8h_source_l00121}{}\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{00121}     uint8\_t \hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col};
+\hypertarget{lcd_8h_source_l00122}{}\hyperlink{struct_l_c_d_status_a844c7ce7851d43e9459d28c2e93d715a}{00122}     uint8\_t \hyperlink{struct_l_c_d_status_a844c7ce7851d43e9459d28c2e93d715a}{display};
+\hypertarget{lcd_8h_source_l00123}{}\hyperlink{struct_l_c_d_status_ad69f767818d8a15e1fd6935e07df3770}{00123}     uint8\_t \hyperlink{struct_l_c_d_status_ad69f767818d8a15e1fd6935e07df3770}{shift};
+\hypertarget{lcd_8h_source_l00124}{}\hyperlink{struct_l_c_d_status_a896d1656ee60acf6ad7bcce2cdf3edae}{00124}     uint8\_t \hyperlink{struct_l_c_d_status_a896d1656ee60acf6ad7bcce2cdf3edae}{cgramAdress};
+\hypertarget{lcd_8h_source_l00125}{}\hyperlink{struct_l_c_d_status_a8a1571d6288e2ec1ed1114fca2f873be}{00125}     uint8\_t specialChar[8];     \textcolor{comment}{//defined by fonts}
+00126 \}\hyperlink{struct_l_c_d_status}{LCDStatus};
+00127 
+00128 
 00129 
-00130 
-00131 
-00132 \textcolor{comment}{// \(\backslash\)TODO: fix this shit. decide if is to be used with structs or no use at all.}
-00133 \textcolor{keyword}{extern} \hyperlink{struct_l_c_d_status}{LCDStatus}   \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status};
+00130 \textcolor{comment}{// \(\backslash\)TODO: fix this shit. decide if is to be used with structs or no use at all.}
+00131 \textcolor{keyword}{extern} \hyperlink{struct_l_c_d_status}{LCDStatus}   \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status};
+00132 
+00133 
 00134 
 00135 
-00136 
-00137 
-00138 \textcolor{comment}{//functions declarations}
-00139 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a410f02e534a63d1f6e7a168dae003d6d}{LCDInit}(\textcolor{keywordtype}{void});
-00140 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(uint8\_t cmd);
-00141 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(uint8\_t txt);
-00142 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a9bf60c90a000058abb09e96594144bf1}{LCDSend}(uint8\_t send);
-00143 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(uint8\_t row, uint8\_t col);
-00144 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_af22c7bb61db1d8632dd23b9803d00464}{LCDPositionNoDelay}(uint8\_t row, uint8\_t col);
-00145 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(uint8\_t *\textcolor{keywordtype}{string}, uint8\_t breakLine);
-00146 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ac4b96faffdc9a846f1f2031a09935f07}{LCDSendNumStrict}(int64\_t num, uint8\_t length,\(\backslash\)
+00136 \textcolor{comment}{//functions declarations}
+00137 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a410f02e534a63d1f6e7a168dae003d6d}{LCDInit}(\textcolor{keywordtype}{void});
+00138 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(uint8\_t cmd);
+00139 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(uint8\_t txt);
+00140 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a9bf60c90a000058abb09e96594144bf1}{LCDSend}(uint8\_t send);
+00141 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(uint8\_t row, uint8\_t col);
+00142 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_af22c7bb61db1d8632dd23b9803d00464}{LCDPositionNoDelay}(uint8\_t row, uint8\_t col);
+00143 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(uint8\_t *\textcolor{keywordtype}{string}, uint8\_t breakLine);
+00144 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ac4b96faffdc9a846f1f2031a09935f07}{LCDSendNumStrict}(int64\_t num, uint8\_t length,\(\backslash\)
+00145         uint8\_t isSigned, uint8\_t showZeros);
+00146 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a834f812058a0f9e13614e3877b99e7d1}{LCDSendNum}(int64\_t num, uint8\_t length,\(\backslash\)
 00147         uint8\_t isSigned, uint8\_t showZeros);
-00148 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a834f812058a0f9e13614e3877b99e7d1}{LCDSendNum}(int64\_t num, uint8\_t length,\(\backslash\)
-00149         uint8\_t isSigned, uint8\_t showZeros);
-00150 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ade3eeb664308c31bec8962e0ca496f3f}{LCDSendNumArray}(uint8\_t *vector);
-00151 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a3a94c0f44f76db891e66d98966f904e8}{LCDClear}(\textcolor{keywordtype}{void});
-00152 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a0178cd2ca404d1b5b126d43df79bd460}{LCDSendHex}(uint8\_t *array);
-00153 
-00154 \textcolor{comment}{//limited by uint64 max counting}
-\hypertarget{lcd_8h_source_l00155}{}\hyperlink{lcd_8h_ac707227d799959d68d984285c3238228}{00155} \textcolor{preprocessor}{#define maxLengthOut    16}
-00156 \textcolor{preprocessor}{}\textcolor{keywordtype}{void} \hyperlink{lcd_8h_a6fb89345366fbf76f2ab64e128a1eaae}{numToArray}(int32\_t num, uint8\_t *array,\(\backslash\)
-00157                 uint8\_t length, uint16\_t base);
-00158 
-00159 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ae4c4a47ab102aad380f49e65ffb62c39}{LCDRegisterSpecial}(uint8\_t number,\(\backslash\)
-00160                         uint8\_t *character);
-00161 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a7844790b6bfe761b4eb51f3dda0705ac}{LCDShift}(uint8\_t shift);
-00162 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_aaafcc9bb116e4ac997a76fb626b64f67}{LCDHome}(\textcolor{keywordtype}{void});
-00163 
+00148 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ade3eeb664308c31bec8962e0ca496f3f}{LCDSendNumArray}(uint8\_t *vector);
+00149 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a3a94c0f44f76db891e66d98966f904e8}{LCDClear}(\textcolor{keywordtype}{void});
+00150 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a0178cd2ca404d1b5b126d43df79bd460}{LCDSendHex}(uint8\_t *array);
+00151 
+00152 \textcolor{comment}{//limited by uint64 max counting}
+\hypertarget{lcd_8h_source_l00153}{}\hyperlink{lcd_8h_ac707227d799959d68d984285c3238228}{00153} \textcolor{preprocessor}{#define maxLengthOut    16}
+00154 \textcolor{preprocessor}{}\textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a6fb89345366fbf76f2ab64e128a1eaae}{numToArray}(int32\_t num, uint8\_t *array,\(\backslash\)
+00155                 uint8\_t length, uint16\_t base);
+00156 
+00157 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ae4c4a47ab102aad380f49e65ffb62c39}{LCDRegisterSpecial}(uint8\_t number,\(\backslash\)
+00158                         uint8\_t *character);
+00159 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a7844790b6bfe761b4eb51f3dda0705ac}{LCDShift}(uint8\_t shift);
+00160 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_aaafcc9bb116e4ac997a76fb626b64f67}{LCDHome}(\textcolor{keywordtype}{void});
+00161 
+00162 
+00163 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a9fd5ca15fc3f4409eef61069558a4b8e}{arrayToNum}(uint8\_t *array, uint32\_t *num, uint8\_t base);
 00164 
-00165 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_a9fd5ca15fc3f4409eef61069558a4b8e}{arrayToNum}(uint8\_t *array, uint32\_t *num, uint8\_t base);
-00166 
+00165 
+00166 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ac002f3125c0e84fcba52a2ee41855b61}{LCDSendVU}(uint32\_t num, uint32\_t base);
 00167 
-00168 \textcolor{keywordtype}{void} \hyperlink{lcd_8h_ac002f3125c0e84fcba52a2ee41855b61}{LCDSendVU}(uint32\_t num, uint32\_t base);
-00169 
-00170 \textcolor{preprocessor}{#endif}
+00168 \textcolor{preprocessor}{#endif}
 \end{DoxyCode}

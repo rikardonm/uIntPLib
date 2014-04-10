@@ -1,15 +1,47 @@
+/**
+ * \brief LCD SW Driver Library
+ *
+ * This file contains the functions to properly (hopefully) drive the LCD peripheral.
+ * Current implementation uses a serial shift register to drive the LCD in 8 bit mode.
+ *
+ * Further modifications to this library include:
+ * + Parallel data transfer (make function to);
+ * \data {__DATE__}
+ *
+ * For the complete execution of the library, the following macros have to be created
+ * specifically for this library:
+ * + LCD_SPLASHSCREEN1 	(1,0)
+ * + LCD_SPLASHSCREEN2	(1,0)
+ * + LCD_SPLASHSCREEN_CLEAR	(1,0)
+ *
+ * The library uses theses global value macros:
+ * + PROJECT_NAME	("string_of_name_here")
+ *
+ * The library uses these global function macros:
+ * + SysDelayUs(time)
+ * + PinAddrSet(port, pin)
+ * + PinAddrClear(port, pin)
+ *
+ * The following external connection macros have to be set:
+ * + LCD_RS_PORT	(register address)
+ * + LCD_RS_PIN		(bit position)
+ * + LCD_EN_PORT	(register address)
+ * + LCD_EN_PORT	(bit position)
+ * + LCD_DTA_PORT	(register address)
+ */
+
 #ifndef lcd_h
 #define lcd_h
 
 
 #include "includeAll.h"
 
+#define LCD_splashscreen_row1	__DATE__				//!< compile date, used as program version
+#define LCD_splashscreen_row2	__TIME__				//!< compile time, used as program version
 
-#define LCD_splashscreen_row1	PROJECT_NAME			//!< geneartion of project name in LCD
-#define LCD_splashscreen_row2	("rnm sys undvpd")		//!< creator's watermark
+#define LCD_splashscreen2_row1	PROJECT_NAME			//!< geneartion of project name in LCD
+#define LCD_splashscreen2_row2	("rnm sys undvpd")		//!< creator's watermark
 
-#define LCD_splashscreen2_row1	__DATE__				//!< compile date, used as program version
-#define LCD_splashscreen2_row2	__TIME__				//!< compile time, used as program version
 
 
 

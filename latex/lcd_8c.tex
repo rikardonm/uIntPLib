@@ -23,13 +23,13 @@ void \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{L\-C\-D\-Send\-Cmd} (u
 void \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{L\-C\-D\-Send\-Char} (uint8\-\_\-t txt)
 \begin{DoxyCompactList}\small\item\em send single character to L\-C\-D. \end{DoxyCompactList}\item 
 \-\_\-\-\_\-inline void \hyperlink{lcd_8c_a0257fa3d10340824fed4a7839f626c4e}{L\-C\-D\-Send} (uint8\-\_\-t send)
-\item 
+\begin{DoxyCompactList}\small\item\em Send data to L\-C\-D, no R\-S control. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{L\-C\-D\-Position} (uint8\-\_\-t row, uint8\-\_\-t col)
-\item 
+\begin{DoxyCompactList}\small\item\em Set L\-C\-D write position. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8c_af22c7bb61db1d8632dd23b9803d00464}{L\-C\-D\-Position\-No\-Delay} (uint8\-\_\-t row, uint8\-\_\-t col)
-\item 
+\begin{DoxyCompactList}\small\item\em Set L\-C\-D write position, no delay in function. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{L\-C\-D\-Send\-String} (uint8\-\_\-t $\ast$string, uint8\-\_\-t break\-Line)
-\item 
+\begin{DoxyCompactList}\small\item\em Send string to L\-C\-D. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8c_ac4b96faffdc9a846f1f2031a09935f07}{L\-C\-D\-Send\-Num\-Strict} (int64\-\_\-t num, uint8\-\_\-t length, uint8\-\_\-t is\-Signed, uint8\-\_\-t show\-Zeros)
 \item 
 void \hyperlink{lcd_8c_a834f812058a0f9e13614e3877b99e7d1}{L\-C\-D\-Send\-Num} (int64\-\_\-t num, uint8\-\_\-t length, uint8\-\_\-t is\-Signed, uint8\-\_\-t show\-Zeros)
@@ -106,7 +106,7 @@ Definition at line \hyperlink{lcd_8c_source_l00013}{13} of file \hyperlink{lcd_8
 )}}\label{lcd_8c_a9fd5ca15fc3f4409eef61069558a4b8e}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00422}{422} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00433}{433} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a3a94c0f44f76db891e66d98966f904e8}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Clear@{L\-C\-D\-Clear}}
 \index{L\-C\-D\-Clear@{L\-C\-D\-Clear}!lcd.c@{lcd.\-c}}
@@ -117,7 +117,7 @@ Definition at line \hyperlink{lcd_8c_source_l00422}{422} of file \hyperlink{lcd_
 )}}\label{lcd_8c_a3a94c0f44f76db891e66d98966f904e8}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00286}{286} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00297}{297} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_abeb4bea89bc174b16a527b8d9566d610}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Display\-On@{L\-C\-D\-Display\-On}}
 \index{L\-C\-D\-Display\-On@{L\-C\-D\-Display\-On}!lcd.c@{lcd.\-c}}
@@ -128,7 +128,7 @@ Definition at line \hyperlink{lcd_8c_source_l00286}{286} of file \hyperlink{lcd_
 )}}\label{lcd_8c_abeb4bea89bc174b16a527b8d9566d610}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00300}{300} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00311}{311} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_aaafcc9bb116e4ac997a76fb626b64f67}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Home@{L\-C\-D\-Home}}
 \index{L\-C\-D\-Home@{L\-C\-D\-Home}!lcd.c@{lcd.\-c}}
@@ -139,7 +139,7 @@ Definition at line \hyperlink{lcd_8c_source_l00300}{300} of file \hyperlink{lcd_
 )}}\label{lcd_8c_aaafcc9bb116e4ac997a76fb626b64f67}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00414}{414} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00425}{425} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a410f02e534a63d1f6e7a168dae003d6d}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Init@{L\-C\-D\-Init}}
 \index{L\-C\-D\-Init@{L\-C\-D\-Init}!lcd.c@{lcd.\-c}}
@@ -171,7 +171,18 @@ Definition at line \hyperlink{lcd_8c_source_l00047}{47} of file \hyperlink{lcd_8
 )}}\label{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00117}{117} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Set L\-C\-D write position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & uint8\-\_\-t row. \\
+\hline
+{\em col} & uint8\-\_\-t column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00118}{118} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_af22c7bb61db1d8632dd23b9803d00464}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Position\-No\-Delay@{L\-C\-D\-Position\-No\-Delay}}
 \index{L\-C\-D\-Position\-No\-Delay@{L\-C\-D\-Position\-No\-Delay}!lcd.c@{lcd.\-c}}
@@ -183,7 +194,18 @@ Definition at line \hyperlink{lcd_8c_source_l00117}{117} of file \hyperlink{lcd_
 )}}\label{lcd_8c_af22c7bb61db1d8632dd23b9803d00464}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00135}{135} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Set L\-C\-D write position, no delay in function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & uint8\-\_\-t row. \\
+\hline
+{\em col} & uint8\-\_\-t column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00138}{138} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_ae4c4a47ab102aad380f49e65ffb62c39}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Register\-Special@{L\-C\-D\-Register\-Special}}
 \index{L\-C\-D\-Register\-Special@{L\-C\-D\-Register\-Special}!lcd.c@{lcd.\-c}}
@@ -195,7 +217,7 @@ Definition at line \hyperlink{lcd_8c_source_l00135}{135} of file \hyperlink{lcd_
 )}}\label{lcd_8c_ae4c4a47ab102aad380f49e65ffb62c39}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00387}{387} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00398}{398} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a0257fa3d10340824fed4a7839f626c4e}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send@{L\-C\-D\-Send}}
 \index{L\-C\-D\-Send@{L\-C\-D\-Send}!lcd.c@{lcd.\-c}}
@@ -204,6 +226,15 @@ Definition at line \hyperlink{lcd_8c_source_l00387}{387} of file \hyperlink{lcd_
 \item[{uint8\-\_\-t}]{send}
 \end{DoxyParamCaption}
 )}}\label{lcd_8c_a0257fa3d10340824fed4a7839f626c4e}
+
+
+Send data to L\-C\-D, no R\-S control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em send} & uint8\-\_\-t data to be sent. \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \hyperlink{lcd_8c_source_l00102}{102} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
@@ -221,12 +252,12 @@ send single character to L\-C\-D.
 
 
 \begin{DoxyParams}{Parameters}
-{\em txt} & char type data to be sent, 8 bits. \\
+{\em txt} & uint8\-\_\-t type data to be sent, 8 bits. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00091}{91} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00089}{89} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send\-Cmd@{L\-C\-D\-Send\-Cmd}}
 \index{L\-C\-D\-Send\-Cmd@{L\-C\-D\-Send\-Cmd}!lcd.c@{lcd.\-c}}
@@ -248,7 +279,7 @@ Definition at line \hyperlink{lcd_8c_source_l00077}{77} of file \hyperlink{lcd_8
 )}}\label{lcd_8c_a0178cd2ca404d1b5b126d43df79bd460}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00314}{314} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00325}{325} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a834f812058a0f9e13614e3877b99e7d1}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send\-Num@{L\-C\-D\-Send\-Num}}
 \index{L\-C\-D\-Send\-Num@{L\-C\-D\-Send\-Num}!lcd.c@{lcd.\-c}}
@@ -262,7 +293,7 @@ Definition at line \hyperlink{lcd_8c_source_l00314}{314} of file \hyperlink{lcd_
 )}}\label{lcd_8c_a834f812058a0f9e13614e3877b99e7d1}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00235}{235} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00246}{246} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_ab60cf48616fbfae462176971827a642d}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send\-Num\-Array@{L\-C\-D\-Send\-Num\-Array}}
 \index{L\-C\-D\-Send\-Num\-Array@{L\-C\-D\-Send\-Num\-Array}!lcd.c@{lcd.\-c}}
@@ -273,7 +304,7 @@ Definition at line \hyperlink{lcd_8c_source_l00235}{235} of file \hyperlink{lcd_
 )}}\label{lcd_8c_ab60cf48616fbfae462176971827a642d}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00273}{273} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00284}{284} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_ac4b96faffdc9a846f1f2031a09935f07}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send\-Num\-Strict@{L\-C\-D\-Send\-Num\-Strict}}
 \index{L\-C\-D\-Send\-Num\-Strict@{L\-C\-D\-Send\-Num\-Strict}!lcd.c@{lcd.\-c}}
@@ -287,7 +318,7 @@ Definition at line \hyperlink{lcd_8c_source_l00273}{273} of file \hyperlink{lcd_
 )}}\label{lcd_8c_ac4b96faffdc9a846f1f2031a09935f07}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00188}{188} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00199}{199} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send\-String@{L\-C\-D\-Send\-String}}
 \index{L\-C\-D\-Send\-String@{L\-C\-D\-Send\-String}!lcd.c@{lcd.\-c}}
@@ -299,7 +330,18 @@ Definition at line \hyperlink{lcd_8c_source_l00188}{188} of file \hyperlink{lcd_
 )}}\label{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00153}{153} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Send string to L\-C\-D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$string} & uint8\-\_\-t string to be sent. \\
+\hline
+{\em break\-Line} & uint8\-\_\-t break line at the end of L\-C\-D length.\\
+\hline
+\end{DoxyParams}
+Writes a string of characteres on display Processes according to the A\-S\-C\-I\-I code 0 -\/ N\-U\-L\-L 
+
+Definition at line \hyperlink{lcd_8c_source_l00162}{162} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_ac002f3125c0e84fcba52a2ee41855b61}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Send\-V\-U@{L\-C\-D\-Send\-V\-U}}
 \index{L\-C\-D\-Send\-V\-U@{L\-C\-D\-Send\-V\-U}!lcd.c@{lcd.\-c}}
@@ -311,7 +353,7 @@ Definition at line \hyperlink{lcd_8c_source_l00153}{153} of file \hyperlink{lcd_
 )}}\label{lcd_8c_ac002f3125c0e84fcba52a2ee41855b61}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00434}{434} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00445}{445} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a7844790b6bfe761b4eb51f3dda0705ac}{\index{lcd.\-c@{lcd.\-c}!L\-C\-D\-Shift@{L\-C\-D\-Shift}}
 \index{L\-C\-D\-Shift@{L\-C\-D\-Shift}!lcd.c@{lcd.\-c}}
@@ -322,7 +364,7 @@ Definition at line \hyperlink{lcd_8c_source_l00434}{434} of file \hyperlink{lcd_
 )}}\label{lcd_8c_a7844790b6bfe761b4eb51f3dda0705ac}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00405}{405} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00416}{416} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8c_a6fb89345366fbf76f2ab64e128a1eaae}{\index{lcd.\-c@{lcd.\-c}!num\-To\-Array@{num\-To\-Array}}
 \index{num\-To\-Array@{num\-To\-Array}!lcd.c@{lcd.\-c}}
@@ -336,7 +378,7 @@ Definition at line \hyperlink{lcd_8c_source_l00405}{405} of file \hyperlink{lcd_
 )}}\label{lcd_8c_a6fb89345366fbf76f2ab64e128a1eaae}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00347}{347} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00358}{358} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 
 

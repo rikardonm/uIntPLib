@@ -14,24 +14,24 @@
 #endif
 
 
+
 /*
  * Initialization Sequence:
  * TODO: create masks for LCD commands
  */
-#define lcd_vector_index	9
+#define lcd_vector_index	7
 const char LCD_CmdInit_Vector [lcd_vector_index] = \
 		{
-			0x03, 0x38, 0x38, 0x38, 0x01, LCD_DISPLAY_CONFIG, LCD_DISPLAY_INCREMENT, 0x01, 0x02,
+			0x38, 0x38, 0x38, 0x01, LCD_DISPLAY_CONFIG, LCD_DISPLAY_INCREMENT, 0x01
 		};
-/*
- * Delay time in uSs
- */
+
+
 /**
  * LCD Init command delay vector, in uS
  */
 const unsigned int LCD_InitDelay_Vector[lcd_vector_index] = \
 		{
-			8000, 800, 800, 800, 600, 600, 200, 200, 200
+			8000, 200, 200, 16000, 600, 200, 15000
 		};
 
 
@@ -68,7 +68,9 @@ void LCDInit(void)
 	LCDSendString(LCD_splashscreen2_row2, false);
 	LCDDelay(2*1000*1000);
 #endif
+#if LCD_SPLAHSCREEN_CLEAR == 1
 	LCDClear();
+#endif
 }
 
 /*
@@ -95,7 +97,7 @@ void LCDSendChar(uint8_t txt)
 }
 
 /**
- * \brief Send data to LCD, no RS control
+ * \brief Send data to LCD, no RS control.
  *
  * \param send uint8_t data to be sent.
  */

@@ -1,8 +1,7 @@
 \hypertarget{lcd_8h}{\section{my\-\_\-lib/lcd.h File Reference}
 \label{lcd_8h}\index{my\-\_\-lib/lcd.\-h@{my\-\_\-lib/lcd.\-h}}
 }
-{\ttfamily \#include \char`\"{}depl\-\_\-spc/include\-All\-\_\-hw.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}depl\-\_\-spc/include\-All\-\_\-sw.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}include\-All.\-h\char`\"{}}\\*
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -89,13 +88,13 @@ void \hyperlink{lcd_8h_adf46506fd9d8c431334544aa11f4758d}{L\-C\-D\-Send\-Cmd} (u
 void \hyperlink{lcd_8h_a0d5843c7370917ec19391dd73542e4a6}{L\-C\-D\-Send\-Char} (uint8\-\_\-t txt)
 \begin{DoxyCompactList}\small\item\em send single character to L\-C\-D. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_a9bf60c90a000058abb09e96594144bf1}{L\-C\-D\-Send} (uint8\-\_\-t send)
-\item 
+\begin{DoxyCompactList}\small\item\em Send data to L\-C\-D, no R\-S control. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_ad4c66b9810c1c89a670b7c619a727cae}{L\-C\-D\-Position} (uint8\-\_\-t row, uint8\-\_\-t col)
-\item 
+\begin{DoxyCompactList}\small\item\em Set L\-C\-D write position. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_af22c7bb61db1d8632dd23b9803d00464}{L\-C\-D\-Position\-No\-Delay} (uint8\-\_\-t row, uint8\-\_\-t col)
-\item 
+\begin{DoxyCompactList}\small\item\em Set L\-C\-D write position, no delay in function. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_a235609b6036ae1c877c66c70c9e1b962}{L\-C\-D\-Send\-String} (uint8\-\_\-t $\ast$string, uint8\-\_\-t break\-Line)
-\item 
+\begin{DoxyCompactList}\small\item\em Send string to L\-C\-D. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_ac4b96faffdc9a846f1f2031a09935f07}{L\-C\-D\-Send\-Num\-Strict} (int64\-\_\-t num, uint8\-\_\-t length, uint8\-\_\-t is\-Signed, uint8\-\_\-t show\-Zeros)
 \item 
 void \hyperlink{lcd_8h_a834f812058a0f9e13614e3877b99e7d1}{L\-C\-D\-Send\-Num} (int64\-\_\-t num, uint8\-\_\-t length, uint8\-\_\-t is\-Signed, uint8\-\_\-t show\-Zeros)
@@ -131,70 +130,70 @@ void \hyperlink{lcd_8h_ac002f3125c0e84fcba52a2ee41855b61}{L\-C\-D\-Send\-V\-U} (
 \subsubsection[{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-F\-F~0x08}}\label{lcd_8h_a3480b863e1e145d9a258de170fc44ffa}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00101}{101} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00099}{99} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a654ab1d84354662d394a62be3b2230d1}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N@{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N}}
 \index{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N@{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N~0x09}}\label{lcd_8h_a654ab1d84354662d394a62be3b2230d1}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00100}{100} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00098}{98} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a3968a5a06507ca285bf6fcc85bf55233}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-High@{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-High}}
 \index{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-High@{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-High}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-High}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-High~{\bf L\-C\-D\-Pin\-Set}({\bf L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Port}, {\bf L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Pin})}}\label{lcd_8h_a3968a5a06507ca285bf6fcc85bf55233}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00087}{87} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00085}{85} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a890883a29b53338d9d00a18e3a0fe0ef}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Lo\-W@{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Lo\-W}}
 \index{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Lo\-W@{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Lo\-W}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Lo\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Lo\-W~{\bf L\-C\-D\-Pin\-Clear}({\bf L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Port}, {\bf L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Pin})}}\label{lcd_8h_a890883a29b53338d9d00a18e3a0fe0ef}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00088}{88} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00086}{86} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a7a6a930d205b2819be910af194576dca}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F@{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F}}
 \index{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F@{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F~0x08}}\label{lcd_8h_a7a6a930d205b2819be910af194576dca}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00099}{99} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00097}{97} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a8dae7021acb10d4e5f8458a5fba78729}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N@{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N}}
 \index{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N@{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N~0x0\-A}}\label{lcd_8h_a8dae7021acb10d4e5f8458a5fba78729}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00098}{98} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00096}{96} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a4f2c8e26ccc5cf79276816b6e3ce072e}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G}}
 \index{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G~({\bf L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N}$\vert${\bf L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F}$\vert${\bf L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-F\-F})}}\label{lcd_8h_a4f2c8e26ccc5cf79276816b6e3ce072e}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00116}{116} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00114}{114} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a3342673e030aa53067050b74629c7f78}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}}
 \index{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T~({\bf L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}$\vert${\bf L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T})}}\label{lcd_8h_a3342673e030aa53067050b74629c7f78}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00117}{117} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00115}{115} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ab1b96426e59139b68ae95df45d697087}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F}}
 \index{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F~0x08}}\label{lcd_8h_ab1b96426e59139b68ae95df45d697087}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00097}{97} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00095}{95} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a846dac5d1bb72bef7a76ee110c0445b6}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N}}
 \index{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N~0x0\-C}}\label{lcd_8h_a846dac5d1bb72bef7a76ee110c0445b6}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00096}{96} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00094}{94} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ad70516201ea275cdb7b698f8782bd0b6}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Send@{L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Send}}
 \index{L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Send@{L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Send}!lcd.h@{lcd.\-h}}
@@ -212,112 +211,112 @@ Definition at line \hyperlink{lcd_8h_source_l00096}{96} of file \hyperlink{lcd_8
 \end{DoxyCode}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00089}{89} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00087}{87} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_aa5646c9467f205fa5d9ae2f35037e222}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-E\-N\-\_\-\-High@{L\-C\-D\-\_\-\-E\-N\-\_\-\-High}}
 \index{L\-C\-D\-\_\-\-E\-N\-\_\-\-High@{L\-C\-D\-\_\-\-E\-N\-\_\-\-High}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-E\-N\-\_\-\-High}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-E\-N\-\_\-\-High~{\bf L\-C\-D\-Pin\-Set}({\bf L\-C\-D\-\_\-\-E\-N\-\_\-\-Port}, {\bf L\-C\-D\-\_\-\-E\-N\-\_\-\-Pin})}}\label{lcd_8h_aa5646c9467f205fa5d9ae2f35037e222}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00085}{85} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00083}{83} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ab54604df26d503464f08a6340307989b}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-E\-N\-\_\-\-Low@{L\-C\-D\-\_\-\-E\-N\-\_\-\-Low}}
 \index{L\-C\-D\-\_\-\-E\-N\-\_\-\-Low@{L\-C\-D\-\_\-\-E\-N\-\_\-\-Low}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-E\-N\-\_\-\-Low}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-E\-N\-\_\-\-Low~{\bf L\-C\-D\-Pin\-Clear}({\bf L\-C\-D\-\_\-\-E\-N\-\_\-\-Port}, {\bf L\-C\-D\-\_\-\-E\-N\-\_\-\-Pin})}}\label{lcd_8h_ab54604df26d503464f08a6340307989b}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00086}{86} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00084}{84} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ab1fb2568cd5b8fb0f9103652a3deb895}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}}
 \index{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T~0\-X04}}\label{lcd_8h_ab1fb2568cd5b8fb0f9103652a3deb895}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00108}{108} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00106}{106} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_aecbb4fa221268f1c6ea267379a97055f}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E}}
 \index{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E~0x00}}\label{lcd_8h_aecbb4fa221268f1c6ea267379a97055f}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00112}{112} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00110}{110} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a06315bb86679bb3ef1aff07e62aab6de}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T}}
 \index{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T~0x00}}\label{lcd_8h_a06315bb86679bb3ef1aff07e62aab6de}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00109}{109} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00107}{107} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a0a7949ac27e6fece73d67a48eca643e9}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E}}
 \index{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E~0x02}}\label{lcd_8h_a0a7949ac27e6fece73d67a48eca643e9}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00111}{111} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00109}{109} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_aa861073d2f5122bb8092023f9970d3a0}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T}}
 \index{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T~0x01}}\label{lcd_8h_aa861073d2f5122bb8092023f9970d3a0}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00110}{110} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00108}{108} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_abba12f2f22df7f046b7d5a4cd2e969b7}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-R\-S\-\_\-\-High@{L\-C\-D\-\_\-\-R\-S\-\_\-\-High}}
 \index{L\-C\-D\-\_\-\-R\-S\-\_\-\-High@{L\-C\-D\-\_\-\-R\-S\-\_\-\-High}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-R\-S\-\_\-\-High}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-R\-S\-\_\-\-High~{\bf L\-C\-D\-Pin\-Set}({\bf L\-C\-D\-\_\-\-R\-S\-\_\-\-Port}, {\bf L\-C\-D\-\_\-\-R\-S\-\_\-\-Pin})}}\label{lcd_8h_abba12f2f22df7f046b7d5a4cd2e969b7}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00083}{83} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00081}{81} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a0b24c06c65241a0e59d9c53807e41317}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-R\-S\-\_\-\-Low@{L\-C\-D\-\_\-\-R\-S\-\_\-\-Low}}
 \index{L\-C\-D\-\_\-\-R\-S\-\_\-\-Low@{L\-C\-D\-\_\-\-R\-S\-\_\-\-Low}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-R\-S\-\_\-\-Low}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-R\-S\-\_\-\-Low~{\bf L\-C\-D\-Pin\-Clear}({\bf L\-C\-D\-\_\-\-R\-S\-\_\-\-Port}, {\bf L\-C\-D\-\_\-\-R\-S\-\_\-\-Pin})}}\label{lcd_8h_a0b24c06c65241a0e59d9c53807e41317}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00084}{84} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00082}{82} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_aeb37f5be802499adedd4f9366797bf0a}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M@{L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M}}
 \index{L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M@{L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M~0x40}}\label{lcd_8h_aeb37f5be802499adedd4f9366797bf0a}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00107}{107} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00105}{105} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a921b50a756949abc5a25094b0c191a10}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T}}
 \index{L\-C\-D\-\_\-\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-S\-H\-I\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-S\-H\-I\-F\-T~0x10}}\label{lcd_8h_a921b50a756949abc5a25094b0c191a10}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00102}{102} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00100}{100} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a7bd7034ad5f552265a6baefeb79f9c5b}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R}}
 \index{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R~0x02}}\label{lcd_8h_a7bd7034ad5f552265a6baefeb79f9c5b}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00104}{104} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00102}{102} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ae8ef8c05d43d77d16e131eb718ae4ac7}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y}}
 \index{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y~0x08}}\label{lcd_8h_ae8ef8c05d43d77d16e131eb718ae4ac7}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00103}{103} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00101}{101} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a941377571f34b9d898b61ce89f10226d}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T}}
 \index{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T~0x00}}\label{lcd_8h_a941377571f34b9d898b61ce89f10226d}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00106}{106} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00104}{104} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a8ab3108396a0d33dbf7f3ab6477ba01d}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T}}
 \index{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T@{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T}!lcd.h@{lcd.\-h}}
 \subsubsection[{L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T~0x04}}\label{lcd_8h_a8ab3108396a0d33dbf7f3ab6477ba01d}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00105}{105} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00103}{103} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ac7bb85d0a6249381b2d7050da3e2e99c}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-splashscreen2\-\_\-row1@{L\-C\-D\-\_\-splashscreen2\-\_\-row1}}
 \index{L\-C\-D\-\_\-splashscreen2\-\_\-row1@{L\-C\-D\-\_\-splashscreen2\-\_\-row1}!lcd.h@{lcd.\-h}}
@@ -328,7 +327,7 @@ compile date, used as program version
 
 
 
-Definition at line \hyperlink{lcd_8h_source_l00013}{13} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00011}{11} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a5c961ed231f58622f0d35f1f29439bbd}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-splashscreen2\-\_\-row2@{L\-C\-D\-\_\-splashscreen2\-\_\-row2}}
 \index{L\-C\-D\-\_\-splashscreen2\-\_\-row2@{L\-C\-D\-\_\-splashscreen2\-\_\-row2}!lcd.h@{lcd.\-h}}
@@ -339,7 +338,7 @@ compile time, used as program version
 
 
 
-Definition at line \hyperlink{lcd_8h_source_l00014}{14} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00012}{12} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a251cf3018caf604ae46e1636e2678cda}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-splashscreen\-\_\-row1@{L\-C\-D\-\_\-splashscreen\-\_\-row1}}
 \index{L\-C\-D\-\_\-splashscreen\-\_\-row1@{L\-C\-D\-\_\-splashscreen\-\_\-row1}!lcd.h@{lcd.\-h}}
@@ -350,7 +349,7 @@ geneartion of project name in L\-C\-D
 
 
 
-Definition at line \hyperlink{lcd_8h_source_l00010}{10} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00008}{8} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a2f0e22d3d76e41b82bc3c55c1564143c}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-\_\-splashscreen\-\_\-row2@{L\-C\-D\-\_\-splashscreen\-\_\-row2}}
 \index{L\-C\-D\-\_\-splashscreen\-\_\-row2@{L\-C\-D\-\_\-splashscreen\-\_\-row2}!lcd.h@{lcd.\-h}}
@@ -361,7 +360,7 @@ creator's watermark
 
 
 
-Definition at line \hyperlink{lcd_8h_source_l00011}{11} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00009}{9} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Delay@{L\-C\-D\-Delay}}
 \index{L\-C\-D\-Delay@{L\-C\-D\-Delay}!lcd.h@{lcd.\-h}}
@@ -372,7 +371,7 @@ Definition at line \hyperlink{lcd_8h_source_l00011}{11} of file \hyperlink{lcd_8
 )~{\bf Sys\-Delay\-Us}(x)}}\label{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00076}{76} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00074}{74} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a1279c3be6e3b6cefa1b1bee2325c8f93}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Pin\-Clear@{L\-C\-D\-Pin\-Clear}}
 \index{L\-C\-D\-Pin\-Clear@{L\-C\-D\-Pin\-Clear}!lcd.h@{lcd.\-h}}
@@ -384,7 +383,7 @@ Definition at line \hyperlink{lcd_8h_source_l00076}{76} of file \hyperlink{lcd_8
 )~{\bf Pin\-Addr\-Clear}(x,y)}}\label{lcd_8h_a1279c3be6e3b6cefa1b1bee2325c8f93}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00078}{78} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00076}{76} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_a3bc70b31cd1ab9a95b44befeca6f4f42}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Pin\-Set@{L\-C\-D\-Pin\-Set}}
 \index{L\-C\-D\-Pin\-Set@{L\-C\-D\-Pin\-Set}!lcd.h@{lcd.\-h}}
@@ -396,14 +395,14 @@ Definition at line \hyperlink{lcd_8h_source_l00078}{78} of file \hyperlink{lcd_8
 )~{\bf Pin\-Addr\-Set}(x, y)}}\label{lcd_8h_a3bc70b31cd1ab9a95b44befeca6f4f42}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00077}{77} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00075}{75} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 \hypertarget{lcd_8h_ac707227d799959d68d984285c3238228}{\index{lcd.\-h@{lcd.\-h}!max\-Length\-Out@{max\-Length\-Out}}
 \index{max\-Length\-Out@{max\-Length\-Out}!lcd.h@{lcd.\-h}}
 \subsubsection[{max\-Length\-Out}]{\setlength{\rightskip}{0pt plus 5cm}\#define max\-Length\-Out~16}}\label{lcd_8h_ac707227d799959d68d984285c3238228}
 
 
-Definition at line \hyperlink{lcd_8h_source_l00155}{155} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
+Definition at line \hyperlink{lcd_8h_source_l00153}{153} of file \hyperlink{lcd_8h_source}{lcd.\-h}.
 
 
 
@@ -419,7 +418,7 @@ Definition at line \hyperlink{lcd_8h_source_l00155}{155} of file \hyperlink{lcd_
 )}}\label{lcd_8h_a9fd5ca15fc3f4409eef61069558a4b8e}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00422}{422} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00433}{433} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a3a94c0f44f76db891e66d98966f904e8}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Clear@{L\-C\-D\-Clear}}
 \index{L\-C\-D\-Clear@{L\-C\-D\-Clear}!lcd.h@{lcd.\-h}}
@@ -430,7 +429,7 @@ Definition at line \hyperlink{lcd_8c_source_l00422}{422} of file \hyperlink{lcd_
 )}}\label{lcd_8h_a3a94c0f44f76db891e66d98966f904e8}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00286}{286} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00297}{297} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_aaafcc9bb116e4ac997a76fb626b64f67}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Home@{L\-C\-D\-Home}}
 \index{L\-C\-D\-Home@{L\-C\-D\-Home}!lcd.h@{lcd.\-h}}
@@ -441,7 +440,7 @@ Definition at line \hyperlink{lcd_8c_source_l00286}{286} of file \hyperlink{lcd_
 )}}\label{lcd_8h_aaafcc9bb116e4ac997a76fb626b64f67}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00414}{414} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00425}{425} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a410f02e534a63d1f6e7a168dae003d6d}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Init@{L\-C\-D\-Init}}
 \index{L\-C\-D\-Init@{L\-C\-D\-Init}!lcd.h@{lcd.\-h}}
@@ -473,7 +472,18 @@ Definition at line \hyperlink{lcd_8c_source_l00047}{47} of file \hyperlink{lcd_8
 )}}\label{lcd_8h_ad4c66b9810c1c89a670b7c619a727cae}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00117}{117} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Set L\-C\-D write position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & uint8\-\_\-t row. \\
+\hline
+{\em col} & uint8\-\_\-t column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00118}{118} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_af22c7bb61db1d8632dd23b9803d00464}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Position\-No\-Delay@{L\-C\-D\-Position\-No\-Delay}}
 \index{L\-C\-D\-Position\-No\-Delay@{L\-C\-D\-Position\-No\-Delay}!lcd.h@{lcd.\-h}}
@@ -485,7 +495,18 @@ Definition at line \hyperlink{lcd_8c_source_l00117}{117} of file \hyperlink{lcd_
 )}}\label{lcd_8h_af22c7bb61db1d8632dd23b9803d00464}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00135}{135} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Set L\-C\-D write position, no delay in function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & uint8\-\_\-t row. \\
+\hline
+{\em col} & uint8\-\_\-t column. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00138}{138} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_ae4c4a47ab102aad380f49e65ffb62c39}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Register\-Special@{L\-C\-D\-Register\-Special}}
 \index{L\-C\-D\-Register\-Special@{L\-C\-D\-Register\-Special}!lcd.h@{lcd.\-h}}
@@ -497,7 +518,7 @@ Definition at line \hyperlink{lcd_8c_source_l00135}{135} of file \hyperlink{lcd_
 )}}\label{lcd_8h_ae4c4a47ab102aad380f49e65ffb62c39}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00387}{387} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00398}{398} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a9bf60c90a000058abb09e96594144bf1}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send@{L\-C\-D\-Send}}
 \index{L\-C\-D\-Send@{L\-C\-D\-Send}!lcd.h@{lcd.\-h}}
@@ -506,6 +527,15 @@ Definition at line \hyperlink{lcd_8c_source_l00387}{387} of file \hyperlink{lcd_
 \item[{uint8\-\_\-t}]{send}
 \end{DoxyParamCaption}
 )}}\label{lcd_8h_a9bf60c90a000058abb09e96594144bf1}
+
+
+Send data to L\-C\-D, no R\-S control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em send} & uint8\-\_\-t data to be sent. \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \hyperlink{lcd_8c_source_l00102}{102} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
@@ -523,12 +553,12 @@ send single character to L\-C\-D.
 
 
 \begin{DoxyParams}{Parameters}
-{\em txt} & char type data to be sent, 8 bits. \\
+{\em txt} & uint8\-\_\-t type data to be sent, 8 bits. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00091}{91} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00089}{89} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_adf46506fd9d8c431334544aa11f4758d}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send\-Cmd@{L\-C\-D\-Send\-Cmd}}
 \index{L\-C\-D\-Send\-Cmd@{L\-C\-D\-Send\-Cmd}!lcd.h@{lcd.\-h}}
@@ -550,7 +580,7 @@ Definition at line \hyperlink{lcd_8c_source_l00077}{77} of file \hyperlink{lcd_8
 )}}\label{lcd_8h_a0178cd2ca404d1b5b126d43df79bd460}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00314}{314} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00325}{325} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a834f812058a0f9e13614e3877b99e7d1}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send\-Num@{L\-C\-D\-Send\-Num}}
 \index{L\-C\-D\-Send\-Num@{L\-C\-D\-Send\-Num}!lcd.h@{lcd.\-h}}
@@ -564,7 +594,7 @@ Definition at line \hyperlink{lcd_8c_source_l00314}{314} of file \hyperlink{lcd_
 )}}\label{lcd_8h_a834f812058a0f9e13614e3877b99e7d1}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00235}{235} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00246}{246} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_ade3eeb664308c31bec8962e0ca496f3f}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send\-Num\-Array@{L\-C\-D\-Send\-Num\-Array}}
 \index{L\-C\-D\-Send\-Num\-Array@{L\-C\-D\-Send\-Num\-Array}!lcd.h@{lcd.\-h}}
@@ -575,7 +605,7 @@ Definition at line \hyperlink{lcd_8c_source_l00235}{235} of file \hyperlink{lcd_
 )}}\label{lcd_8h_ade3eeb664308c31bec8962e0ca496f3f}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00273}{273} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00284}{284} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_ac4b96faffdc9a846f1f2031a09935f07}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send\-Num\-Strict@{L\-C\-D\-Send\-Num\-Strict}}
 \index{L\-C\-D\-Send\-Num\-Strict@{L\-C\-D\-Send\-Num\-Strict}!lcd.h@{lcd.\-h}}
@@ -589,7 +619,7 @@ Definition at line \hyperlink{lcd_8c_source_l00273}{273} of file \hyperlink{lcd_
 )}}\label{lcd_8h_ac4b96faffdc9a846f1f2031a09935f07}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00188}{188} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00199}{199} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a235609b6036ae1c877c66c70c9e1b962}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send\-String@{L\-C\-D\-Send\-String}}
 \index{L\-C\-D\-Send\-String@{L\-C\-D\-Send\-String}!lcd.h@{lcd.\-h}}
@@ -601,7 +631,18 @@ Definition at line \hyperlink{lcd_8c_source_l00188}{188} of file \hyperlink{lcd_
 )}}\label{lcd_8h_a235609b6036ae1c877c66c70c9e1b962}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00153}{153} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Send string to L\-C\-D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$string} & uint8\-\_\-t string to be sent. \\
+\hline
+{\em break\-Line} & uint8\-\_\-t break line at the end of L\-C\-D length.\\
+\hline
+\end{DoxyParams}
+Writes a string of characteres on display Processes according to the A\-S\-C\-I\-I code 0 -\/ N\-U\-L\-L 
+
+Definition at line \hyperlink{lcd_8c_source_l00162}{162} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_ac002f3125c0e84fcba52a2ee41855b61}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Send\-V\-U@{L\-C\-D\-Send\-V\-U}}
 \index{L\-C\-D\-Send\-V\-U@{L\-C\-D\-Send\-V\-U}!lcd.h@{lcd.\-h}}
@@ -613,7 +654,7 @@ Definition at line \hyperlink{lcd_8c_source_l00153}{153} of file \hyperlink{lcd_
 )}}\label{lcd_8h_ac002f3125c0e84fcba52a2ee41855b61}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00434}{434} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00445}{445} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a7844790b6bfe761b4eb51f3dda0705ac}{\index{lcd.\-h@{lcd.\-h}!L\-C\-D\-Shift@{L\-C\-D\-Shift}}
 \index{L\-C\-D\-Shift@{L\-C\-D\-Shift}!lcd.h@{lcd.\-h}}
@@ -624,7 +665,7 @@ Definition at line \hyperlink{lcd_8c_source_l00434}{434} of file \hyperlink{lcd_
 )}}\label{lcd_8h_a7844790b6bfe761b4eb51f3dda0705ac}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00405}{405} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00416}{416} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 \hypertarget{lcd_8h_a6fb89345366fbf76f2ab64e128a1eaae}{\index{lcd.\-h@{lcd.\-h}!num\-To\-Array@{num\-To\-Array}}
 \index{num\-To\-Array@{num\-To\-Array}!lcd.h@{lcd.\-h}}
@@ -638,7 +679,7 @@ Definition at line \hyperlink{lcd_8c_source_l00405}{405} of file \hyperlink{lcd_
 )}}\label{lcd_8h_a6fb89345366fbf76f2ab64e128a1eaae}
 
 
-Definition at line \hyperlink{lcd_8c_source_l00347}{347} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+Definition at line \hyperlink{lcd_8c_source_l00358}{358} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
 
 
 

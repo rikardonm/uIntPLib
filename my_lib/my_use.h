@@ -1,8 +1,8 @@
 #ifndef my_use_h
 #define my_use_h
 
-#include "depl_spc/includeAll_sw.h"
-#include "depl_spc/includeAll_hw.h"
+#include "includeAll.h"
+
 
 #define bTrue0				0x01
 #define bTrue1				0x02
@@ -40,8 +40,8 @@
 /*
  * Function Declarations
  */
-void ShiftSerialSend(uint32_t data_port, uint32_t data_pin, \
-		uint32_t clk_port, uint32_t clk_pin, uint8_t text);
+void ShiftSerialSend(mcuRegType data_port, mcuRegType data_pin, \
+		mcuRegType clk_port, mcuRegType clk_pin, uint8_t text);
 
 
 

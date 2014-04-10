@@ -6,8 +6,8 @@
 /*
  * Shift Serial Send function
  */
-void __inline ShiftSerialSend(uint32_t data_port, uint32_t data_pin, \
-					uint32_t clk_port, uint32_t clk_pin, uint8_t text)
+void ShiftSerialSend(mcuRegType data_port, mcuRegType data_pin, \
+		mcuRegType clk_port, mcuRegType clk_pin, uint8_t text)
 {
 
 	PinAddrClear(clk_port, clk_pin);
