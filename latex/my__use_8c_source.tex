@@ -3,7 +3,7 @@
 }
 
 \begin{DoxyCode}
-00001 \textcolor{preprocessor}{#include "\hyperlink{my__use_8h}{my\_use.h}"}
+00001 \textcolor{preprocessor}{#include "my\_use.h"}
 00002 
 00003 
 00004 
@@ -11,24 +11,24 @@
 00006 \textcolor{comment}{/*}
 00007 \textcolor{comment}{ * Shift Serial Send function}
 00008 \textcolor{comment}{ */}
-\hypertarget{my__use_8c_source_l00009}{}\hyperlink{my__use_8h_a842bbb7f35cdd316dc8007a6babbf254}{00009} \textcolor{keywordtype}{void} \_\_inline \hyperlink{my__use_8c_aae6a0fe14ab96a6932eaad1aef3b9041}{ShiftSerialSend}(uint32\_t data\_port, uint32\_t data\_pin, \(\backslash\)
-00010                     uint32\_t clk\_port, uint32\_t clk\_pin, uint8\_t text)
+00009 \textcolor{keywordtype}{void} ShiftSerialSend(mcuRegType data\_port, mcuRegType data\_pin, \(\backslash\)
+00010         mcuRegType clk\_port, mcuRegType clk\_pin, uint8\_t text)
 00011 \{
 00012 
-00013     \hyperlink{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}{PinAddrClear}(clk\_port, clk\_pin);
+00013     PinAddrClear(clk\_port, clk\_pin);
 00014     \textcolor{keywordtype}{char} i=8;
 00015     \textcolor{keywordflow}{while}(i>0)
 00016     \{
 00017         \textcolor{keywordflow}{if}((text&0x80)==0)
-00018             \hyperlink{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}{PinAddrClear}(data\_port, data\_pin);
+00018             PinAddrClear(data\_port, data\_pin);
 00019         \textcolor{keywordflow}{else}
-00020             \hyperlink{library_compatible_8h_a12dec74c88c5405409725fff70cb1f79}{PinAddrSet}(data\_port, data\_pin);
+00020             PinAddrSet(data\_port, data\_pin);
 00021         text <<= 1;
 00022         i--;
-00023         \hyperlink{library_compatible_8h_a12dec74c88c5405409725fff70cb1f79}{PinAddrSet}(clk\_port, clk\_pin);
-00024         \hyperlink{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}{SysDelay}(2);
-00025         \hyperlink{library_compatible_8h_a86a24693a8d206f798a98dac3eb80d48}{PinAddrClear}(clk\_port, clk\_pin);
-00026         \hyperlink{library_compatible_8h_a41d176d68feaa7f5cbf00c5ad1bd2b26}{SysDelay}(2);
+00023         PinAddrSet(clk\_port, clk\_pin);
+00024         SysDelay(2);
+00025         PinAddrClear(clk\_port, clk\_pin);
+00026         SysDelay(2);
 00027     \}
 00028 
 00029 \}

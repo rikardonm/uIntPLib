@@ -15,18 +15,18 @@
 00010 \textcolor{preprocessor}{}
 00011 \textcolor{preprocessor}{#include "includeAll.h"}
 00012 
-\hypertarget{cmd__sort_8h_source_l00013}{}\hyperlink{cmd__sort_8h_ad4d796b98c583d49e83adabd74a63bf6}{00013} \textcolor{preprocessor}{#define MAX\_BUFFER\_SIZE             30}
+00013 \textcolor{preprocessor}{#define MAX\_BUFFER\_SIZE             30}
 00014 \textcolor{preprocessor}{}
 \hypertarget{cmd__sort_8h_source_l00015}{}\hyperlink{struct_command_instance}{00015} \textcolor{keyword}{typedef} \textcolor{keyword}{struct}\{
-\hypertarget{cmd__sort_8h_source_l00016}{}\hyperlink{struct_command_instance_a34f2e2824ae663982ef5d8a9ae4dbd76}{00016}     uint8\_t \hyperlink{struct_command_instance_a34f2e2824ae663982ef5d8a9ae4dbd76}{charIn};
-\hypertarget{cmd__sort_8h_source_l00017}{}\hyperlink{struct_command_instance_a8b8b51e6eacf265b2fb0c83dc8fc8823}{00017}     uint8\_t cmdBuffer[\hyperlink{cmd__sort_8h_ad4d796b98c583d49e83adabd74a63bf6}{MAX\_BUFFER\_SIZE}];
-\hypertarget{cmd__sort_8h_source_l00018}{}\hyperlink{struct_command_instance_af1524bd8db77ca27b543a3c2a1a5638f}{00018}     uint16\_t charOut[\hyperlink{cmd__sort_8h_ad4d796b98c583d49e83adabd74a63bf6}{MAX\_BUFFER\_SIZE}];
-\hypertarget{cmd__sort_8h_source_l00019}{}\hyperlink{struct_command_instance_a4817d15d26b34d5b4ae000d12e4d73ac}{00019}     uint8\_t \hyperlink{struct_command_instance_a4817d15d26b34d5b4ae000d12e4d73ac}{charOutPtr};
+00016     uint8\_t charIn;
+00017     uint8\_t cmdBuffer[MAX\_BUFFER\_SIZE];
+00018     uint16\_t charOut[MAX\_BUFFER\_SIZE];
+00019     uint8\_t charOutPtr;
 00020 \} \hyperlink{struct_command_instance}{CommandInstance};
 00021 
 00022 
 00023 
-00024 \textcolor{keywordtype}{void} \hyperlink{cmd__sort_8h_ac2ab50515864e65fb0c9bd63825be31c}{CommandSort}(uint8\_t *cmdString);
+00024 \textcolor{keywordtype}{void} CommandSort(uint8\_t *cmdString);
 00025 
 00026 
 00027 

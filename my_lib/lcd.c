@@ -1,12 +1,10 @@
-
+/**
+* \weakgroup lcd_h
+* @{
+*/
 #include "lcd.h"
 
 
-
-
-/**
- * Checks and defines boolean values.
- */
 #ifndef true
 #define true 1
 #define false 0
@@ -14,31 +12,21 @@
 #endif
 
 
+#define lcd_vector_index	7			//!< Initialization command sequence length.
 
-/*
- * Initialization Sequence:
- * TODO: create masks for LCD commands
+/**
+ * Initialization Commands Sequence:
  */
-#define lcd_vector_index	7
-const char LCD_CmdInit_Vector [lcd_vector_index] = \
-		{
-			0x38, 0x38, 0x38, 0x01, LCD_DISPLAY_CONFIG, LCD_DISPLAY_INCREMENT, 0x01
-		};
+const char LCD_CmdInit_Vector [lcd_vector_index] ={0x38, 0x38, 0x38, 0x01, LCD_DISPLAY_CONFIG, LCD_DISPLAY_INCREMENT, 0x01};
+
+/**
+ * LCD Init command delay vector, in uS.
+ */
+const unsigned int LCD_InitDelay_Vector[lcd_vector_index] ={8000, 200, 200, 16000, 600, 200, 15000};
 
 
 /**
- * LCD Init command delay vector, in uS
- */
-const unsigned int LCD_InitDelay_Vector[lcd_vector_index] = \
-		{
-			8000, 200, 200, 16000, 600, 200, 15000
-		};
-
-
-
-
-/**
- *	\brief Initializes the LCD Module
+ *	\brief Initializes the LCD Module.
  *	
  *	Called once at startup. Takes no parameters.
  *	
@@ -73,8 +61,9 @@ void LCDInit(void)
 #endif
 }
 
-/*
- * Send a Command to the LCD
+/**
+ * \brief Send a Command to the LCD.
+ * \return None.
  */
 void LCDSendCmd(uint8_t cmd)
 {
@@ -87,6 +76,8 @@ void LCDSendCmd(uint8_t cmd)
  * \brief send single character to LCD.
  * 
  * \param txt uint8_t type data to be sent, 8 bits.
+ *
+ * \return None.
  */
 void LCDSendChar(uint8_t txt)
 {
@@ -100,6 +91,8 @@ void LCDSendChar(uint8_t txt)
  * \brief Send data to LCD, no RS control.
  *
  * \param send uint8_t data to be sent.
+ *
+ * \return None.
  */
 __inline void LCDSend(uint8_t send)
 {
@@ -109,6 +102,7 @@ __inline void LCDSend(uint8_t send)
 	LCD_EN_High;
 	LCDDelay(4);
 	LCD_EN_Low;
+	//! \todo make function to send parallel data.
 }
 
 /**
@@ -116,6 +110,8 @@ __inline void LCDSend(uint8_t send)
  *
  * \param row uint8_t row.
  * \param col uint8_t column.
+ *
+ * \return None.
  */
 void LCDPosition(uint8_t row, uint8_t col)
 {
@@ -134,8 +130,12 @@ void LCDPosition(uint8_t row, uint8_t col)
 /**
  * \brief Set LCD write position, no delay in function
  *
+ * Sends the LCD position command but does not implement a delay after.
+ * 
  * \param row uint8_t row.
  * \param col uint8_t column.
+ *
+ * \return None.
  */
 void LCDPositionNoDelay(uint8_t row, uint8_t col)
 {
@@ -152,14 +152,14 @@ void LCDPositionNoDelay(uint8_t row, uint8_t col)
 
 /**
  * \brief Send string to LCD
+ * Writes a string of characteres on display
+ * Processes according to the ASCII code
+ * 0 - NULL
  *
  * \param *string uint8_t string to be sent.
  * \param breakLine uint8_t break line at the end of LCD length.
  *
- *
- * Writes a string of characteres on display
- * Processes according to the ASCII code
- * 0 - NULL
+ * \return None.
  */
 void LCDSendString(uint8_t *string, uint8_t breakLine)
 {
@@ -181,22 +181,21 @@ void LCDSendString(uint8_t *string, uint8_t breakLine)
 
 
 /*
- * TODO: make function to print string and remaining spaces in LCD
+ * \todo make function to print string and remaining spaces in LCD
  */
 
 
-/*
- * Prints a number, from a variable, to the LCD
- * PARAM: num, length, isSigned, showZeros
- * IF signed
- * 		Limits to a max of 10 digits to a positive number
- * 		Limits to a max of 9 digits to a negative number
- * ELSE
- * 		limits to 10 chars
- * IF showzeros
- * 		shows all leading zeros
- * else
- * 		supresses zeros; places space instead
+/**
+ * \brief Send decimal number to LCD with a strict length.
+ * 
+ * Writes a decimal number with a strict length in the LCD.
+ * 
+ * \param num int64_t number to be written.
+ * \param length uint8_t length, in decimal digits, of the number.
+ * \param isSigned uint8_t flag to determine if the number is to be treted as a negative number.
+ * \param showZeros uint8_t flag to determine if leading zeros will be shown.
+ *
+ * \return None.
  */
 void LCDSendNumStrict(int64_t num, uint8_t length, uint8_t isSigned, uint8_t showZeros)
 {
@@ -232,18 +231,17 @@ void LCDSendNumStrict(int64_t num, uint8_t length, uint8_t isSigned, uint8_t sho
 
 
 
-/*
- * Prints a number, from a variable, to the LCD
- * PARAM: num, length, isSigned, showZeros
- * IF signed
- * 		Limits to a max of 10 digits to a positive number
- * 		Limits to a max of 9 digits to a negative number
- * ELSE
- * 		limits to 10 chars
- * IF showzeros
- * 		shows all leading zeros
- * else
- * 		supresses zeros; places space instead
+/**
+ * \brief Send decimal number to LCD with a variable length.
+ * 
+ * Writes a decimal number with a variable length in the LCD.
+ * 
+ * \param num int64_t number to be written.
+ * \param length uint8_t length, in decimal digits, of the number.
+ * \param isSigned uint8_t flag to determine if the number is to be treted as a negative number.
+ * \param showZeros uint8_t flag to determine if leading zeros will be shown.
+ *
+ * \return None.
  */
 void LCDSendNum(int64_t num, uint8_t length, uint8_t isSigned, uint8_t showZeros)
 {
@@ -278,10 +276,14 @@ void LCDSendNum(int64_t num, uint8_t length, uint8_t isSigned, uint8_t showZeros
 }
 
 
-/*
- * Sends numerical values to LCD
- * Values between 0 and base;
- * max base value is defined as 32 (32bit wide buses)
+/**
+ * \brief Sends a number in a array to the LCD.
+ *
+ * Sends a number arranged in an array to the LCD. Each cell corresponds to a digit in the LCD.
+ *
+ * \param *index uint8_t base address of the array to be written.
+ *
+ * \return None.
  */
 void LCDSendNumArray(uint8_t *index)
 {
@@ -292,9 +294,12 @@ void LCDSendNumArray(uint8_t *index)
 	}
 }
 
-/*
- * Clears display
- * Updates LCDStatus
+/**
+ * \brief Clears the LCD.
+ *
+ * Sends a clear all command to the LCD.
+ *
+ * \return None.
  */
 void LCDClear(void)
 {
@@ -304,11 +309,17 @@ void LCDClear(void)
 	LCDDelay(800);
 }
 
-/*
- * Turns
- * LCD_DISPLAY_ON/OFF
- * LCD_CURSOR_ON/OFF
- * LCD_BLINK_ON/OFF
+
+/**
+ * \brief Configures LCD appearence option.
+ *
+ * Sends the logical combination of the following flags:
+ * + LCD_DISPLAY_ON/OFF
+ * + LCD_CURSOR_ON/OFF
+ * + LCD_BLINK_ON/OFF
+ * .
+ * 
+ * \return None.
  */
 void LCDDisplayOn(uint8_t onOff)
 {
@@ -317,12 +328,12 @@ void LCDDisplayOn(uint8_t onOff)
 }
 
 
-
-
-/*
- * Prints the value of the array in hex format
- * As HEX, it'll print in base 16
- * Takes out 2 leading digits
+/**
+ * \brief Prints a decimal number in hexadecimal format.
+ *
+ * \param *array uint8_t number array to be written.
+ *
+ * \return None.
  */
 void LCDSendHex(uint8_t *array)
 {
@@ -346,16 +357,18 @@ void LCDSendHex(uint8_t *array)
 }
 
 
-
-//void LCDSendNum(long num, char length, uint8_t isSigned, uint8_t showZeros)
-
-/*
- * Passes a number to a vector
- * num -> number
- * vector -> pointer to vector
- * base -> base of output (max: 32)
+/**
+ * \brief Converts a variable to an array of numbers.
  *
- * Last number in vector output is 33
+ * The termination of array is done by the number 33.
+ * The highest selectable number base is 32.
+ *
+ * \param num int32_t number to be converted.
+ * \param *array uint8_t destination array.
+ * \param length uint8_t number length, in decimal digits.
+ * \param base uint8_t base of output array.
+ *
+ * \return None.
  */
 void numToArray(int32_t num, uint8_t *array, uint8_t length, uint16_t base)
 {
@@ -397,6 +410,14 @@ void numToArray(int32_t num, uint8_t *array, uint8_t length, uint16_t base)
  * *character -> first index to 8 bytes long vector
  * 				scans char downward
  */
+/**
+ * \brief Registers special characters in the LCD.
+ * 
+ * \param number uint8_t number, from 1 to 8, of special character to be transferred.
+ * \param *character uint8_t array containing the bits of the character to be set.
+ *
+ * \return None.
+ */
 void LCDRegisterSpecial(uint8_t number, uint8_t *character)
 {
 	uint8_t scan=0, data=0;
@@ -412,17 +433,32 @@ void LCDRegisterSpecial(uint8_t number, uint8_t *character)
 	LCDDelay(320);
 }
 
-/*
- * Shifts data on LCD Display
+
+/**
+ * \brief Enables the data shift option in LCD.
+ * 
+ * Sets the configuration according to the following flags:
+ * + LCD_SHIFT
+ * + LCD_SHIFT_DISPLAY
+ * + LCD_SHIFT_CURSOR
+ * + LCD_SHIFT_RIGHT
+ * + LCD_SHIFT_LEFT
+ * .
+ * 
+ * \param shift uint8_t option flag to be set.
+ *
+ * \return None.
  */
 void LCDShift(uint8_t shift)
 {
 	LCDSendCmd(shift|LCD_SHIFT);
 }
 
-/*
- * Sends LCD cursor to home position
- * PARAM: none
+
+/**
+ * \brief Sends the LCD cursor to home position.
+ *
+ * \return None.
  */
 void LCDHome(void)
 {
@@ -431,7 +467,13 @@ void LCDHome(void)
 }
 
 
-
+/**
+ * \brief Converts a number array to a variable.
+ * 
+ * \param *array uint8_t source array.
+ * \param *num uint32_t target variable.
+ * \param base uint8_t base of digits in array.
+ */
 void arrayToNum(uint8_t *array, uint32_t *num, uint8_t base)
 {
 	while(*array<33)
@@ -443,7 +485,16 @@ void arrayToNum(uint8_t *array, uint32_t *num, uint8_t base)
 
 
 
-
+/**
+ * \brief Send LCD VU level.
+ *
+ * This function uses special characters filled in horizontal increasing steps to make a Visual Units Display from the LCD.
+ *
+ * \param num uint32_t number to be written.
+ * \param base uint32_t max number value.
+ *
+ * \return None.
+ */
 void LCDSendVU(uint32_t num, uint32_t base)
 {
 	uint8_t index, pass=1;
@@ -476,4 +527,6 @@ void LCDSendVU(uint32_t num, uint32_t base)
 #endif
 
 
-
+/**
+ * @}
+ */

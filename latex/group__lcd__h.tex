@@ -1,0 +1,988 @@
+\hypertarget{group__lcd__h}{\section{Lcd\-\_\-h}
+\label{group__lcd__h}\index{Lcd\-\_\-h@{Lcd\-\_\-h}}
+}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_c_d_status}{L\-C\-D\-Status}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lcd__h_ga41f9c5fb8b08eb5dc3edce4dcb37fee7}{\#define {\bfseries true}~1}\label{group__lcd__h_ga41f9c5fb8b08eb5dc3edce4dcb37fee7}
+
+\item 
+\hypertarget{group__lcd__h_ga65e9886d74aaee76545e83dd09011727}{\#define {\bfseries false}~0}\label{group__lcd__h_ga65e9886d74aaee76545e83dd09011727}
+
+\item 
+\hypertarget{group__lcd__h_gaef9bf496a2e7dbc60c216b18b4a4b770}{\#define {\bfseries true\-Defined\-L\-C\-D}}\label{group__lcd__h_gaef9bf496a2e7dbc60c216b18b4a4b770}
+
+\item 
+\hypertarget{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{\#define \hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\-\_\-vector\-\_\-index}~7}\label{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}
+
+\begin{DoxyCompactList}\small\item\em Initialization command sequence length. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_gac707227d799959d68d984285c3238228}{\#define {\bfseries max\-Length\-Out}~16}\label{group__lcd__h_gac707227d799959d68d984285c3238228}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__lcd__h_ga410f02e534a63d1f6e7a168dae003d6d}{L\-C\-D\-Init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the L\-C\-D Module. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{L\-C\-D\-Send\-Cmd} (uint8\-\_\-t cmd)
+\begin{DoxyCompactList}\small\item\em Send a Command to the L\-C\-D. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{L\-C\-D\-Send\-Char} (uint8\-\_\-t txt)
+\begin{DoxyCompactList}\small\item\em send single character to L\-C\-D. \end{DoxyCompactList}\item 
+\-\_\-\-\_\-inline void \hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{L\-C\-D\-Send} (uint8\-\_\-t send)
+\begin{DoxyCompactList}\small\item\em Send data to L\-C\-D, no R\-S control. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{L\-C\-D\-Position} (uint8\-\_\-t row, uint8\-\_\-t col)
+\begin{DoxyCompactList}\small\item\em Set L\-C\-D write position. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gaf22c7bb61db1d8632dd23b9803d00464}{L\-C\-D\-Position\-No\-Delay} (uint8\-\_\-t row, uint8\-\_\-t col)
+\begin{DoxyCompactList}\small\item\em Set L\-C\-D write position, no delay in function. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{L\-C\-D\-Send\-String} (uint8\-\_\-t $\ast$string, uint8\-\_\-t break\-Line)
+\begin{DoxyCompactList}\small\item\em Send string to L\-C\-D Writes a string of characteres on display Processes according to the A\-S\-C\-I\-I code 0 -\/ N\-U\-L\-L. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gac4b96faffdc9a846f1f2031a09935f07}{L\-C\-D\-Send\-Num\-Strict} (int64\-\_\-t num, uint8\-\_\-t length, uint8\-\_\-t is\-Signed, uint8\-\_\-t show\-Zeros)
+\begin{DoxyCompactList}\small\item\em Send decimal number to L\-C\-D with a strict length. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga834f812058a0f9e13614e3877b99e7d1}{L\-C\-D\-Send\-Num} (int64\-\_\-t num, uint8\-\_\-t length, uint8\-\_\-t is\-Signed, uint8\-\_\-t show\-Zeros)
+\begin{DoxyCompactList}\small\item\em Send decimal number to L\-C\-D with a variable length. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gab60cf48616fbfae462176971827a642d}{L\-C\-D\-Send\-Num\-Array} (uint8\-\_\-t $\ast$index)
+\begin{DoxyCompactList}\small\item\em Sends a number in a array to the L\-C\-D. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}{L\-C\-D\-Clear} (void)
+\begin{DoxyCompactList}\small\item\em Clears the L\-C\-D. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gabeb4bea89bc174b16a527b8d9566d610}{L\-C\-D\-Display\-On} (uint8\-\_\-t on\-Off)
+\begin{DoxyCompactList}\small\item\em Configures L\-C\-D appearence option. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga0178cd2ca404d1b5b126d43df79bd460}{L\-C\-D\-Send\-Hex} (uint8\-\_\-t $\ast$array)
+\begin{DoxyCompactList}\small\item\em Prints a decimal number in hexadecimal format. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga6fb89345366fbf76f2ab64e128a1eaae}{num\-To\-Array} (int32\-\_\-t num, uint8\-\_\-t $\ast$array, uint8\-\_\-t length, uint16\-\_\-t base)
+\begin{DoxyCompactList}\small\item\em Converts a variable to an array of numbers. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gae4c4a47ab102aad380f49e65ffb62c39}{L\-C\-D\-Register\-Special} (uint8\-\_\-t number, uint8\-\_\-t $\ast$character)
+\begin{DoxyCompactList}\small\item\em Registers special characters in the L\-C\-D. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga7844790b6bfe761b4eb51f3dda0705ac}{L\-C\-D\-Shift} (uint8\-\_\-t shift)
+\begin{DoxyCompactList}\small\item\em Enables the data shift option in L\-C\-D. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gaaafcc9bb116e4ac997a76fb626b64f67}{L\-C\-D\-Home} (void)
+\begin{DoxyCompactList}\small\item\em Sends the L\-C\-D cursor to home position. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_ga9fd5ca15fc3f4409eef61069558a4b8e}{array\-To\-Num} (uint8\-\_\-t $\ast$array, uint32\-\_\-t $\ast$num, uint8\-\_\-t base)
+\begin{DoxyCompactList}\small\item\em Converts a number array to a variable. \end{DoxyCompactList}\item 
+void \hyperlink{group__lcd__h_gac002f3125c0e84fcba52a2ee41855b61}{L\-C\-D\-Send\-V\-U} (uint32\-\_\-t num, uint32\-\_\-t base)
+\begin{DoxyCompactList}\small\item\em Send L\-C\-D V\-U level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char \hyperlink{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}{L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector} \mbox{[}\hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\-\_\-vector\-\_\-index}\mbox{]} =\{0x38, 0x38, 0x38, 0x01, L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G, L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T, 0x01\}
+\item 
+const unsigned int \hyperlink{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}{L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector} \mbox{[}\hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\-\_\-vector\-\_\-index}\mbox{]} =\{8000, 200, 200, 16000, 600, 200, 15000\}
+\item 
+\hyperlink{struct_l_c_d_status}{L\-C\-D\-Status} \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{L\-C\-D0\-Status}
+\begin{DoxyCompactList}\small\item\em L\-C\-D struct for current position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{L\-C\-D\-\_\-\-Splahscreen}
+\label{_amgrpc8a0e87324ba2aa8fab84271cca0dcee}%
+L\-C\-D splashscreen text configuration. \begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lcd__h_ga251cf3018caf604ae46e1636e2678cda}{\#define \hyperlink{group__lcd__h_ga251cf3018caf604ae46e1636e2678cda}{L\-C\-D\-\_\-splashscreen\-\_\-row1}~\-\_\-\-\_\-\-D\-A\-T\-E\-\_\-\-\_\-}\label{group__lcd__h_ga251cf3018caf604ae46e1636e2678cda}
+
+\begin{DoxyCompactList}\small\item\em compile date, used as program version \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_ga2f0e22d3d76e41b82bc3c55c1564143c}{\#define \hyperlink{group__lcd__h_ga2f0e22d3d76e41b82bc3c55c1564143c}{L\-C\-D\-\_\-splashscreen\-\_\-row2}~\-\_\-\-\_\-\-T\-I\-M\-E\-\_\-\-\_\-}\label{group__lcd__h_ga2f0e22d3d76e41b82bc3c55c1564143c}
+
+\begin{DoxyCompactList}\small\item\em compile time, used as program version \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_gac7bb85d0a6249381b2d7050da3e2e99c}{\#define \hyperlink{group__lcd__h_gac7bb85d0a6249381b2d7050da3e2e99c}{L\-C\-D\-\_\-splashscreen2\-\_\-row1}~P\-R\-O\-J\-E\-C\-T\-\_\-\-N\-A\-M\-E}\label{group__lcd__h_gac7bb85d0a6249381b2d7050da3e2e99c}
+
+\begin{DoxyCompactList}\small\item\em geneartion of project name in L\-C\-D \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_ga5c961ed231f58622f0d35f1f29439bbd}{\#define \hyperlink{group__lcd__h_ga5c961ed231f58622f0d35f1f29439bbd}{L\-C\-D\-\_\-splashscreen2\-\_\-row2}~(\char`\"{}rnm sys undvpd\char`\"{})}\label{group__lcd__h_ga5c961ed231f58622f0d35f1f29439bbd}
+
+\begin{DoxyCompactList}\small\item\em creator's watermark \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{L\-C\-D\-\_\-\-Function\-\_\-\-Masks}
+\label{_amgrpeb574f17a571b653204a8755139b13d5}%
+Function masks used in the lib. \begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{\#define \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{L\-C\-D\-Delay}(x)~Sys\-Delay\-Us(x)}\label{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}
+
+\begin{DoxyCompactList}\small\item\em delay loop mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_ga3bc70b31cd1ab9a95b44befeca6f4f42}{\#define \hyperlink{group__lcd__h_ga3bc70b31cd1ab9a95b44befeca6f4f42}{L\-C\-D\-Pin\-Set}(x, y)~Pin\-Addr\-Set(x, y)}\label{group__lcd__h_ga3bc70b31cd1ab9a95b44befeca6f4f42}
+
+\begin{DoxyCompactList}\small\item\em pin set function mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_ga1279c3be6e3b6cefa1b1bee2325c8f93}{\#define \hyperlink{group__lcd__h_ga1279c3be6e3b6cefa1b1bee2325c8f93}{L\-C\-D\-Pin\-Clear}(x, y)~Pin\-Addr\-Clear(x,y)}\label{group__lcd__h_ga1279c3be6e3b6cefa1b1bee2325c8f93}
+
+\begin{DoxyCompactList}\small\item\em pin clear function mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_gad70516201ea275cdb7b698f8782bd0b6}{\#define \hyperlink{group__lcd__h_gad70516201ea275cdb7b698f8782bd0b6}{L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Send}(text)~Shift\-Serial\-Send(L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Port, L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Pin, L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Port, L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-Pin, text)}\label{group__lcd__h_gad70516201ea275cdb7b698f8782bd0b6}
+
+\begin{DoxyCompactList}\small\item\em lcd send function mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_gabba12f2f22df7f046b7d5a4cd2e969b7}{\#define \hyperlink{group__lcd__h_gabba12f2f22df7f046b7d5a4cd2e969b7}{L\-C\-D\-\_\-\-R\-S\-\_\-\-High}~\hyperlink{group__lcd__h_ga3bc70b31cd1ab9a95b44befeca6f4f42}{L\-C\-D\-Pin\-Set}(L\-C\-D\-\_\-\-R\-S\-\_\-\-Port, L\-C\-D\-\_\-\-R\-S\-\_\-\-Pin)}\label{group__lcd__h_gabba12f2f22df7f046b7d5a4cd2e969b7}
+
+\begin{DoxyCompactList}\small\item\em R\-S pin set mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}{\#define \hyperlink{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}{L\-C\-D\-\_\-\-R\-S\-\_\-\-Low}~\hyperlink{group__lcd__h_ga1279c3be6e3b6cefa1b1bee2325c8f93}{L\-C\-D\-Pin\-Clear}(L\-C\-D\-\_\-\-R\-S\-\_\-\-Port, L\-C\-D\-\_\-\-R\-S\-\_\-\-Pin)}\label{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}
+
+\begin{DoxyCompactList}\small\item\em R\-S pin clear mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_gaa5646c9467f205fa5d9ae2f35037e222}{\#define \hyperlink{group__lcd__h_gaa5646c9467f205fa5d9ae2f35037e222}{L\-C\-D\-\_\-\-E\-N\-\_\-\-High}~\hyperlink{group__lcd__h_ga3bc70b31cd1ab9a95b44befeca6f4f42}{L\-C\-D\-Pin\-Set}(L\-C\-D\-\_\-\-E\-N\-\_\-\-Port, L\-C\-D\-\_\-\-E\-N\-\_\-\-Pin)}\label{group__lcd__h_gaa5646c9467f205fa5d9ae2f35037e222}
+
+\begin{DoxyCompactList}\small\item\em E\-N pin set mask. \end{DoxyCompactList}\item 
+\hypertarget{group__lcd__h_gab54604df26d503464f08a6340307989b}{\#define \hyperlink{group__lcd__h_gab54604df26d503464f08a6340307989b}{L\-C\-D\-\_\-\-E\-N\-\_\-\-Low}~\hyperlink{group__lcd__h_ga1279c3be6e3b6cefa1b1bee2325c8f93}{L\-C\-D\-Pin\-Clear}(L\-C\-D\-\_\-\-E\-N\-\_\-\-Port, L\-C\-D\-\_\-\-E\-N\-\_\-\-Pin)}\label{group__lcd__h_gab54604df26d503464f08a6340307989b}
+
+\begin{DoxyCompactList}\small\item\em E\-N pin clear mask. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{L\-C\-D\-\_\-\-Option\-\_\-\-Flags}
+\label{_amgrp86d47329ce28df2828ae1fd2cea4cd1f}%
+L\-C\-D options flags. \begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lcd__h_ga846dac5d1bb72bef7a76ee110c0445b6}{\#define {\bfseries L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N}~0x0\-C}\label{group__lcd__h_ga846dac5d1bb72bef7a76ee110c0445b6}
+
+\item 
+\hypertarget{group__lcd__h_gab1b96426e59139b68ae95df45d697087}{\#define {\bfseries L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-F\-F}~0x08}\label{group__lcd__h_gab1b96426e59139b68ae95df45d697087}
+
+\item 
+\hypertarget{group__lcd__h_ga8dae7021acb10d4e5f8458a5fba78729}{\#define {\bfseries L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N}~0x0\-A}\label{group__lcd__h_ga8dae7021acb10d4e5f8458a5fba78729}
+
+\item 
+\hypertarget{group__lcd__h_ga7a6a930d205b2819be910af194576dca}{\#define {\bfseries L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F}~0x08}\label{group__lcd__h_ga7a6a930d205b2819be910af194576dca}
+
+\item 
+\hypertarget{group__lcd__h_ga654ab1d84354662d394a62be3b2230d1}{\#define {\bfseries L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N}~0x09}\label{group__lcd__h_ga654ab1d84354662d394a62be3b2230d1}
+
+\item 
+\hypertarget{group__lcd__h_ga3480b863e1e145d9a258de170fc44ffa}{\#define {\bfseries L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-F\-F}~0x08}\label{group__lcd__h_ga3480b863e1e145d9a258de170fc44ffa}
+
+\item 
+\hypertarget{group__lcd__h_ga921b50a756949abc5a25094b0c191a10}{\#define {\bfseries L\-C\-D\-\_\-\-S\-H\-I\-F\-T}~0x10}\label{group__lcd__h_ga921b50a756949abc5a25094b0c191a10}
+
+\item 
+\hypertarget{group__lcd__h_gae8ef8c05d43d77d16e131eb718ae4ac7}{\#define {\bfseries L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y}~0x08}\label{group__lcd__h_gae8ef8c05d43d77d16e131eb718ae4ac7}
+
+\item 
+\hypertarget{group__lcd__h_ga7bd7034ad5f552265a6baefeb79f9c5b}{\#define {\bfseries L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R}~0x02}\label{group__lcd__h_ga7bd7034ad5f552265a6baefeb79f9c5b}
+
+\item 
+\hypertarget{group__lcd__h_ga8ab3108396a0d33dbf7f3ab6477ba01d}{\#define {\bfseries L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T}~0x04}\label{group__lcd__h_ga8ab3108396a0d33dbf7f3ab6477ba01d}
+
+\item 
+\hypertarget{group__lcd__h_ga941377571f34b9d898b61ce89f10226d}{\#define {\bfseries L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T}~0x00}\label{group__lcd__h_ga941377571f34b9d898b61ce89f10226d}
+
+\item 
+\hypertarget{group__lcd__h_gaeb37f5be802499adedd4f9366797bf0a}{\#define {\bfseries L\-C\-D\-\_\-\-S\-E\-T\-\_\-\-C\-G\-R\-A\-M}~0x40}\label{group__lcd__h_gaeb37f5be802499adedd4f9366797bf0a}
+
+\item 
+\hypertarget{group__lcd__h_gab1fb2568cd5b8fb0f9103652a3deb895}{\#define {\bfseries L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}~0\-X04}\label{group__lcd__h_gab1fb2568cd5b8fb0f9103652a3deb895}
+
+\item 
+\hypertarget{group__lcd__h_ga06315bb86679bb3ef1aff07e62aab6de}{\#define {\bfseries L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T}~0x00}\label{group__lcd__h_ga06315bb86679bb3ef1aff07e62aab6de}
+
+\item 
+\hypertarget{group__lcd__h_gaa861073d2f5122bb8092023f9970d3a0}{\#define {\bfseries L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-S\-H\-I\-F\-T}~0x01}\label{group__lcd__h_gaa861073d2f5122bb8092023f9970d3a0}
+
+\item 
+\hypertarget{group__lcd__h_ga0a7949ac27e6fece73d67a48eca643e9}{\#define {\bfseries L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E}~0x02}\label{group__lcd__h_ga0a7949ac27e6fece73d67a48eca643e9}
+
+\item 
+\hypertarget{group__lcd__h_gaecbb4fa221268f1c6ea267379a97055f}{\#define {\bfseries L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E}~0x00}\label{group__lcd__h_gaecbb4fa221268f1c6ea267379a97055f}
+
+\end{DoxyCompactItemize}
+\subsection*{L\-C\-D\-\_\-\-Options\-\_\-\-Select}
+\label{_amgrp6672ce23feaf23832633efd81f58063b}%
+Defitions of initial L\-C\-D options configuration. \begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lcd__h_ga4f2c8e26ccc5cf79276816b6e3ce072e}{\#define {\bfseries L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G}~(L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N$\vert$L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-F\-F$\vert$L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-F\-F)}\label{group__lcd__h_ga4f2c8e26ccc5cf79276816b6e3ce072e}
+
+\item 
+\hypertarget{group__lcd__h_ga3342673e030aa53067050b74629c7f78}{\#define {\bfseries L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}~(L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T$\vert$L\-C\-D\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T\-\_\-\-N\-O\-\_\-\-S\-H\-I\-F\-T)}\label{group__lcd__h_ga3342673e030aa53067050b74629c7f78}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains the functions to properly (hopefully) drive the L\-C\-D peripheral. Current implementation uses a serial shift register to drive the L\-C\-D in 8 bit mode.
+
+Further modifications to this library include\-:
+\begin{DoxyItemize}
+\item Parallel data transfer (make function to).
+\end{DoxyItemize}
+
+For the complete execution of the library, the following macros have to be created specifically for this library\-:
+\begin{DoxyItemize}
+\item L\-C\-D\-\_\-\-S\-P\-L\-A\-S\-H\-S\-C\-R\-E\-E\-N1 \par
+ (1 or 0)
+\item L\-C\-D\-\_\-\-S\-P\-L\-A\-S\-H\-S\-C\-R\-E\-E\-N2 \par
+ (1 or 0)
+\item L\-C\-D\-\_\-\-S\-P\-L\-A\-S\-H\-S\-C\-R\-E\-E\-N\-\_\-\-C\-L\-E\-A\-R \par
+ (1 or 0)
+\end{DoxyItemize}
+
+The library uses theses global value macros\-:
+\begin{DoxyItemize}
+\item P\-R\-O\-J\-E\-C\-T\-\_\-\-N\-A\-M\-E \par
+ (\char`\"{}string\-\_\-of\-\_\-name\-\_\-here\char`\"{})
+\end{DoxyItemize}
+
+The library uses these global function macros\-:
+\begin{DoxyItemize}
+\item Sys\-Delay\-Us(time) \par
+ C\-P\-U delay loop, usually.
+\item Pin\-Addr\-Set(port, pin) \par
+ Direct address write.
+\item Pin\-Addr\-Clear(port, pin) \par
+ Direct address write.
+\item Shift\-Serial\-Send(\-D\-T\-A\-\_\-\-P\-O\-R\-T, D\-T\-A\-\_\-\-P\-I\-N, C\-L\-K\-\_\-\-P\-O\-R\-T, C\-L\-K\-\_\-\-P\-I\-N, text) \par
+ Used by \hyperlink{group__lcd__h_gad70516201ea275cdb7b698f8782bd0b6}{L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-Send(text)} function, determines how data is transfered.
+\end{DoxyItemize}
+
+The following external connection macros have to be set\-:
+\begin{DoxyItemize}
+\item L\-C\-D\-\_\-\-R\-S\-\_\-\-P\-O\-R\-T \par
+ (register address)
+\item L\-C\-D\-\_\-\-R\-S\-\_\-\-P\-I\-N \par
+ (bit position)
+\item L\-C\-D\-\_\-\-E\-N\-\_\-\-P\-O\-R\-T \par
+ (register address)
+\item L\-C\-D\-\_\-\-E\-N\-\_\-\-P\-O\-R\-T \par
+(bit position)
+\item L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-P\-O\-R\-T \par
+ (register address)
+\item L\-C\-D\-\_\-\-D\-T\-A\-\_\-\-P\-I\-N \par
+ (bit position)
+\item L\-C\-D\-\_\-\-C\-L\-K\-\_\-\-P\-I\-N \par
+ (bit position) 
+\end{DoxyItemize}
+
+\subsection{Function Documentation}
+\hypertarget{group__lcd__h_ga9fd5ca15fc3f4409eef61069558a4b8e}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!array\-To\-Num@{array\-To\-Num}}
+\index{array\-To\-Num@{array\-To\-Num}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{array\-To\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void array\-To\-Num (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{array, }
+\item[{uint32\-\_\-t $\ast$}]{num, }
+\item[{uint8\-\_\-t}]{base}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga9fd5ca15fc3f4409eef61069558a4b8e}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$array} & uint8\-\_\-t source array. \\
+\hline
+{\em $\ast$num} & uint32\-\_\-t target variable. \\
+\hline
+{\em base} & uint8\-\_\-t base of digits in array. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00477}{477} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00478 \{
+00479     \textcolor{keywordflow}{while}(*array<33)
+00480     \{
+00481         *num += *array * base;
+00482         array++;
+00483     \}
+00484 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Clear@{L\-C\-D\-Clear}}
+\index{L\-C\-D\-Clear@{L\-C\-D\-Clear}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}
+Sends a clear all command to the L\-C\-D.
+
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00304}{304} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00305 \{
+00306     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x01);
+00307     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row=1;
+00308     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col=1;
+00309     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(800);
+00310 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gabeb4bea89bc174b16a527b8d9566d610}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Display\-On@{L\-C\-D\-Display\-On}}
+\index{L\-C\-D\-Display\-On@{L\-C\-D\-Display\-On}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Display\-On}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Display\-On (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{on\-Off}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gabeb4bea89bc174b16a527b8d9566d610}
+Sends the logical combination of the following flags\-:
+\begin{DoxyItemize}
+\item L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-O\-N/\-O\-F\-F
+\item L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-O\-N/\-O\-F\-F
+\item L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-N/\-O\-F\-F
+\end{DoxyItemize}\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00324}{324} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00325 \{
+00326     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.display = onOff;
+00327     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(onOff);
+00328 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gaaafcc9bb116e4ac997a76fb626b64f67}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Home@{L\-C\-D\-Home}}
+\index{L\-C\-D\-Home@{L\-C\-D\-Home}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Home}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Home (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gaaafcc9bb116e4ac997a76fb626b64f67}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00463}{463} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00464 \{
+00465     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x02);
+00466     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(1500);
+00467 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga410f02e534a63d1f6e7a168dae003d6d}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Init@{L\-C\-D\-Init}}
+\index{L\-C\-D\-Init@{L\-C\-D\-Init}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga410f02e534a63d1f6e7a168dae003d6d}
+Called once at startup. Takes no parameters.
+
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00035}{35} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00036 \{
+00037     uint8\_t Vector\_Scan = 0;
+00038     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(15000);
+00039     \textcolor{keywordflow}{for}(Vector\_Scan=0; Vector\_Scan < \hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}; Vector\_Scan++)
+00040     \{
+00041         \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(\hyperlink{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}{LCD\_CmdInit\_Vector}[Vector\_Scan]);
+00042         \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(\hyperlink{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}{LCD\_InitDelay\_Vector}[Vector\_Scan]);
+00043     \}
+00044     \textcolor{comment}{//splash screen}
+00045 \textcolor{preprocessor}{#if LCD\_SPLASHSCREEN1 == 1}
+00046 \textcolor{preprocessor}{}    \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(1,1);
+00047     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_ga251cf3018caf604ae46e1636e2678cda}{LCD\_splashscreen\_row1}, 0);
+00048     \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(2,1);
+00049     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_ga2f0e22d3d76e41b82bc3c55c1564143c}{LCD\_splashscreen\_row2}, 0);
+00050     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(2*1000*1000);
+00051 \textcolor{preprocessor}{#endif}
+00052 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if LCD\_SPLASHSCREEN2 == 1}
+00053 \textcolor{preprocessor}{}    \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(1,1);
+00054     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_gac7bb85d0a6249381b2d7050da3e2e99c}{LCD\_splashscreen2\_row1}, \textcolor{keyword}{false});
+00055     \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(2,1);
+00056     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_ga5c961ed231f58622f0d35f1f29439bbd}{LCD\_splashscreen2\_row2}, \textcolor{keyword}{false});
+00057     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(2*1000*1000);
+00058 \textcolor{preprocessor}{#endif}
+00059 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if LCD\_SPLAHSCREEN\_CLEAR == 1}
+00060 \textcolor{preprocessor}{}    \hyperlink{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}{LCDClear}();
+00061 \textcolor{preprocessor}{#endif}
+00062 \textcolor{preprocessor}{}\}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Position@{L\-C\-D\-Position}}
+\index{L\-C\-D\-Position@{L\-C\-D\-Position}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Position (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{row, }
+\item[{uint8\-\_\-t}]{col}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}
+
+\begin{DoxyParams}{Parameters}
+{\em row} & uint8\-\_\-t row. \\
+\hline
+{\em col} & uint8\-\_\-t column.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00116}{116} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00117 \{
+00118     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row = row;
+00119     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col = col;
+00120     col--;
+00121     \textcolor{keywordflow}{if}(row==1)
+00122         row = 0x80;
+00123     \textcolor{keywordflow}{if}(row==2)
+00124         row = 0xC0;
+00125     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(row+col);
+00126     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(20);
+00127 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gaf22c7bb61db1d8632dd23b9803d00464}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Position\-No\-Delay@{L\-C\-D\-Position\-No\-Delay}}
+\index{L\-C\-D\-Position\-No\-Delay@{L\-C\-D\-Position\-No\-Delay}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Position\-No\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Position\-No\-Delay (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{row, }
+\item[{uint8\-\_\-t}]{col}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gaf22c7bb61db1d8632dd23b9803d00464}
+Sends the L\-C\-D position command but does not implement a delay after.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & uint8\-\_\-t row. \\
+\hline
+{\em col} & uint8\-\_\-t column.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00140}{140} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00141 \{
+00142     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row = row;
+00143     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col = col;
+00144     col--;
+00145     \textcolor{keywordflow}{if}(row==1)
+00146         row = 0x80;
+00147     \textcolor{keywordflow}{if}(row==2)
+00148         row = 0xC0;
+00149     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(row+col);
+00150 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gae4c4a47ab102aad380f49e65ffb62c39}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Register\-Special@{L\-C\-D\-Register\-Special}}
+\index{L\-C\-D\-Register\-Special@{L\-C\-D\-Register\-Special}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Register\-Special}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Register\-Special (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{number, }
+\item[{uint8\-\_\-t $\ast$}]{character}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gae4c4a47ab102aad380f49e65ffb62c39}
+
+\begin{DoxyParams}{Parameters}
+{\em number} & uint8\-\_\-t number, from 1 to 8, of special character to be transferred. \\
+\hline
+{\em $\ast$character} & uint8\-\_\-t array containing the bits of the character to be set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00421}{421} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00422 \{
+00423     uint8\_t scan=0, data=0;
+00424     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x40+(number<<3));
+00425     \textcolor{keywordflow}{do}
+00426     \{
+00427         data = *(character+scan);
+00428         \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(640);
+00429         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(data&0x1F);
+00430         scan++;
+00431     \}
+00432     \textcolor{keywordflow}{while}(scan<8);
+00433     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(320);
+00434 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send@{L\-C\-D\-Send}}
+\index{L\-C\-D\-Send@{L\-C\-D\-Send}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{send}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}
+
+\begin{DoxyParams}{Parameters}
+{\em send} & uint8\-\_\-t data to be sent.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]make function to send parallel data. \end{DoxyRefDesc}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00097}{97} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00098 \{
+00099     \hyperlink{group__lcd__h_gab54604df26d503464f08a6340307989b}{LCD\_EN\_Low};
+00100     \hyperlink{group__lcd__h_gad70516201ea275cdb7b698f8782bd0b6}{LCD\_DTA\_Send}(send);
+00101     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(4);
+00102     \hyperlink{group__lcd__h_gaa5646c9467f205fa5d9ae2f35037e222}{LCD\_EN\_High};
+00103     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(4);
+00104     \hyperlink{group__lcd__h_gab54604df26d503464f08a6340307989b}{LCD\_EN\_Low};
+00106 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-Char@{L\-C\-D\-Send\-Char}}
+\index{L\-C\-D\-Send\-Char@{L\-C\-D\-Send\-Char}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-Char}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-Char (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{txt}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}
+
+\begin{DoxyParams}{Parameters}
+{\em txt} & uint8\-\_\-t type data to be sent, 8 bits.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00082}{82} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00083 \{
+00084     \hyperlink{group__lcd__h_gabba12f2f22df7f046b7d5a4cd2e969b7}{LCD\_RS\_High};
+00085     \hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{LCDSend}(txt);
+00086     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col ++;
+00087     \hyperlink{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}{LCD\_RS\_Low};
+00088 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-Cmd@{L\-C\-D\-Send\-Cmd}}
+\index{L\-C\-D\-Send\-Cmd@{L\-C\-D\-Send\-Cmd}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-Cmd}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-Cmd (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{cmd}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00068}{68} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00069 \{
+00070     \hyperlink{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}{LCD\_RS\_Low};
+00071     \hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{LCDSend}(cmd);
+00072 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga0178cd2ca404d1b5b126d43df79bd460}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-Hex@{L\-C\-D\-Send\-Hex}}
+\index{L\-C\-D\-Send\-Hex@{L\-C\-D\-Send\-Hex}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-Hex}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-Hex (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{array}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga0178cd2ca404d1b5b126d43df79bd460}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$array} & uint8\-\_\-t number array to be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00338}{338} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00339 \{
+00340     uint8\_t offset, temp;
+00341     \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'0'});
+00342     \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'x'});
+00343     array += 2;
+00344     \textcolor{keywordflow}{while}(*array<=32)
+00345     \{
+00346         temp = *array;
+00347         \textcolor{keywordflow}{if}(temp>9)
+00348         \{
+00349             temp -= 10;
+00350             offset = \textcolor{charliteral}{'A'};
+00351         \}
+00352         \textcolor{keywordflow}{else}
+00353             offset = \textcolor{charliteral}{'0'};
+00354         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(temp+offset);
+00355         array++;
+00356     \}
+00357 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga834f812058a0f9e13614e3877b99e7d1}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-Num@{L\-C\-D\-Send\-Num}}
+\index{L\-C\-D\-Send\-Num@{L\-C\-D\-Send\-Num}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-Num (
+\begin{DoxyParamCaption}
+\item[{int64\-\_\-t}]{num, }
+\item[{uint8\-\_\-t}]{length, }
+\item[{uint8\-\_\-t}]{is\-Signed, }
+\item[{uint8\-\_\-t}]{show\-Zeros}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga834f812058a0f9e13614e3877b99e7d1}
+Writes a decimal number with a variable length in the L\-C\-D.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & int64\-\_\-t number to be written. \\
+\hline
+{\em length} & uint8\-\_\-t length, in decimal digits, of the number. \\
+\hline
+{\em is\-Signed} & uint8\-\_\-t flag to determine if the number is to be treted as a negative number. \\
+\hline
+{\em show\-Zeros} & uint8\-\_\-t flag to determine if leading zeros will be shown.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00246}{246} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00247 \{
+00248     uint8\_t index =0;
+00249     uint8\_t out = \textcolor{charliteral}{' '};
+00250     uint64\_t multiple = 1;
+00251     limitCeilValue(length,10);
+00252     \textcolor{keywordflow}{if}(num<0 && isSigned==\textcolor{keyword}{true})
+00253     \{
+00254         out = \textcolor{charliteral}{'-'};
+00255         num *= -1;
+00256     \}
+00257     \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out);
+00258     index = length;
+00259     \textcolor{keywordflow}{while}(length>1)
+00260     \{
+00261         multiple *= 10;
+00262         length--;
+00263     \}
+00264     \textcolor{keywordflow}{while}(index >= 1)
+00265     \{
+00266         out = (uint32\_t) (num/multiple);
+00267         num -= out*(multiple);
+00268         \textcolor{keywordflow}{if}(out!=0)
+00269             showZeros = \textcolor{keyword}{true};
+00270         \textcolor{keywordflow}{if}(out==0 && showZeros==\textcolor{keyword}{false})
+00271             out -= 16;
+00272         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out+48);
+00273         multiple /= 10;
+00274         index--;
+00275     \}
+00276 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gab60cf48616fbfae462176971827a642d}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-Num\-Array@{L\-C\-D\-Send\-Num\-Array}}
+\index{L\-C\-D\-Send\-Num\-Array@{L\-C\-D\-Send\-Num\-Array}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-Num\-Array}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-Num\-Array (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{index}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gab60cf48616fbfae462176971827a642d}
+Sends a number arranged in an array to the L\-C\-D. Each cell corresponds to a digit in the L\-C\-D.
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$index} & uint8\-\_\-t base address of the array to be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00288}{288} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00289 \{
+00290     \textcolor{keywordflow}{while}(*index<33)
+00291     \{
+00292         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(*index+\textcolor{charliteral}{'0'});
+00293         index++;
+00294     \}
+00295 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gac4b96faffdc9a846f1f2031a09935f07}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-Num\-Strict@{L\-C\-D\-Send\-Num\-Strict}}
+\index{L\-C\-D\-Send\-Num\-Strict@{L\-C\-D\-Send\-Num\-Strict}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-Num\-Strict}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-Num\-Strict (
+\begin{DoxyParamCaption}
+\item[{int64\-\_\-t}]{num, }
+\item[{uint8\-\_\-t}]{length, }
+\item[{uint8\-\_\-t}]{is\-Signed, }
+\item[{uint8\-\_\-t}]{show\-Zeros}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gac4b96faffdc9a846f1f2031a09935f07}
+Writes a decimal number with a strict length in the L\-C\-D.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & int64\-\_\-t number to be written. \\
+\hline
+{\em length} & uint8\-\_\-t length, in decimal digits, of the number. \\
+\hline
+{\em is\-Signed} & uint8\-\_\-t flag to determine if the number is to be treted as a negative number. \\
+\hline
+{\em show\-Zeros} & uint8\-\_\-t flag to determine if leading zeros will be shown.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00200}{200} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00201 \{
+00202     uint8\_t index =0;
+00203     uint8\_t out;
+00204     uint64\_t multiple = 1;
+00205     limitCeilValue(length,10);
+00206     \textcolor{keywordflow}{if}(num<0 && isSigned==\textcolor{keyword}{true})
+00207     \{
+00208         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'-'});
+00209         num *= -1;
+00210         length--;
+00211     \}
+00212     index = length;
+00213     \textcolor{keywordflow}{while}(length>1)
+00214     \{
+00215         multiple *= 10;
+00216         length--;
+00217     \}
+00218     \textcolor{keywordflow}{while}(index >= 1)
+00219     \{
+00220         out = (uint32\_t) (num/multiple);
+00221         num -= out*(multiple);
+00222         \textcolor{keywordflow}{if}(out!=0)
+00223             showZeros = \textcolor{keyword}{true};
+00224         \textcolor{keywordflow}{if}(out==0 && showZeros==\textcolor{keyword}{false})
+00225             out -= 16;
+00226         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out+48);
+00227         multiple /= 10;
+00228         index--;
+00229     \}
+00230 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-String@{L\-C\-D\-Send\-String}}
+\index{L\-C\-D\-Send\-String@{L\-C\-D\-Send\-String}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-String}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-String (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{string, }
+\item[{uint8\-\_\-t}]{break\-Line}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$string} & uint8\-\_\-t string to be sent. \\
+\hline
+{\em break\-Line} & uint8\-\_\-t break line at the end of L\-C\-D length.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00164}{164} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00165 \{
+00166     \textcolor{keywordflow}{while}(*\textcolor{keywordtype}{string})
+00167     \{
+00168         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(*\textcolor{keywordtype}{string});
+00169         \textcolor{keywordtype}{string}++;
+00170         \textcolor{keywordflow}{if}(\hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col==LCD\_col\_num && breakLine==\textcolor{keyword}{true})
+00171         \{
+00172             \textcolor{keywordflow}{if}(\hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row<=LCD\_row\_num)
+00173                 \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(\hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row+1, 1);
+00174             \textcolor{keywordflow}{else}
+00175                 \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(0, 1);
+00176         \}
+00177     \}
+00178 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_gac002f3125c0e84fcba52a2ee41855b61}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Send\-V\-U@{L\-C\-D\-Send\-V\-U}}
+\index{L\-C\-D\-Send\-V\-U@{L\-C\-D\-Send\-V\-U}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Send\-V\-U}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Send\-V\-U (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{num, }
+\item[{uint32\-\_\-t}]{base}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_gac002f3125c0e84fcba52a2ee41855b61}
+This function uses special characters filled in horizontal increasing steps to make a Visual Units Display from the L\-C\-D.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & uint32\-\_\-t number to be written. \\
+\hline
+{\em base} & uint32\-\_\-t max number value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00498}{498} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00499 \{
+00500     uint8\_t index, pass=1;
+00501     num  = (\textcolor{keywordtype}{unsigned} int) num*(LCD\_col\_num*LCD\_char\_width)/base;
+00502     \textcolor{keywordflow}{while}(num>0)
+00503     \{
+00504         index = LCD\_char\_width;
+00505         \textcolor{keywordflow}{while}(num<LCD\_char\_width)
+00506         \{
+00507             index--;
+00508             num++;
+00509         \}
+00510         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(index);
+00511         num -= LCD\_char\_width;
+00512         pass++;
+00513     \}
+00514     \textcolor{keywordflow}{while}(pass<=LCD\_col\_num)
+00515     \{
+00516         pass++;
+00517         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(0);
+00518     \}
+00519 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga7844790b6bfe761b4eb51f3dda0705ac}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-Shift@{L\-C\-D\-Shift}}
+\index{L\-C\-D\-Shift@{L\-C\-D\-Shift}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-Shift}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-D\-Shift (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{shift}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga7844790b6bfe761b4eb51f3dda0705ac}
+Sets the configuration according to the following flags\-:
+\begin{DoxyItemize}
+\item L\-C\-D\-\_\-\-S\-H\-I\-F\-T
+\item L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-D\-I\-S\-P\-L\-A\-Y
+\item L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-C\-U\-R\-S\-O\-R
+\item L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-R\-I\-G\-H\-T
+\item L\-C\-D\-\_\-\-S\-H\-I\-F\-T\-\_\-\-L\-E\-F\-T
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em shift} & uint8\-\_\-t option flag to be set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00452}{452} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00453 \{
+00454     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(shift|LCD\_SHIFT);
+00455 \}
+\end{DoxyCode}
+\hypertarget{group__lcd__h_ga6fb89345366fbf76f2ab64e128a1eaae}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!num\-To\-Array@{num\-To\-Array}}
+\index{num\-To\-Array@{num\-To\-Array}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{num\-To\-Array}]{\setlength{\rightskip}{0pt plus 5cm}void num\-To\-Array (
+\begin{DoxyParamCaption}
+\item[{int32\-\_\-t}]{num, }
+\item[{uint8\-\_\-t $\ast$}]{array, }
+\item[{uint8\-\_\-t}]{length, }
+\item[{uint16\-\_\-t}]{base}
+\end{DoxyParamCaption}
+)}}\label{group__lcd__h_ga6fb89345366fbf76f2ab64e128a1eaae}
+The termination of array is done by the number 33. The highest selectable number base is 32.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & int32\-\_\-t number to be converted. \\
+\hline
+{\em $\ast$array} & uint8\-\_\-t destination array. \\
+\hline
+{\em length} & uint8\-\_\-t number length, in decimal digits. \\
+\hline
+{\em base} & uint8\-\_\-t base of output array.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \hyperlink{lcd_8c_source_l00373}{373} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+
+\begin{DoxyCode}
+00374 \{
+00375     uint16\_t index =1;
+00376     uint8\_t out;
+00377     uint64\_t multiple = 1;
+00378 
+00379     limitCeilValue(length, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}) 1<<64/base);
+00380     limitCeilValue(length, maxLengthOut);
+00381 
+00382 
+00383     \textcolor{comment}{//create multiple number}
+00384     \textcolor{keywordflow}{while}(index<length)
+00385     \{
+00386         multiple *= base;
+00387         index++;
+00388     \}
+00389     \textcolor{comment}{//sort multiples}
+00390     \textcolor{keywordflow}{while}(index >= 1)
+00391     \{
+00392         \textcolor{comment}{//determines the multiple}
+00393         out = (uint8\_t) (num/multiple);
+00394         \textcolor{comment}{//takes out multiple}
+00395         num -= out*(multiple);
+00396 
+00397         \textcolor{comment}{//escreve no vetor, desloca indice}
+00398         *array = out;
+00399         array++;
+00400         multiple /= base;
+00401         \textcolor{comment}{//change multiple position}
+00402         index--;
+00403     \}
+00404     *array = 33;
+00405 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\hypertarget{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D0\-Status@{L\-C\-D0\-Status}}
+\index{L\-C\-D0\-Status@{L\-C\-D0\-Status}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D0\-Status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf L\-C\-D\-Status} L\-C\-D0\-Status}}\label{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]create masks for L\-C\-D commands. \end{DoxyRefDesc}
+\hypertarget{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector@{L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector}}
+\index{L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector@{L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}const char L\-C\-D\-\_\-\-Cmd\-Init\-\_\-\-Vector\mbox{[}{\bf lcd\-\_\-vector\-\_\-index}\mbox{]} =\{0x38, 0x38, 0x38, 0x01, L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-O\-N\-F\-I\-G, L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T, 0x01\}}}\label{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}
+Initialization Commands Sequence\-: 
+
+Definition at line \hyperlink{lcd_8c_source_l00020}{20} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+
+\hypertarget{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}{\index{Lcd\-\_\-h@{Lcd\-\_\-h}!L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector@{L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector}}
+\index{L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector@{L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector}!Lcd_h@{Lcd\-\_\-h}}
+\subsubsection[{L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int L\-C\-D\-\_\-\-Init\-Delay\-\_\-\-Vector\mbox{[}{\bf lcd\-\_\-vector\-\_\-index}\mbox{]} =\{8000, 200, 200, 16000, 600, 200, 15000\}}}\label{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}
+L\-C\-D Init command delay vector, in u\-S. 
+
+Definition at line \hyperlink{lcd_8c_source_l00025}{25} of file \hyperlink{lcd_8c_source}{lcd.\-c}.
+

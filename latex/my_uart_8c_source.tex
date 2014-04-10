@@ -11,7 +11,7 @@
 00006 \textcolor{comment}{ */}
 00007 
 00008 
-00009 \textcolor{preprocessor}{#include "\hyperlink{my_uart_8h}{myUart.h}"}
+00009 \textcolor{preprocessor}{#include "myUart.h"}
 00010 
 00011 
 00012 
@@ -19,13 +19,13 @@
 00014 \textcolor{comment}{ * Sends a string, NULL terminator}
 00015 \textcolor{comment}{ * returns none}
 00016 \textcolor{comment}{ */}
-\hypertarget{my_uart_8c_source_l00017}{}\hyperlink{my_uart_8h_a9b47e5aa4e5050889d191858d9abda06}{00017} \textcolor{keywordtype}{void} \hyperlink{my_uart_8c_a9b47e5aa4e5050889d191858d9abda06}{myUARTSendString}(uint32\_t instance, uint8\_t *\textcolor{keywordtype}{string})
+00017 \textcolor{keywordtype}{void} myUARTSendString(uint32\_t instance, uint8\_t *\textcolor{keywordtype}{string})
 00018 \{
 00019     \textcolor{keywordflow}{while}(*\textcolor{keywordtype}{string})
 00020     \{
-00021         \hyperlink{my_uart_8h_a5104f0390cc22c91cbbc7a6a8ba5aff6}{myUARTSend}(instance, *\textcolor{keywordtype}{string});
+00021         myUARTSend(instance, *\textcolor{keywordtype}{string});
 00022         \textcolor{keywordtype}{string}++;
-00023         \hyperlink{my_uart_8h_a6d6103b1f75ca29bed3d331224bf8035}{myUARTDelay}(1);
+00023         myUARTDelay(1);
 00024     \}
 00025 \}
 00026 

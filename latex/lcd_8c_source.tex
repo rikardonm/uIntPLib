@@ -4,263 +4,177 @@
 
 \begin{DoxyCode}
 00001 
-00002 \textcolor{preprocessor}{#include "\hyperlink{lcd_8h}{lcd.h}"}
-00003 
-00004 
-00005 
-00006 \textcolor{comment}{}
-00007 \textcolor{comment}{/**}
-00008 \textcolor{comment}{ * Checks and defines boolean values.}
-00009 \textcolor{comment}{ */}
-00010 \textcolor{preprocessor}{#ifndef true}
-\hypertarget{lcd_8c_source_l00011}{}\hyperlink{lcd_8c_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{00011} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define true 1}
-\hypertarget{lcd_8c_source_l00012}{}\hyperlink{lcd_8c_a65e9886d74aaee76545e83dd09011727}{00012} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define false 0}
-\hypertarget{lcd_8c_source_l00013}{}\hyperlink{lcd_8c_aef9bf496a2e7dbc60c216b18b4a4b770}{00013} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define trueDefinedLCD}
-00014 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
-00015 \textcolor{preprocessor}{}
-00016 
-00017 \textcolor{comment}{/*}
-00018 \textcolor{comment}{ * Initialization Sequence:}
-00019 \textcolor{comment}{ * TODO: create masks for LCD commands}
-00020 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00021}{}\hyperlink{lcd_8c_a5b5f7e083c03030e46ef30ba2f9a4807}{00021} \textcolor{preprocessor}{#define lcd\_vector\_index    9}
-\hypertarget{lcd_8c_source_l00022}{}\hyperlink{lcd_8c_af29aec3c2f771e62d84392f6d3fa1427}{00022} \textcolor{preprocessor}{}\textcolor{keyword}{const} \textcolor{keywordtype}{char} \hyperlink{lcd_8c_af29aec3c2f771e62d84392f6d3fa1427}{LCD\_CmdInit\_Vector} [\hyperlink{lcd_8c_a5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}] = \(\backslash\)
-00023         \{
-00024             0x03, 0x38, 0x38, 0x38, 0x01, \hyperlink{lcd_8h_a4f2c8e26ccc5cf79276816b6e3ce072e}{LCD\_DISPLAY\_CONFIG}, 
-      \hyperlink{lcd_8h_a3342673e030aa53067050b74629c7f78}{LCD\_DISPLAY\_INCREMENT}, 0x01, 0x02,
-00025         \};
-00026 \textcolor{comment}{/*}
-00027 \textcolor{comment}{ * Delay time in uSs}
-00028 \textcolor{comment}{ */}\textcolor{comment}{}
-00029 \textcolor{comment}{/**}
-00030 \textcolor{comment}{ * LCD Init command delay vector, in uS}
-00031 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00032}{}\hyperlink{lcd_8c_aa94f066be94d030edb2bd88f7bd2b804}{00032} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{lcd_8c_aa94f066be94d030edb2bd88f7bd2b804}{LCD\_InitDelay\_Vector}[\hyperlink{lcd_8c_a5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}] = \(\backslash\)
-00033         \{
-00034             8000, 800, 800, 800, 600, 600, 200, 200, 200
-00035         \};
-00036 
-00037 
-00038 
-00039 \textcolor{comment}{}
-00040 \textcolor{comment}{/**}
-00041 \textcolor{comment}{ *  \(\backslash\)brief Initializes the LCD Module}
-00042 \textcolor{comment}{ *  }
-00043 \textcolor{comment}{ *  Called once at startup. Takes no parameters.}
-00044 \textcolor{comment}{ *  }
-00045 \textcolor{comment}{ *  \(\backslash\)return None.}
-00046 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00047}{}\hyperlink{lcd_8h_a410f02e534a63d1f6e7a168dae003d6d}{00047} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a410f02e534a63d1f6e7a168dae003d6d}{LCDInit}(\textcolor{keywordtype}{void})
-00048 \{
-00049     uint8\_t Vector\_Scan = 0;
-00050     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(15000);
-00051     \textcolor{keywordflow}{for}(Vector\_Scan=0; Vector\_Scan < \hyperlink{lcd_8c_a5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}; Vector\_Scan++)
-00052     \{
-00053         \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(\hyperlink{lcd_8c_af29aec3c2f771e62d84392f6d3fa1427}{LCD\_CmdInit\_Vector}[Vector\_Scan]);
-00054         \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(\hyperlink{lcd_8c_aa94f066be94d030edb2bd88f7bd2b804}{LCD\_InitDelay\_Vector}[Vector\_Scan]);
-00055     \}
-00056     \textcolor{comment}{//splash screen}
-00057 \textcolor{preprocessor}{#if LCD\_SPLASHSCREEN1 == 1}
-00058 \textcolor{preprocessor}{}    \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(1,1);
-00059     \hyperlink{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{lcd_8h_a251cf3018caf604ae46e1636e2678cda}{LCD\_splashscreen\_row1}, 0);
-00060     \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(2,1);
-00061     \hyperlink{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{lcd_8h_a2f0e22d3d76e41b82bc3c55c1564143c}{LCD\_splashscreen\_row2}, 0);
-00062     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(2*1000*1000);
-00063 \textcolor{preprocessor}{#endif}
-00064 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if LCD\_SPLASHSCREEN2 == 1}
-00065 \textcolor{preprocessor}{}    \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(1,1);
-00066     \hyperlink{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{lcd_8h_ac7bb85d0a6249381b2d7050da3e2e99c}{LCD\_splashscreen2\_row1}, \textcolor{keyword}{false});
-00067     \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(2,1);
-00068     \hyperlink{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{lcd_8h_a5c961ed231f58622f0d35f1f29439bbd}{LCD\_splashscreen2\_row2}, \textcolor{keyword}{false});
-00069     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(2*1000*1000);
-00070 \textcolor{preprocessor}{#endif}
-00071 \textcolor{preprocessor}{}    \hyperlink{lcd_8c_a3a94c0f44f76db891e66d98966f904e8}{LCDClear}();
+00005 \textcolor{preprocessor}{#include "lcd.h"}
+00006 
+00007 
+00008 \textcolor{preprocessor}{#ifndef true}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define true 1}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define false 0}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define trueDefinedLCD}
+00012 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00013 \textcolor{preprocessor}{}
+00014 
+\hypertarget{lcd_8c_source_l00015}{}\hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{00015} \textcolor{preprocessor}{#define lcd\_vector\_index    7           }
+00016 \textcolor{preprocessor}{}
+00017 \textcolor{preprocessor}{}
+\hypertarget{lcd_8c_source_l00020}{}\hyperlink{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}{00020} \textcolor{keyword}{const} \textcolor{keywordtype}{char} \hyperlink{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}{LCD\_CmdInit\_Vector} [\hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}] =\{0x38, 0x38, 0x38, 0x01
+      , LCD\_DISPLAY\_CONFIG, LCD\_DISPLAY\_INCREMENT, 0x01\};
+00021 
+\hypertarget{lcd_8c_source_l00025}{}\hyperlink{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}{00025} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}{LCD\_InitDelay\_Vector}[\hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}] =\{8000, 200, 
+      200, 16000, 600, 200, 15000\};
+00026 
+00027 
+\hypertarget{lcd_8c_source_l00035}{}\hyperlink{group__lcd__h_ga410f02e534a63d1f6e7a168dae003d6d}{00035} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga410f02e534a63d1f6e7a168dae003d6d}{LCDInit}(\textcolor{keywordtype}{void})
+00036 \{
+00037     uint8\_t Vector\_Scan = 0;
+00038     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(15000);
+00039     \textcolor{keywordflow}{for}(Vector\_Scan=0; Vector\_Scan < \hyperlink{group__lcd__h_ga5b5f7e083c03030e46ef30ba2f9a4807}{lcd\_vector\_index}; Vector\_Scan++)
+00040     \{
+00041         \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(\hyperlink{group__lcd__h_gaf29aec3c2f771e62d84392f6d3fa1427}{LCD\_CmdInit\_Vector}[Vector\_Scan]);
+00042         \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(\hyperlink{group__lcd__h_gaa94f066be94d030edb2bd88f7bd2b804}{LCD\_InitDelay\_Vector}[Vector\_Scan]);
+00043     \}
+00044     \textcolor{comment}{//splash screen}
+00045 \textcolor{preprocessor}{#if LCD\_SPLASHSCREEN1 == 1}
+00046 \textcolor{preprocessor}{}    \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(1,1);
+00047     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_ga251cf3018caf604ae46e1636e2678cda}{LCD\_splashscreen\_row1}, 0);
+00048     \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(2,1);
+00049     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_ga2f0e22d3d76e41b82bc3c55c1564143c}{LCD\_splashscreen\_row2}, 0);
+00050     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(2*1000*1000);
+00051 \textcolor{preprocessor}{#endif}
+00052 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if LCD\_SPLASHSCREEN2 == 1}
+00053 \textcolor{preprocessor}{}    \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(1,1);
+00054     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_gac7bb85d0a6249381b2d7050da3e2e99c}{LCD\_splashscreen2\_row1}, \textcolor{keyword}{false});
+00055     \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(2,1);
+00056     \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(\hyperlink{group__lcd__h_ga5c961ed231f58622f0d35f1f29439bbd}{LCD\_splashscreen2\_row2}, \textcolor{keyword}{false});
+00057     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(2*1000*1000);
+00058 \textcolor{preprocessor}{#endif}
+00059 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if LCD\_SPLAHSCREEN\_CLEAR == 1}
+00060 \textcolor{preprocessor}{}    \hyperlink{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}{LCDClear}();
+00061 \textcolor{preprocessor}{#endif}
+00062 \textcolor{preprocessor}{}\}
+00063 
+\hypertarget{lcd_8c_source_l00068}{}\hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{00068} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(uint8\_t cmd)
+00069 \{
+00070     \hyperlink{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}{LCD\_RS\_Low};
+00071     \hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{LCDSend}(cmd);
 00072 \}
 00073 
-00074 \textcolor{comment}{/*}
-00075 \textcolor{comment}{ * Send a Command to the LCD}
-00076 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00077}{}\hyperlink{lcd_8h_adf46506fd9d8c431334544aa11f4758d}{00077} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(uint8\_t cmd)
-00078 \{
-00079     \hyperlink{lcd_8h_a0b24c06c65241a0e59d9c53807e41317}{LCD\_RS\_Low};
-00080     \hyperlink{lcd_8c_a0257fa3d10340824fed4a7839f626c4e}{LCDSend}(cmd);
-00081 \}
-00082 
-00083 \textcolor{comment}{}
-00084 \textcolor{comment}{/**}
-00085 \textcolor{comment}{ * \(\backslash\)brief send single character to LCD.}
-00086 \textcolor{comment}{ * }
-00087 \textcolor{comment}{ * \(\backslash\)param txt uint8\_t type data to be sent, 8 bits.}
-00088 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00089}{}\hyperlink{lcd_8h_a0d5843c7370917ec19391dd73542e4a6}{00089} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(uint8\_t txt)
-00090 \{
-00091     \hyperlink{lcd_8h_abba12f2f22df7f046b7d5a4cd2e969b7}{LCD\_RS\_High};
-00092     \hyperlink{lcd_8c_a0257fa3d10340824fed4a7839f626c4e}{LCDSend}(txt);
-00093     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col} ++;
-00094     \hyperlink{lcd_8h_a0b24c06c65241a0e59d9c53807e41317}{LCD\_RS\_Low};
-00095 \}
-00096 \textcolor{comment}{}
-00097 \textcolor{comment}{/**}
-00098 \textcolor{comment}{ * \(\backslash\)brief Send data to LCD, no RS control}
-00099 \textcolor{comment}{ *}
-00100 \textcolor{comment}{ * \(\backslash\)param send uint8\_t data to be sent.}
-00101 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00102}{}\hyperlink{lcd_8h_a9bf60c90a000058abb09e96594144bf1}{00102} \_\_inline \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a0257fa3d10340824fed4a7839f626c4e}{LCDSend}(uint8\_t send)
-00103 \{
-00104     \hyperlink{lcd_8h_ab54604df26d503464f08a6340307989b}{LCD\_EN\_Low};
-00105     \hyperlink{lcd_8h_ad70516201ea275cdb7b698f8782bd0b6}{LCD\_DTA\_Send}(send);
-00106     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(4);
-00107     \hyperlink{lcd_8h_aa5646c9467f205fa5d9ae2f35037e222}{LCD\_EN\_High};
-00108     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(4);
-00109     \hyperlink{lcd_8h_ab54604df26d503464f08a6340307989b}{LCD\_EN\_Low};
-00110 \}
-00111 \textcolor{comment}{}
-00112 \textcolor{comment}{/**}
-00113 \textcolor{comment}{ * \(\backslash\)brief Set LCD write position}
-00114 \textcolor{comment}{ *}
-00115 \textcolor{comment}{ * \(\backslash\)param row uint8\_t row.}
-00116 \textcolor{comment}{ * \(\backslash\)param col uint8\_t column.}
-00117 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00118}{}\hyperlink{lcd_8h_ad4c66b9810c1c89a670b7c619a727cae}{00118} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(uint8\_t row, uint8\_t col)
-00119 \{
-00120     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row} = row;
-00121     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col} = col;
-00122     col--;
-00123     \textcolor{keywordflow}{if}(row==1)
-00124         row = 0x80;
-00125     \textcolor{keywordflow}{if}(row==2)
-00126         row = 0xC0;
-00127     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(row+col);
-00128     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(20);
-00129 \}
-00130 
-00131 \textcolor{comment}{}
-00132 \textcolor{comment}{/**}
-00133 \textcolor{comment}{ * \(\backslash\)brief Set LCD write position, no delay in function}
-00134 \textcolor{comment}{ *}
-00135 \textcolor{comment}{ * \(\backslash\)param row uint8\_t row.}
-00136 \textcolor{comment}{ * \(\backslash\)param col uint8\_t column.}
-00137 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00138}{}\hyperlink{lcd_8h_af22c7bb61db1d8632dd23b9803d00464}{00138} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_af22c7bb61db1d8632dd23b9803d00464}{LCDPositionNoDelay}(uint8\_t row, uint8\_t col)
-00139 \{
-00140     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row} = row;
-00141     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col} = col;
-00142     col--;
-00143     \textcolor{keywordflow}{if}(row==1)
-00144         row = 0x80;
-00145     \textcolor{keywordflow}{if}(row==2)
-00146         row = 0xC0;
-00147     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(row+col);
-00148 \}
-00149 
-00150 \textcolor{comment}{}
-00151 \textcolor{comment}{/**}
-00152 \textcolor{comment}{ * \(\backslash\)brief Send string to LCD}
-00153 \textcolor{comment}{ *}
-00154 \textcolor{comment}{ * \(\backslash\)param *string uint8\_t string to be sent.}
-00155 \textcolor{comment}{ * \(\backslash\)param breakLine uint8\_t break line at the end of LCD length.}
-00156 \textcolor{comment}{ *}
-00157 \textcolor{comment}{ *}
-00158 \textcolor{comment}{ * Writes a string of characteres on display}
-00159 \textcolor{comment}{ * Processes according to the ASCII code}
-00160 \textcolor{comment}{ * 0 - NULL}
-00161 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00162}{}\hyperlink{lcd_8h_a235609b6036ae1c877c66c70c9e1b962}{00162} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(uint8\_t *\textcolor{keywordtype}{string}, uint8\_t breakLine)
-00163 \{
-00164     \textcolor{keywordflow}{while}(*\textcolor{keywordtype}{string})
-00165     \{
-00166         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(*\textcolor{keywordtype}{string});
-00167         \textcolor{keywordtype}{string}++;
-00168         \textcolor{keywordflow}{if}(\hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col}==\hyperlink{external__cons_8h_ad80756bc7ac870672c681c5d21151e60}{LCD\_col\_num} && breakLine==\textcolor{keyword}{true})
-00169         \{
-00170             \textcolor{keywordflow}{if}(\hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row}<=\hyperlink{external__cons_8h_a2f07899f83ddc9a15c44f08a6345f621}{LCD\_row\_num})
-00171                 \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(\hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row}+1, 1);
-00172             \textcolor{keywordflow}{else}
-00173                 \hyperlink{lcd_8c_ad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(0, 1);
-00174         \}
-00175     \}
-00176 \}
-00177 
-00178 
+00074 
+\hypertarget{lcd_8c_source_l00082}{}\hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{00082} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(uint8\_t txt)
+00083 \{
+00084     \hyperlink{group__lcd__h_gabba12f2f22df7f046b7d5a4cd2e969b7}{LCD\_RS\_High};
+00085     \hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{LCDSend}(txt);
+00086     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col ++;
+00087     \hyperlink{group__lcd__h_ga0b24c06c65241a0e59d9c53807e41317}{LCD\_RS\_Low};
+00088 \}
+00089 
+\hypertarget{lcd_8c_source_l00097}{}\hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{00097} \_\_inline \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga9bf60c90a000058abb09e96594144bf1}{LCDSend}(uint8\_t send)
+00098 \{
+00099     \hyperlink{group__lcd__h_gab54604df26d503464f08a6340307989b}{LCD\_EN\_Low};
+00100     \hyperlink{group__lcd__h_gad70516201ea275cdb7b698f8782bd0b6}{LCD\_DTA\_Send}(send);
+00101     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(4);
+00102     \hyperlink{group__lcd__h_gaa5646c9467f205fa5d9ae2f35037e222}{LCD\_EN\_High};
+00103     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(4);
+00104     \hyperlink{group__lcd__h_gab54604df26d503464f08a6340307989b}{LCD\_EN\_Low};
+00106 \}
+00107 
+\hypertarget{lcd_8c_source_l00116}{}\hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{00116} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(uint8\_t row, uint8\_t col)
+00117 \{
+00118     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row = row;
+00119     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col = col;
+00120     col--;
+00121     \textcolor{keywordflow}{if}(row==1)
+00122         row = 0x80;
+00123     \textcolor{keywordflow}{if}(row==2)
+00124         row = 0xC0;
+00125     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(row+col);
+00126     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(20);
+00127 \}
+00128 
+00129 
+\hypertarget{lcd_8c_source_l00140}{}\hyperlink{group__lcd__h_gaf22c7bb61db1d8632dd23b9803d00464}{00140} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gaf22c7bb61db1d8632dd23b9803d00464}{LCDPositionNoDelay}(uint8\_t row, uint8\_t col)
+00141 \{
+00142     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row = row;
+00143     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col = col;
+00144     col--;
+00145     \textcolor{keywordflow}{if}(row==1)
+00146         row = 0x80;
+00147     \textcolor{keywordflow}{if}(row==2)
+00148         row = 0xC0;
+00149     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(row+col);
+00150 \}
+00151 
+00152 
+\hypertarget{lcd_8c_source_l00164}{}\hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{00164} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga235609b6036ae1c877c66c70c9e1b962}{LCDSendString}(uint8\_t *\textcolor{keywordtype}{string}, uint8\_t breakLine)
+00165 \{
+00166     \textcolor{keywordflow}{while}(*\textcolor{keywordtype}{string})
+00167     \{
+00168         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(*\textcolor{keywordtype}{string});
+00169         \textcolor{keywordtype}{string}++;
+00170         \textcolor{keywordflow}{if}(\hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col==LCD\_col\_num && breakLine==\textcolor{keyword}{true})
+00171         \{
+00172             \textcolor{keywordflow}{if}(\hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row<=LCD\_row\_num)
+00173                 \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(\hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row+1, 1);
+00174             \textcolor{keywordflow}{else}
+00175                 \hyperlink{group__lcd__h_gad4c66b9810c1c89a670b7c619a727cae}{LCDPosition}(0, 1);
+00176         \}
+00177     \}
+00178 \}
 00179 
 00180 
-00181 \textcolor{comment}{/*}
-00182 \textcolor{comment}{ * TODO: make function to print string and remaining spaces in LCD}
-00183 \textcolor{comment}{ */}
-00184 
-00185 
-00186 \textcolor{comment}{/*}
-00187 \textcolor{comment}{ * Prints a number, from a variable, to the LCD}
-00188 \textcolor{comment}{ * PARAM: num, length, isSigned, showZeros}
-00189 \textcolor{comment}{ * IF signed}
-00190 \textcolor{comment}{ *      Limits to a max of 10 digits to a positive number}
-00191 \textcolor{comment}{ *      Limits to a max of 9 digits to a negative number}
-00192 \textcolor{comment}{ * ELSE}
-00193 \textcolor{comment}{ *      limits to 10 chars}
-00194 \textcolor{comment}{ * IF showzeros}
-00195 \textcolor{comment}{ *      shows all leading zeros}
-00196 \textcolor{comment}{ * else}
-00197 \textcolor{comment}{ *      supresses zeros; places space instead}
-00198 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00199}{}\hyperlink{lcd_8h_ac4b96faffdc9a846f1f2031a09935f07}{00199} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_ac4b96faffdc9a846f1f2031a09935f07}{LCDSendNumStrict}(int64\_t num, uint8\_t length, uint8\_t isSigned, uint8\_t showZeros)
-00200 \{
-00201     uint8\_t index =0;
-00202     uint8\_t out;
-00203     uint64\_t multiple = 1;
-00204     \hyperlink{my__use_8h_a69599b2fb93b9c86832c7de1f86f74e6}{limitCeilValue}(length,10);
-00205     \textcolor{keywordflow}{if}(num<0 && isSigned==\textcolor{keyword}{true})
-00206     \{
-00207         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'-'});
-00208         num *= -1;
-00209         length--;
-00210     \}
-00211     index = length;
-00212     \textcolor{keywordflow}{while}(length>1)
-00213     \{
-00214         multiple *= 10;
-00215         length--;
-00216     \}
-00217     \textcolor{keywordflow}{while}(index >= 1)
-00218     \{
-00219         out = (uint32\_t) (num/multiple);
-00220         num -= out*(multiple);
-00221         \textcolor{keywordflow}{if}(out!=0)
-00222             showZeros = \textcolor{keyword}{true};
-00223         \textcolor{keywordflow}{if}(out==0 && showZeros==\textcolor{keyword}{false})
-00224             out -= 16;
-00225         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out+48);
-00226         multiple /= 10;
-00227         index--;
-00228     \}
-00229 \}
-00230 
+00181 
+00182 
+00183 \textcolor{comment}{/*}
+00184 \textcolor{comment}{ * \(\backslash\)todo make function to print string and remaining spaces in LCD}
+00185 \textcolor{comment}{ */}
+00186 
+00187 
+\hypertarget{lcd_8c_source_l00200}{}\hyperlink{group__lcd__h_gac4b96faffdc9a846f1f2031a09935f07}{00200} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gac4b96faffdc9a846f1f2031a09935f07}{LCDSendNumStrict}(int64\_t num, uint8\_t length, uint8\_t isSigned, uint8\_t showZeros)
+00201 \{
+00202     uint8\_t index =0;
+00203     uint8\_t out;
+00204     uint64\_t multiple = 1;
+00205     limitCeilValue(length,10);
+00206     \textcolor{keywordflow}{if}(num<0 && isSigned==\textcolor{keyword}{true})
+00207     \{
+00208         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'-'});
+00209         num *= -1;
+00210         length--;
+00211     \}
+00212     index = length;
+00213     \textcolor{keywordflow}{while}(length>1)
+00214     \{
+00215         multiple *= 10;
+00216         length--;
+00217     \}
+00218     \textcolor{keywordflow}{while}(index >= 1)
+00219     \{
+00220         out = (uint32\_t) (num/multiple);
+00221         num -= out*(multiple);
+00222         \textcolor{keywordflow}{if}(out!=0)
+00223             showZeros = \textcolor{keyword}{true};
+00224         \textcolor{keywordflow}{if}(out==0 && showZeros==\textcolor{keyword}{false})
+00225             out -= 16;
+00226         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out+48);
+00227         multiple /= 10;
+00228         index--;
+00229     \}
+00230 \}
 00231 
 00232 
-00233 \textcolor{comment}{/*}
-00234 \textcolor{comment}{ * Prints a number, from a variable, to the LCD}
-00235 \textcolor{comment}{ * PARAM: num, length, isSigned, showZeros}
-00236 \textcolor{comment}{ * IF signed}
-00237 \textcolor{comment}{ *      Limits to a max of 10 digits to a positive number}
-00238 \textcolor{comment}{ *      Limits to a max of 9 digits to a negative number}
-00239 \textcolor{comment}{ * ELSE}
-00240 \textcolor{comment}{ *      limits to 10 chars}
-00241 \textcolor{comment}{ * IF showzeros}
-00242 \textcolor{comment}{ *      shows all leading zeros}
-00243 \textcolor{comment}{ * else}
-00244 \textcolor{comment}{ *      supresses zeros; places space instead}
-00245 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00246}{}\hyperlink{lcd_8h_a834f812058a0f9e13614e3877b99e7d1}{00246} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a834f812058a0f9e13614e3877b99e7d1}{LCDSendNum}(int64\_t num, uint8\_t length, uint8\_t isSigned, uint8\_t showZeros)
+00233 
+\hypertarget{lcd_8c_source_l00246}{}\hyperlink{group__lcd__h_ga834f812058a0f9e13614e3877b99e7d1}{00246} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga834f812058a0f9e13614e3877b99e7d1}{LCDSendNum}(int64\_t num, uint8\_t length, uint8\_t isSigned, uint8\_t showZeros)
 00247 \{
 00248     uint8\_t index =0;
 00249     uint8\_t out = \textcolor{charliteral}{' '};
 00250     uint64\_t multiple = 1;
-00251     \hyperlink{my__use_8h_a69599b2fb93b9c86832c7de1f86f74e6}{limitCeilValue}(length,10);
+00251     limitCeilValue(length,10);
 00252     \textcolor{keywordflow}{if}(num<0 && isSigned==\textcolor{keyword}{true})
 00253     \{
 00254         out = \textcolor{charliteral}{'-'};
 00255         num *= -1;
 00256     \}
-00257     \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out);
+00257     \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out);
 00258     index = length;
 00259     \textcolor{keywordflow}{while}(length>1)
 00260     \{
@@ -275,210 +189,170 @@
 00269             showZeros = \textcolor{keyword}{true};
 00270         \textcolor{keywordflow}{if}(out==0 && showZeros==\textcolor{keyword}{false})
 00271             out -= 16;
-00272         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out+48);
+00272         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(out+48);
 00273         multiple /= 10;
 00274         index--;
 00275     \}
 00276 \}
 00277 
 00278 
-00279 \textcolor{comment}{/*}
-00280 \textcolor{comment}{ * Sends numerical values to LCD}
-00281 \textcolor{comment}{ * Values between 0 and base;}
-00282 \textcolor{comment}{ * max base value is defined as 32 (32bit wide buses)}
-00283 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00284}{}\hyperlink{lcd_8h_ade3eeb664308c31bec8962e0ca496f3f}{00284} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_ab60cf48616fbfae462176971827a642d}{LCDSendNumArray}(uint8\_t *index)
-00285 \{
-00286     \textcolor{keywordflow}{while}(*index<33)
-00287     \{
-00288         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(*index+\textcolor{charliteral}{'0'});
-00289         index++;
-00290     \}
-00291 \}
-00292 
-00293 \textcolor{comment}{/*}
-00294 \textcolor{comment}{ * Clears display}
-00295 \textcolor{comment}{ * Updates LCDStatus}
-00296 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00297}{}\hyperlink{lcd_8h_a3a94c0f44f76db891e66d98966f904e8}{00297} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a3a94c0f44f76db891e66d98966f904e8}{LCDClear}(\textcolor{keywordtype}{void})
-00298 \{
-00299     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x01);
-00300     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a1032713b3106af056748cc1766bbf67f}{row}=1;
-00301     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a79a5d5cb370566c8638d9a3866ff8e6b}{col}=1;
-00302     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(800);
-00303 \}
-00304 
-00305 \textcolor{comment}{/*}
-00306 \textcolor{comment}{ * Turns}
-00307 \textcolor{comment}{ * LCD\_DISPLAY\_ON/OFF}
-00308 \textcolor{comment}{ * LCD\_CURSOR\_ON/OFF}
-00309 \textcolor{comment}{ * LCD\_BLINK\_ON/OFF}
-00310 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00311}{}\hyperlink{lcd_8c_abeb4bea89bc174b16a527b8d9566d610}{00311} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_abeb4bea89bc174b16a527b8d9566d610}{LCDDisplayOn}(uint8\_t onOff)
-00312 \{
-00313     \hyperlink{lcd_8h_a8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.\hyperlink{struct_l_c_d_status_a844c7ce7851d43e9459d28c2e93d715a}{display} = onOff;
-00314     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(onOff);
-00315 \}
-00316 
-00317 
-00318 
-00319 
-00320 \textcolor{comment}{/*}
-00321 \textcolor{comment}{ * Prints the value of the array in hex format}
-00322 \textcolor{comment}{ * As HEX, it'll print in base 16}
-00323 \textcolor{comment}{ * Takes out 2 leading digits}
-00324 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00325}{}\hyperlink{lcd_8h_a0178cd2ca404d1b5b126d43df79bd460}{00325} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a0178cd2ca404d1b5b126d43df79bd460}{LCDSendHex}(uint8\_t *array)
-00326 \{
-00327     uint8\_t offset, temp;
-00328     \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'0'});
-00329     \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'x'});
-00330     array += 2;
-00331     \textcolor{keywordflow}{while}(*array<=32)
-00332     \{
-00333         temp = *array;
-00334         \textcolor{keywordflow}{if}(temp>9)
-00335         \{
-00336             temp -= 10;
-00337             offset = \textcolor{charliteral}{'A'};
-00338         \}
-00339         \textcolor{keywordflow}{else}
-00340             offset = \textcolor{charliteral}{'0'};
-00341         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(temp+offset);
-00342         array++;
-00343     \}
-00344 \}
-00345 
-00346 
-00347 
-00348 \textcolor{comment}{//void LCDSendNum(long num, char length, uint8\_t isSigned, uint8\_t showZeros)}
-00349 
-00350 \textcolor{comment}{/*}
-00351 \textcolor{comment}{ * Passes a number to a vector}
-00352 \textcolor{comment}{ * num -> number}
-00353 \textcolor{comment}{ * vector -> pointer to vector}
-00354 \textcolor{comment}{ * base -> base of output (max: 32)}
-00355 \textcolor{comment}{ *}
-00356 \textcolor{comment}{ * Last number in vector output is 33}
-00357 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00358}{}\hyperlink{lcd_8h_a6fb89345366fbf76f2ab64e128a1eaae}{00358} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a6fb89345366fbf76f2ab64e128a1eaae}{numToArray}(int32\_t num, uint8\_t *array, uint8\_t length, uint16\_t base)
-00359 \{
-00360     uint16\_t index =1;
-00361     uint8\_t out;
-00362     uint64\_t multiple = 1;
-00363 
-00364     \hyperlink{my__use_8h_a69599b2fb93b9c86832c7de1f86f74e6}{limitCeilValue}(length, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}) 1<<64/base);
-00365     \hyperlink{my__use_8h_a69599b2fb93b9c86832c7de1f86f74e6}{limitCeilValue}(length, \hyperlink{lcd_8h_ac707227d799959d68d984285c3238228}{maxLengthOut});
-00366 
-00367 
-00368     \textcolor{comment}{//create multiple number}
-00369     \textcolor{keywordflow}{while}(index<length)
-00370     \{
-00371         multiple *= base;
-00372         index++;
-00373     \}
-00374     \textcolor{comment}{//sort multiples}
-00375     \textcolor{keywordflow}{while}(index >= 1)
-00376     \{
-00377         \textcolor{comment}{//determines the multiple}
-00378         out = (uint8\_t) (num/multiple);
-00379         \textcolor{comment}{//takes out multiple}
-00380         num -= out*(multiple);
+\hypertarget{lcd_8c_source_l00288}{}\hyperlink{group__lcd__h_gab60cf48616fbfae462176971827a642d}{00288} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gab60cf48616fbfae462176971827a642d}{LCDSendNumArray}(uint8\_t *index)
+00289 \{
+00290     \textcolor{keywordflow}{while}(*index<33)
+00291     \{
+00292         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(*index+\textcolor{charliteral}{'0'});
+00293         index++;
+00294     \}
+00295 \}
+00296 
+\hypertarget{lcd_8c_source_l00304}{}\hyperlink{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}{00304} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga3a94c0f44f76db891e66d98966f904e8}{LCDClear}(\textcolor{keywordtype}{void})
+00305 \{
+00306     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x01);
+00307     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.row=1;
+00308     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.col=1;
+00309     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(800);
+00310 \}
+00311 
+00312 
+\hypertarget{lcd_8c_source_l00324}{}\hyperlink{group__lcd__h_gabeb4bea89bc174b16a527b8d9566d610}{00324} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gabeb4bea89bc174b16a527b8d9566d610}{LCDDisplayOn}(uint8\_t onOff)
+00325 \{
+00326     \hyperlink{group__lcd__h_ga8c429a174db0bd2b9972ff4ffa348e41}{LCD0Status}.display = onOff;
+00327     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(onOff);
+00328 \}
+00329 
+00330 
+\hypertarget{lcd_8c_source_l00338}{}\hyperlink{group__lcd__h_ga0178cd2ca404d1b5b126d43df79bd460}{00338} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga0178cd2ca404d1b5b126d43df79bd460}{LCDSendHex}(uint8\_t *array)
+00339 \{
+00340     uint8\_t offset, temp;
+00341     \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'0'});
+00342     \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(\textcolor{charliteral}{'x'});
+00343     array += 2;
+00344     \textcolor{keywordflow}{while}(*array<=32)
+00345     \{
+00346         temp = *array;
+00347         \textcolor{keywordflow}{if}(temp>9)
+00348         \{
+00349             temp -= 10;
+00350             offset = \textcolor{charliteral}{'A'};
+00351         \}
+00352         \textcolor{keywordflow}{else}
+00353             offset = \textcolor{charliteral}{'0'};
+00354         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(temp+offset);
+00355         array++;
+00356     \}
+00357 \}
+00358 
+00359 
+\hypertarget{lcd_8c_source_l00373}{}\hyperlink{group__lcd__h_ga6fb89345366fbf76f2ab64e128a1eaae}{00373} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga6fb89345366fbf76f2ab64e128a1eaae}{numToArray}(int32\_t num, uint8\_t *array, uint8\_t length, uint16\_t base)
+00374 \{
+00375     uint16\_t index =1;
+00376     uint8\_t out;
+00377     uint64\_t multiple = 1;
+00378 
+00379     limitCeilValue(length, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}) 1<<64/base);
+00380     limitCeilValue(length, maxLengthOut);
 00381 
-00382         \textcolor{comment}{//escreve no vetor, desloca indice}
-00383         *array = out;
-00384         array++;
-00385         multiple /= base;
-00386         \textcolor{comment}{//change multiple position}
-00387         index--;
+00382 
+00383     \textcolor{comment}{//create multiple number}
+00384     \textcolor{keywordflow}{while}(index<length)
+00385     \{
+00386         multiple *= base;
+00387         index++;
 00388     \}
-00389     *array = 33;
-00390 \}
-00391 
-00392 \textcolor{comment}{/*}
-00393 \textcolor{comment}{ * registers special characteres}
-00394 \textcolor{comment}{ * number -> from 0 to 7}
-00395 \textcolor{comment}{ * *character -> first index to 8 bytes long vector}
-00396 \textcolor{comment}{ *              scans char downward}
-00397 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00398}{}\hyperlink{lcd_8h_ae4c4a47ab102aad380f49e65ffb62c39}{00398} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_ae4c4a47ab102aad380f49e65ffb62c39}{LCDRegisterSpecial}(uint8\_t number, uint8\_t *character)
-00399 \{
-00400     uint8\_t scan=0, data=0;
-00401     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x40+(number<<3));
-00402     \textcolor{keywordflow}{do}
-00403     \{
-00404         data = *(character+scan);
-00405         \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(640);
-00406         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(data&0x1F);
-00407         scan++;
-00408     \}
-00409     \textcolor{keywordflow}{while}(scan<8);
-00410     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(320);
-00411 \}
-00412 
-00413 \textcolor{comment}{/*}
-00414 \textcolor{comment}{ * Shifts data on LCD Display}
-00415 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00416}{}\hyperlink{lcd_8h_a7844790b6bfe761b4eb51f3dda0705ac}{00416} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a7844790b6bfe761b4eb51f3dda0705ac}{LCDShift}(uint8\_t shift)
-00417 \{
-00418     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(shift|\hyperlink{lcd_8h_a921b50a756949abc5a25094b0c191a10}{LCD\_SHIFT});
-00419 \}
-00420 
-00421 \textcolor{comment}{/*}
-00422 \textcolor{comment}{ * Sends LCD cursor to home position}
-00423 \textcolor{comment}{ * PARAM: none}
-00424 \textcolor{comment}{ */}
-\hypertarget{lcd_8c_source_l00425}{}\hyperlink{lcd_8h_aaafcc9bb116e4ac997a76fb626b64f67}{00425} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_aaafcc9bb116e4ac997a76fb626b64f67}{LCDHome}(\textcolor{keywordtype}{void})
-00426 \{
-00427     \hyperlink{lcd_8c_adf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x02);
-00428     \hyperlink{lcd_8h_abba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(1500);
-00429 \}
-00430 
-00431 
-00432 
-\hypertarget{lcd_8c_source_l00433}{}\hyperlink{lcd_8h_a9fd5ca15fc3f4409eef61069558a4b8e}{00433} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_a9fd5ca15fc3f4409eef61069558a4b8e}{arrayToNum}(uint8\_t *array, uint32\_t *num, uint8\_t base)
-00434 \{
-00435     \textcolor{keywordflow}{while}(*array<33)
-00436     \{
-00437         *num += *array * base;
-00438         array++;
-00439     \}
-00440 \}
-00441 
-00442 
-00443 
-00444 
-\hypertarget{lcd_8c_source_l00445}{}\hyperlink{lcd_8h_ac002f3125c0e84fcba52a2ee41855b61}{00445} \textcolor{keywordtype}{void} \hyperlink{lcd_8c_ac002f3125c0e84fcba52a2ee41855b61}{LCDSendVU}(uint32\_t num, uint32\_t base)
-00446 \{
-00447     uint8\_t index, pass=1;
-00448     num  = (\textcolor{keywordtype}{unsigned} int) num*(\hyperlink{external__cons_8h_ad80756bc7ac870672c681c5d21151e60}{LCD\_col\_num}*\hyperlink{external__cons_8h_a9d962a8fbf8a172cb0659b4cccd50933}{LCD\_char\_width})/base;
-00449     \textcolor{keywordflow}{while}(num>0)
-00450     \{
-00451         index = \hyperlink{external__cons_8h_a9d962a8fbf8a172cb0659b4cccd50933}{LCD\_char\_width};
-00452         \textcolor{keywordflow}{while}(num<LCD\_char\_width)
-00453         \{
-00454             index--;
-00455             num++;
-00456         \}
-00457         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(index);
-00458         num -= \hyperlink{external__cons_8h_a9d962a8fbf8a172cb0659b4cccd50933}{LCD\_char\_width};
-00459         pass++;
-00460     \}
-00461     \textcolor{keywordflow}{while}(pass<=\hyperlink{external__cons_8h_ad80756bc7ac870672c681c5d21151e60}{LCD\_col\_num})
-00462     \{
-00463         pass++;
-00464         \hyperlink{lcd_8c_a0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(0);
-00465     \}
-00466 \}
-00467 
+00389     \textcolor{comment}{//sort multiples}
+00390     \textcolor{keywordflow}{while}(index >= 1)
+00391     \{
+00392         \textcolor{comment}{//determines the multiple}
+00393         out = (uint8\_t) (num/multiple);
+00394         \textcolor{comment}{//takes out multiple}
+00395         num -= out*(multiple);
+00396 
+00397         \textcolor{comment}{//escreve no vetor, desloca indice}
+00398         *array = out;
+00399         array++;
+00400         multiple /= base;
+00401         \textcolor{comment}{//change multiple position}
+00402         index--;
+00403     \}
+00404     *array = 33;
+00405 \}
+00406 
+00407 \textcolor{comment}{/*}
+00408 \textcolor{comment}{ * registers special characteres}
+00409 \textcolor{comment}{ * number -> from 0 to 7}
+00410 \textcolor{comment}{ * *character -> first index to 8 bytes long vector}
+00411 \textcolor{comment}{ *              scans char downward}
+00412 \textcolor{comment}{ */}
+\hypertarget{lcd_8c_source_l00421}{}\hyperlink{group__lcd__h_gae4c4a47ab102aad380f49e65ffb62c39}{00421} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gae4c4a47ab102aad380f49e65ffb62c39}{LCDRegisterSpecial}(uint8\_t number, uint8\_t *character)
+00422 \{
+00423     uint8\_t scan=0, data=0;
+00424     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x40+(number<<3));
+00425     \textcolor{keywordflow}{do}
+00426     \{
+00427         data = *(character+scan);
+00428         \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(640);
+00429         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(data&0x1F);
+00430         scan++;
+00431     \}
+00432     \textcolor{keywordflow}{while}(scan<8);
+00433     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(320);
+00434 \}
+00435 
+00436 
+\hypertarget{lcd_8c_source_l00452}{}\hyperlink{group__lcd__h_ga7844790b6bfe761b4eb51f3dda0705ac}{00452} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga7844790b6bfe761b4eb51f3dda0705ac}{LCDShift}(uint8\_t shift)
+00453 \{
+00454     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(shift|LCD\_SHIFT);
+00455 \}
+00456 
+00457 
+\hypertarget{lcd_8c_source_l00463}{}\hyperlink{group__lcd__h_gaaafcc9bb116e4ac997a76fb626b64f67}{00463} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gaaafcc9bb116e4ac997a76fb626b64f67}{LCDHome}(\textcolor{keywordtype}{void})
+00464 \{
+00465     \hyperlink{group__lcd__h_gadf46506fd9d8c431334544aa11f4758d}{LCDSendCmd}(0x02);
+00466     \hyperlink{group__lcd__h_gabba7f6ce117ebde044aefb40b6ec8dc1}{LCDDelay}(1500);
+00467 \}
 00468 
 00469 
-00470 
-00471 \textcolor{preprocessor}{#ifdef trueDefinedLCD}
-00472 \textcolor{preprocessor}{}\textcolor{preprocessor}{#undef true}
-00473 \textcolor{preprocessor}{}\textcolor{preprocessor}{#undef false}
-00474 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
-00475 \textcolor{preprocessor}{}
-00476 
-00477 
+\hypertarget{lcd_8c_source_l00477}{}\hyperlink{group__lcd__h_ga9fd5ca15fc3f4409eef61069558a4b8e}{00477} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_ga9fd5ca15fc3f4409eef61069558a4b8e}{arrayToNum}(uint8\_t *array, uint32\_t *num, uint8\_t base)
+00478 \{
+00479     \textcolor{keywordflow}{while}(*array<33)
+00480     \{
+00481         *num += *array * base;
+00482         array++;
+00483     \}
+00484 \}
+00485 
+00486 
+00487 
+\hypertarget{lcd_8c_source_l00498}{}\hyperlink{group__lcd__h_gac002f3125c0e84fcba52a2ee41855b61}{00498} \textcolor{keywordtype}{void} \hyperlink{group__lcd__h_gac002f3125c0e84fcba52a2ee41855b61}{LCDSendVU}(uint32\_t num, uint32\_t base)
+00499 \{
+00500     uint8\_t index, pass=1;
+00501     num  = (\textcolor{keywordtype}{unsigned} int) num*(LCD\_col\_num*LCD\_char\_width)/base;
+00502     \textcolor{keywordflow}{while}(num>0)
+00503     \{
+00504         index = LCD\_char\_width;
+00505         \textcolor{keywordflow}{while}(num<LCD\_char\_width)
+00506         \{
+00507             index--;
+00508             num++;
+00509         \}
+00510         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(index);
+00511         num -= LCD\_char\_width;
+00512         pass++;
+00513     \}
+00514     \textcolor{keywordflow}{while}(pass<=LCD\_col\_num)
+00515     \{
+00516         pass++;
+00517         \hyperlink{group__lcd__h_ga0d5843c7370917ec19391dd73542e4a6}{LCDSendChar}(0);
+00518     \}
+00519 \}
+00520 
+00521 
+00522 
+00523 
+00524 \textcolor{preprocessor}{#ifdef trueDefinedLCD}
+00525 \textcolor{preprocessor}{}\textcolor{preprocessor}{#undef true}
+00526 \textcolor{preprocessor}{}\textcolor{preprocessor}{#undef false}
+00527 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00528 \textcolor{preprocessor}{}
+00529 
 \end{DoxyCode}
