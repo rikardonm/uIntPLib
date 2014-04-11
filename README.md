@@ -10,3 +10,5 @@ Intended to make code more portable, while maintaning its performance.
 Doxyen generated documentation is located at latex/refman.pdf
 Complete documentation is under construction.
 
+Due to need, a high performance, low latency version of LCD driver is under development.
+
